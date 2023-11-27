@@ -1,0 +1,20 @@
+.containButPage{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.buttonPage{
+    background-color:#333333;
+    color: aliceblue;
+    padding: 10px;
+}
+
+.buttonPage:hover{
+    background-color:#219900;   
+}
+.active{
+    transform: scale(1.2);
+    background-color: #219900;
+}

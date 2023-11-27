@@ -1,0 +1,77 @@
+.modal-profile{
+    text-align: center;
+    margin-top: 10%;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .iconos-nav{
+        position: absolute;
+        right: 12%;
+    }
+
+    .modal-profile{
+        position: absolute;
+        top: 32px;
+        right: -40px;
+    }
+}
+
+
+/* Estilos para tablets */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    
+    
+
+  }
+
+.navBar {
+    background-color: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    height: 10%;
+}
+
+.navBar h1 {
+    padding: 20px;
+    padding-left: 80px;
+    cursor: pointer;
+}
+
+.navBar .sections {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navBar .sections ul {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    list-style-type: none;
+    padding-right: 80px;
+}
+
+.navBar .sections h2 {
+    font-size: 15px;
+    padding-right: 55px;
+    letter-spacing: 1.5px;
+}
+
+.inicioNavBar {
+    width: 10px;
+}
+
+.navBar .sections .pointerNone {
+    width: 130px;
+    margin-right: 2px;
+    cursor:auto;
+}

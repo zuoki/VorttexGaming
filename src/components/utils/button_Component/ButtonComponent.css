@@ -1,0 +1,58 @@
+.ButtonComponent {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    justify-content: center;
+    color: white;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 135%;
+    padding: 2% 7%;
+    margin: 1% 1%;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    background-size: 40px;
+    background-position: left -154%;
+    transform: skew(5deg, 0deg);
+    z-index: 1;
+  }
+  
+  .ButtonComponent::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: skew(5deg, 0deg);
+    background-color: #06b0ff;
+    transition: all.3s ease-in-out;
+    border-radius: 5px;
+  }
+  .ButtonComponent::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: skew(5deg, 0deg);
+    border: 3px solid #06b0ff;
+    border-radius: 5%;
+    transition: all 0.3s;
+    z-index: -1;
+  }
+  
+  .ButtonComponent:hover::after {
+    background-color: rgb(246, 105, 0);
+    transform: skew(5deg, 0deg) translateX(1050%);
+  }
+  
+  .ButtonComponent:hover::before {
+    background-color: rgb(246, 105, 0);
+    border: rgb(246, 105, 0);
+  }

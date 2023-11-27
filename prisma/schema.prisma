@@ -13,7 +13,7 @@ datasource db {
 model Games {
   id          Int         @id @default(autoincrement())
   title       String      @unique
-  platform    Json
+  platform    String
   description String
   genre       String
   releaseDate String
@@ -24,8 +24,8 @@ model Games {
   size        String
   price       Float
   userGames   UserGames[] // Campo para almacenar el id de la clave asociada, Relación opuesta para la tabla intermedia UserGames
-  licenseId   Int
-  license     License     @relation(fields: [licenseId], references: [id])
+  licenseId   Int?
+  license     License?     @relation(fields: [licenseId], references: [id]) // Cambio de nombre del campo "game" a "licenses"
 }
 
 model User {
@@ -34,8 +34,8 @@ model User {
   lastName  String
   email     String
   country   String
-  phone     Int?
-  userGames UserGames[] // Relación opuesta para la tabla intermedia UserGames 
+  phone     String?
+  userGames UserGames[]
   profile   Profile?
 }
 
@@ -43,15 +43,16 @@ model Profile {
   id           Int    @id @default(autoincrement())
   profileName  String
   profile_type Int
-  userId       Int    @unique
-  user         User   @relation(fields: [userId], references: [id])
+  userId       Int?   @unique
+  user         User?  @relation(fields: [userId], references: [id])
 }
 
 model License {
-  id     Int      @id @default(autoincrement())
-  Date   DateTime
-  active Boolean
-  game   Games[]
+  id        Int      @id @default(autoincrement())
+  name      String
+  active    Boolean
+  game      Games[]
+  createdAt DateTime @default(now())
 }
 
 model userGames {

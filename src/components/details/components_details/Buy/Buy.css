@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+
+.Dbuy {
+  position: relative;
+  top: -154%;
+  right: -70%;
+  width: 25%;
+  height: 50%;
+  background-color: #0e3c5d;
+  border-radius: 2%;
+  transition: all .3s;
+  font-family: "Kdam Thmor Pro", sans-serif;
+}
+.Dbuy2 {
+  position: relative;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background-color: #0e3c5d;
+  border-radius: 10px;
+  border: 3px solid #06b0ff;
+}
+.DBof {
+  position: relative;
+  top: -5%;
+  margin: auto;
+  text-align: center;
+  width: 40%;
+  background-color: #0e3c5d;
+  color: white;
+}
+
+.DBPRC {
+  position: relative;
+  font-size: x-large;
+  margin: auto;
+  text-align: center;
+  color: rgb(240, 233, 233);
+  top: 20%;
+}
+
+.IAC {
+  font-family: "Kdam Thmor Pro", sans-serif;
+  width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 25%;
+  position: relative;
+  top: 10%;
+  left: 16%;
+  justify-content: center;
+  color: white;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  font-size:  90%;
+  padding: 2% 7%;
+  margin: 1% 1%;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  background-size: 40px;
+  background-position: left -154%;
+  transform: skew(5deg, 0deg);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 1;
+  background-color: #0e3c5d;
+}
+
+.IAC::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: skew(5deg, 0deg);
+  background-color: #06b0ff;
+  transition: all.3s ease-in-out;
+  border-radius: 5px;
+  background-color: ;
+}
+.IAC::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: skew(5deg, 0deg);
+  border: 3px solid #06b0ff;
+  border-radius: 5%;
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.IAC:hover::after {
+  background-color: rgb(246, 105, 0);
+  transform: skew(5deg, 0deg) translateX(1050%);
+}
+
+.IAC:hover::before {
+  background-color: rgb(246, 105, 0);
+  border: rgb(246, 105, 0);
+}
+
+/* boton add carito*/
+
+.ADC {
+  font-family: "Kdam Thmor Pro", sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 70%;
+  height: 25%;
+  position: relative;
+  top: 5%;
+  justify-content: center;
+  left: 16%;
+  color: white;
+  justify-content: center;
+  color: white;
+  padding: 2% 7%;
+  margin: 1% 1%;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 90%;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  background-size: 40px;
+  background-position: left -154%;
+  transform: skew(5deg, 0deg);
+  z-index: 1;
+  background-color: #0e3c5d;
+}
+
+.ADC::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: skew(5deg, 0deg);
+  background-color: #06b0ff;
+  transition: all.4s ease;
+  border-radius: 5px;
+}
+.ADC::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: skew(5deg, 0deg);
+  border: 3px solid #06b0ff;
+  border-radius: 5%;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.ADC:hover::after {
+  background-color: rgb(246, 105, 0);
+  transform: skew(5deg, 0deg) translateX(1100%);
+}
+
+.ADC:hover::before {
+  background-color: rgb(246, 105, 0);
+  border: rgb(246, 105, 0);
+}
+
+.priceContainerD {
+  position: relative;
+  width: 100%;
+  height: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  top: 10%;
+}
+
+.butonDBJContainer {
+  position: relative;
+  top: 10%;
+  width: 90%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  transform: skew(5deg, 0deg);
+}
+
+
+
+.cB{
+  width: 240px;
+  height: 50px;
+  background-color: blueviolet;
+}
+
+

@@ -1,0 +1,62 @@
+.section {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(fondo.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    width: 98.8vw;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.sectionDetails {
+    color: white;
+    width: 315px;
+    margin-left: 100px;
+    padding-top: 80px;
+    text-align: justify;
+}
+
+.section .sectionDetails h1 {
+    font-size: 70px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    line-height: 1;
+    color: #ff9500;
+    text-shadow: 0px 0px 70px #ff9500;
+}
+
+.section .sectionDetails p {
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-top: -10px;
+    font-size: 26.5px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #d1fbfc;
+}
+
+.section .sectionDetails button {
+    width: 315px;
+    padding: 15px;
+    background-color: transparent;
+    border: solid 3px #3ddbe6;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .7s;
+    line-height: 1;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.section .sectionDetails button:hover {
+    background-color: #3ddbe6;
+    color: black;
+}
+
+.gamepad {
+    color: #62e8eb;
+    font-size: 100px;
+    margin-top: 60px;
+}

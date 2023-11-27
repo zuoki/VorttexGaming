@@ -1,0 +1,9 @@
+.trailer-container{
+    display: flex;
+    position: relative;
+    width: 25%;
+    height: 28%;
+    top:-76%;
+    right:-70%;
+    border: 0px ;
+}

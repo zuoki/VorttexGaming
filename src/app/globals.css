@@ -9,30 +9,24 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --primary-glow: conic-gradient(from 180deg at 50% 50%,
+      #16abff33 0deg,
+      #0885ff33 55deg,
+      #54d6ff33 120deg,
+      #0071ff33 160deg,
+      transparent 360deg);
+  --secondary-glow: radial-gradient(rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0));
 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  --tile-border: conic-gradient(#00000080,
+      #00000040,
+      #00000030,
+      #00000020,
+      #00000010,
+      #00000010,
+      #00000080);
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
@@ -47,24 +41,20 @@
     --background-end-rgb: 0, 0, 0;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+    --secondary-glow: linear-gradient(to bottom right,
+        rgba(1, 65, 255, 0),
+        rgba(1, 65, 255, 0),
+        rgba(1, 65, 255, 0.3));
 
     --tile-start-rgb: 2, 13, 46;
     --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+    --tile-border: conic-gradient(#ffffff80,
+        #ffffff40,
+        #ffffff30,
+        #ffffff20,
+        #ffffff10,
+        #ffffff10,
+        #ffffff80);
 
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
@@ -87,12 +77,9 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 a {
@@ -104,4 +91,132 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(fondop.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+
+.nav {
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98.8vw;
+}
+
+.nav h1 {
+  color: black;
+  padding-left: 100px;
+  text-decoration: none;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav ul {
+  margin-right: 100px;
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.nav ul a {
+  color: black;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.centerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gamesContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 220px);
+  gap: 50px;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.gamesContainer .gameCard {
+  color: black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: .5s;
+  opacity: .7;
+}
+
+.gamesContainer .gameCard:hover {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(-8deg);
+}
+
+.gamesContainer .imgGame {
+  width: 220px;
+  margin-left: -2px;
+  border-radius: 4px;
+  height: 235px;
+}
+
+.tittle {
+  margin-top: 50px;
+  color: white;
+  margin-bottom: 50px;
+}
+
+
+.postD {
+  margin-top: 20px;
+  border: solid 1px white;
+  padding: 15px;
+}
+
+.postD a {
+  text-decoration: none;
+  color: #108554;
+}
+
+.filterAndOrder {
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+.filterAndOrder select {
+  margin-left: -70px;
+  height: 20px;
+}
+
+.gameCard h4 {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.gameCard p {
+  margin-top: 0px;
+}
+
+.gameCard .precioGame {
+  color: rgb(12, 192, 57);
+  font-size: 12px;
+  margin-left: 70px;
 }

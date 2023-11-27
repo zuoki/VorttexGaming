@@ -1,0 +1,129 @@
+.offertsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-content: center;
+    margin-top: 75px;
+    gap: 60px;
+    margin-bottom: 150px;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.offertsGrid .imgOffert {
+    width: 350px;
+    height: 430px;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+}
+
+.offertsGrid img {
+    transition: .3s;
+    width: 350px;
+    opacity: .8;
+    height: 430px;
+}
+
+
+.offertsGrid .hola {
+    transition: .3s;
+}
+
+
+.offertsGrid .hola:hover {
+    transform: scale(1.01);
+    opacity: 1;
+}
+
+.offertsGrid .hola:hover .offert{
+    opacity: 0;
+}
+
+.offertDetail {
+    display: flex;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    justify-content: space-between;
+    margin-left: 76.2%;
+    margin-top: 100%;
+}
+
+.offertDetail p {
+    padding: 10px 20px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.offertDetail .offert {
+    background: linear-gradient(#0c7e86, #04c2cf);
+    padding: 10px 20px;
+    color: white;
+}
+
+.offertDetail .price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.offertDetail .priceOffert {
+    padding-right: 10px;
+}
+
+.offertsGrid .hoverDetails {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    transform: translateY(25%);
+    transition: .3s ease;
+        height: 40%;
+    margin-top: -62%;
+    opacity: 0;
+}
+
+.offertsGrid .hola:hover .hoverDetails {
+    opacity: 1;
+}
+
+.offertsGrid .hoverDetails::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-image: linear-gradient(to bottom, transparent 10%, rgba(0,0,0,0.5 ) 50%, rgba(0,0,0) 95%);
+    transition: all .3s ease;
+}
+
+.offertsGrid:hover .hoverDetails::before {
+    opacity: 1;
+}
+
+.offertsGrid .hoverDetails h4 {
+    font-size: 30px;
+    margin-top: 20%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.offertsGrid .allImg {
+    transition: .3s;
+}
+
+.offertsGrid .primerImagen:hover {
+    opacity: 1;
+}
+
+.offertsGrid .segundaImagen:hover {
+    opacity: 1;
+}
+
+.offertsGrid .tercerImagen:hover {
+    opacity: 1;
+}
