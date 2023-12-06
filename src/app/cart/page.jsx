@@ -27,7 +27,7 @@ const Page = () => {
     event.preventDefault();
     emptyCart();
   };
-
+  // Storage NO TOCAR
   const user = useUser();
   console.log(user);
 
@@ -40,16 +40,6 @@ const Page = () => {
   if (user && user.user) {
     const user_id = user.user.id;
     const email = user.user.primaryEmailAddress.emailAddress;
-
-    // Hacer una solicitud POST a tu API de back-end con los datos del usuario
-    axios
-      .post("/api/users", { user_id, email })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   } else {
     console.log("No user is authenticated");
   }

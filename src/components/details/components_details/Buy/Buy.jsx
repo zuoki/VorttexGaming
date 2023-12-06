@@ -41,6 +41,7 @@ const Buy = ({ game }) => {
   const { addGamesToCart, userId, setUserId } = useStoreCart();
   const user = useUser();
 
+  // Storage NO TOCAR
   useEffect(() => {
     if (user && user.user && user.user.id !== userId) {
       setUserId(user.user.id);
