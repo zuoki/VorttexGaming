@@ -1,64 +1,75 @@
-// "use client";
-// import React, { useState } from "react";
+"use client";
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
 // import "./users.css";
 
 // const Page = () => {
-//   // const [users, setUsers] = useState([
-//   //   { id: 1, name: 'Dami puto', email: 'usuario1@example.com' },
-//   //   { id: 2, name: 'Santeta', email: 'usuario2@example.com' },
-//   //   { id: 3, name: 'Translate', email: 'usuario3@example.com' },
-//   // ]);
-//   const newUsers = async () => {
-//     const users = await axios("/api/users");
-//     return users;
-//   };
-//   console.log(newUsers);
+//   const [users, setUsers] = useState([]);
+//   useEffect(() => {
+//     const fetchUsers = async () => {
+//       try {
+//         const response = await axios("/api/users");
+//         setUsers(response.data);
+//       } catch (error) {
+//         console.error("Error fetching users:", error);
+//       }
+//     };
+//     fetchUsers();
+//   }, []);
 
 //   // elimina un usuario por id
-//   // const deleteUser = (userId) => {
-//   //   const updatedUsers = users.filter((user) => user.id !== userId);
-//   //   setUsers(updatedUsers);
-//   // };
-
-//   // renderizar las filas de la tabla
-//   // const renderRows = () => {
-//   //   return newUsers.map((user) => (
-//   //     <tr key={user.id}>
-//   //       <td>{user?.name}</td>
-//   //       <td>{user?.email}</td>
-//   //       <td>{/* <button onClick={() => deleteUser(user.id)}>🗑️</button> */}</td>
-//   //     </tr>
-//   //   ));
-//   // };
+//   const deleteUser = (userId) => {
+//     const updatedUsers = users.filter((user) => user.id !== userId);
+//     setUsers(updatedUsers);
+//   };
 
 //   return (
 //     <div className="userCont">
 //       <h1>USERS</h1>
-
 //       <div className="userDiv">
-//         <th>Nombre</th>
-//         <th>Email</th>
-//         <td>{newUsers?.username}</td>
-//         <td>{newUsers?.email}</td>
-//         <th>Acciones</th>
+//         <table>
+//           <thead>
+//             <tr>
+//               <th>Nombre</th>
+//               <th>Email</th>
+//               <th>Acciones</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {users.map((user) => (
+//               <tr key={user.id}>
+//                 <td>{user.username}</td>
+//                 <td>{user.email}</td>
+//                 <td>
+//                   <button onClick={() => deleteUser(user.id)}>🗑️</button>
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
 //       </div>
 //     </div>
 //   );
 // };
 
+// // Exportar el componente principal
 // export default Page;
-"use client";
+// Importar React, useEffect y useState
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./users.css";
 
 const Page = () => {
-  const [users, setUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await axios("/api/users");
-        setUsers(response.data);
+        setAllUsers(response.data);
+        setFilteredUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
       }
@@ -66,15 +77,42 @@ const Page = () => {
     fetchUsers();
   }, []);
 
-  // elimina un usuario por id
+  // Función para eliminar un usuario por id
   const deleteUser = (userId) => {
-    const updatedUsers = users.filter((user) => user.id !== userId);
-    setUsers(updatedUsers);
+    const updatedUsers = allUsers.filter((user) => user.id !== userId);
+    setAllUsers(updatedUsers);
+    if (searchTerm) {
+      const updatedFilteredUsers = filteredUsers.filter(
+        (user) => user.id !== userId
+      );
+      setFilteredUsers(updatedFilteredUsers);
+    }
+  };
+
+  const handleSearchChange = (event) => {
+    const searchTerm = event.target.value;
+    setSearchTerm(searchTerm);
+
+    // Filtrar la lista de usuarios en función del término de búsqueda
+    const filteredUsers = allUsers.filter((user) =>
+      user.username.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    setFilteredUsers(filteredUsers);
   };
 
   return (
     <div className="userCont">
       <h1>USERS</h1>
+      <div className="searchContainer">
+        <input
+          type="text"
+          id="searchInput"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="search by username"
+        />
+      </div>
       <div className="userDiv">
         <table>
           <thead>
@@ -85,7 +123,7 @@ const Page = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {filteredUsers.map((user) => (
               <tr key={user.id}>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
@@ -101,5 +139,4 @@ const Page = () => {
   );
 };
 
-// Exportar el componente principal
 export default Page;
