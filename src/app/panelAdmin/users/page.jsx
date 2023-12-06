@@ -51,7 +51,7 @@ const Page = () => {
       <div className="searchContainer">
         <input
           type="text"
-          id="searchInput"
+          className="searchInput"
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="search by username"

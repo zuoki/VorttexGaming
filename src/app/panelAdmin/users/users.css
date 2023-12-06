@@ -24,20 +24,24 @@
     padding: 8px; 
     text-align: center;
   }
-  
+
+  td{
+    padding: 2% 1%;
+  }
+
+  tr{
+    transition: .2s;
+  }
+
+  tr:hover{
+    background-color: black;
+  }
+
   thead {
     background-color: #444; 
     color: #fff;
   }
   
-  th {
-    border: 1px solid #ddd; 
-    
-  }
-  
-  td {
-    border: 1px solid #ddd; 
-  }
 
   
   button {
@@ -49,4 +53,9 @@
     display: block; 
     margin: 0 auto;
   }
-  
+.searchInput{
+  width: 40%;
+  height: 30px;
+  margin: 0 auto;
+  margin-left: 30%;
+}
