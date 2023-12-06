@@ -5,7 +5,10 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import EmptyCart from "@/components/emptyCartt/EmptyCart";
+import { useUser } from "@clerk/nextjs";
+import axios from "axios";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
+import { useEffect } from "react";
 
 const Page = () => {
   const { gamesInCart, removeGameFromCart, emptyCart, setUserId, userId } =
@@ -25,6 +28,32 @@ const Page = () => {
     emptyCart();
   };
 
+  const user = useUser();
+  console.log(user);
+
+  useEffect(() => {
+    if (user && user.user && user.user.id !== userId) {
+      setUserId(user.user.id);
+    }
+  }, [user]);
+
+  if (user && user.user) {
+    const user_id = user.user.id;
+    const email = user.user.primaryEmailAddress.emailAddress;
+
+    // Hacer una solicitud POST a tu API de back-end con los datos del usuario
+    axios
+      .post("/api/users", { user_id, email })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    console.log("No user is authenticated");
+  }
+
   return (
     <>
       <ParticlesWall />
@@ -37,7 +66,7 @@ const Page = () => {
                 <p>{game.title}</p>
                 {/*<p>Cantidad: {game.id}</p>*/}
                 <p>Precio: ${game.price}</p>
-                <p>Subtotal: ${game.price.toFixed(2)}</p>
+
                 <FontAwesomeIcon
                   icon={faTrash}
                   className="subtotal"
