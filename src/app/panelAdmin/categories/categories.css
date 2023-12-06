@@ -1,0 +1,49 @@
+.categContainer{
+    margin-top: 10%;
+}
+
+.categContainer h1{
+    text-align: center;
+    margin-bottom: 2%;
+    
+}
+
+.categDiv{
+    margin: 0 auto;
+    background: rgba(34, 34, 34, .35);
+    width: 80%;
+    height: 85vh;
+    margin-bottom: 2%;
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.genre {
+    margin: 5%;
+    padding: 10px;
+    background: #222;
+    border: 1px solid black;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.genreP {
+    text-align: left;
+}
+
+.iconContainer {
+    margin-left: auto; 
+}
+
+.iconContainer:hover{
+    color: #FF9500;
+}
+
+.genre:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}
