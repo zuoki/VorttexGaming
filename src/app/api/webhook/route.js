@@ -3,7 +3,6 @@ import  {prisma } from '@/libs/prisma';
 
 export async function POST(request) {
   const { type, data} = await request.json();
-  console.log("newwwwwwwwwwwww", type, data);
 
   const id = data?.id;
 
@@ -11,13 +10,10 @@ export async function POST(request) {
     case 'user.deleted':
       console.log("ELIMINANDO USUARIO..");
       if (id) {
-        const deletedUser = await prisma.user.update({
+        
+        const deletedUser = await prisma.user.delete({
           where: { user_id: id },
-          
-            active: false
-          
         });
-        console.log("Usuario eliminado!!!!!!!", deletedUser);
         return NextResponse.json(deletedUser);
       } else {
         console.log("No se pudo eliminar el usuario. id no existe.");
@@ -34,7 +30,6 @@ export async function POST(request) {
             username: data?.username,
           },
         });
-        console.log("Usuario actualizado!!!!!!!", updatedUser);
         return NextResponse.json(updatedUser);
       } else {
         console.log("No se pudo actualizar el usuario. id o data no existen.");
@@ -55,7 +50,6 @@ export async function POST(request) {
               active: true
             },
           });
-          console.log("Usuario existente actualizado!!!!!!!", updatedUser);
           return NextResponse.json(updatedUser);
         } else {
           const newUser = await prisma.user.create({
@@ -65,7 +59,6 @@ export async function POST(request) {
               username: data?.username
             },
           });
-          console.log("Usuario creado!!!!!!!", newUser);
           return NextResponse.json(newUser);
         }
       } else {
