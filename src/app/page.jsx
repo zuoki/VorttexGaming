@@ -14,6 +14,7 @@ import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import Cahatbot from "@/components/chatbot/cahatbot";
+import Footer from "@/components/footer/footer";
 
 const gamesPerPage = 8;
 
@@ -90,6 +91,7 @@ const HomePage = () => {
     setFiltrado(false);
     setOrdenado(false);
     setFind(true);
+    setCurrentPage(1)
   };
 
   const handlePageChange = (page) => {
@@ -128,6 +130,7 @@ const HomePage = () => {
         onPageChange={handlePageChange}
       />
       <Cahatbot/>
+      <Footer />
     </div>
   );
 };
