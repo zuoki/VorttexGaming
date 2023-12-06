@@ -1,0 +1,52 @@
+.userCont {
+    margin-top: 10%;
+  }
+  
+  .userCont h1 {
+    text-align: center;
+  }
+  
+  .userDiv {
+    margin: 0 auto;
+    margin-top: 2%;
+    background-color: #222;
+    width: 60%; 
+    padding: 10px; 
+  }
+  
+  table {
+    margin: 0 auto;
+    width: 100%; 
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px; 
+    text-align: center;
+  }
+  
+  thead {
+    background-color: #444; 
+    color: #fff;
+  }
+  
+  th {
+    border: 1px solid #ddd; 
+    
+  }
+  
+  td {
+    border: 1px solid #ddd; 
+  }
+
+  
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    display: block; 
+    margin: 0 auto;
+  }
+  
