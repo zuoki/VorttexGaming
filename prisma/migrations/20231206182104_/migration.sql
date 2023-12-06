@@ -24,6 +24,7 @@ CREATE TABLE "User" (
     "user_id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "username" TEXT,
+    "active" BOOLEAN NOT NULL,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
