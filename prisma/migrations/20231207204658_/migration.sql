@@ -1,3 +1,6 @@
+-- CreateEnum
+CREATE TYPE "UserRole" AS ENUM ('ADMIN', 'USER');
+
 -- CreateTable
 CREATE TABLE "Games" (
     "id" SERIAL NOT NULL,
@@ -25,6 +28,7 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "username" TEXT,
     "active" BOOLEAN NOT NULL,
+    "role" "UserRole" NOT NULL DEFAULT 'USER',
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

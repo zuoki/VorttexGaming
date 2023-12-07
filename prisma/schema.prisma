@@ -28,12 +28,18 @@ model Games {
   license     License[]
 }
 
+enum UserRole {
+  ADMIN
+  USER
+}
+
 model User {
   id        Int       @id @default(autoincrement())
   user_id   String    @unique
   email     String    @unique
   username  String?
   active    Boolean
+  role      UserRole  @default(USER)
   createAt  DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   licenses  License[]
