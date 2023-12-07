@@ -37,7 +37,7 @@ const NavBar = () => {
               </li>
             </Link>
           )}
-          <Link href={"/"}>
+          <Link href={"/panelAdmin"}>
             <li>
               <FaBars />
             </li>

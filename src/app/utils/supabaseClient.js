@@ -23,8 +23,6 @@ export function App() {
     // TODO #2: Replace with your database table name
     
     const { data, error } = await supabase.from('User').select();
- 
-    // TODO #3: Handle the response
   };
  
   return (

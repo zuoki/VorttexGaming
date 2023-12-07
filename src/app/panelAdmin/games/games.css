@@ -1,0 +1,48 @@
+.gamesContainer {
+    font-family: "Kdam Thmor Pro", sans-serif;
+    background: rgba(34, 34, 34, .35);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    width: 90%;
+    height: 80vh;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-radius: 5px;
+    display: flex;
+}
+
+.gamesContainer .gridGames {
+    margin-top: 3%;
+}
+
+.gamesContainer .gameDiv {
+    display: flex;
+    height: 10%;
+    align-items: center;
+    padding-left: 5%;
+    background-color: #222;
+    color: #ccc;
+    margin: 3%;
+    width: 360%;
+    margin-left: -130%;
+    border-radius: 4px;
+    justify-content: space-around;
+    transition: .2s;
+}
+
+.gamesContainer .gameDiv p {
+    width: 25%;
+    text-align: left;
+}
+
+.gamesContainer .gameDiv img {
+    height: 100%;
+}
+
+.gameDiv:hover {
+    color: white;
+}
+
+.gameDiv .eyeGame {
+    cursor: pointer;
+}

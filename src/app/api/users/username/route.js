@@ -10,10 +10,11 @@ import { prisma } from "@/libs/prisma";
 //   const result = await prisma.user.findMany({
 //     where: {
 //       username: {
-//         contains: name,
+//         equals: name,
 //       },
 //     },
 //   });
+//   console.log("holaaaaaaaaaaa", result);
 
 //   //return new Response(JSON.stringify({ name, result }), { status: 200 })
 //   return NextResponse.json(result);
@@ -32,10 +33,11 @@ export async function GET(request) {
     },
   });
 
-  // Filtrar los resultados para que sean insensibles a mayúsculas y minúsculas
+//   Filtrar los resultados para que sean insensibles a mayúsculas y minúsculas
   const filteredResult = result.filter((user) =>
     user.username.toLowerCase().includes(name)
   );
+  console.log("holaaaaaaaaaaa", filteredResult)
 
   return NextResponse.json(filteredResult);
 }
