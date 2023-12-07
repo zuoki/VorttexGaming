@@ -32,11 +32,6 @@ const HomePage = () => {
 			});
 	}, []);
 
-	console.log('tengo datos', data);
-	if (mostPriceGames.length > 0) {
-		console.log('most price', mostPriceGames);
-	}
-
 	let dataToRender = data;
 
 	const [filtrado, setFiltrado] = useState(false);
@@ -125,15 +120,8 @@ const HomePage = () => {
 
 	return (
 		<div>
-			{mostPrice ? (
-				<div>
-					<MostPrice />
-					<Offerts games={mostPriceGames} />
-				</div>
-			) : (
-				<p>LOADING</p>
-			)}
-
+			<MostPrice />
+			<Offerts games={mostPriceGames} />
 			<Genders types={uniqueArrTypesGames} />
 			<SearchBar handleSearch={handleSearch} />
 			<div className="cardsAndAside">
