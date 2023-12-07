@@ -16,5 +16,5 @@ export async function GET(request,  { params }) {
     if (availableGame.length > 0) {
         return new Response(availableGame.length, { status: 200 })
     }
-    return NextResponse.json({ error: "No tenemos stock del juego" });
+    return NextResponse.json({ error: "No tenemos stock del juego" }, {status: 404});
 }

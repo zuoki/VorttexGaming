@@ -4,6 +4,20 @@ import Swal from "sweetalert2";
 export const useStoreCart = create((set) => ({
   userId: null,
   gamesInCart: [],
+  data: [], // Valor inicial para data
+  fetchGames: async () => {
+    try {
+      const res = await fetch("/api/games", {
+        method: 'GET',
+      });
+      const games = await res.json();
+      console.log("estado global", games)
+      set({ data: games }); // Actualizar el estado data con los juegos recuperados
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
   //Storage
   setUserId: (id) =>
     set((state) => {
@@ -77,3 +91,4 @@ export const useStoreCart = create((set) => ({
     });
   },
 }));
+
