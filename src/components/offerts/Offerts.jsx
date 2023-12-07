@@ -3,7 +3,7 @@ import './offerts.css';
 import { data } from '@/app/api/data';
 
 const Offerts = ({ games }) => {
-
+    
     const gamesInOffert = data.filter(game => game.price > 55.98);
     const img = 'imgOffert';
     const imgClass = ["allImg primerImagen", "allImg segundaImagen", "allImg tercerImagen"]

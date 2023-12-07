@@ -13,8 +13,8 @@ export const useStoreCart = create((set) => ({
       });
       const games = await res.json();
       console.log("estado global", games)
+      set({ data: games }); // Actualizar el estado data con los juegos recuperados
       return games
-      // set({ data: games }); // Actualizar el estado data con los juegos recuperados
     } catch (error) {
       console.error(error);
     }

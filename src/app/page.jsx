@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { data } from "../app/api/data";
 import filter from "./utils/filter.js";
 import order from "./utils/order.js";
 import Card from "@/components/card/Card.jsx";
@@ -11,26 +12,12 @@ import Genders from "@/components/generos/Genders.jsx";
 import SearchBar from "@/components/searchbar/Searchbar.jsx";
 import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
-import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
-import Cahatbot from "@/components/chatbot/cahatbot";
-import { useStoreCart } from "@/zustand/store";
-
 
 const gamesPerPage = 8;
 
 const HomePage = () => {
-  
-  const { data } = useStoreCart();
-  const fetchGames = useStoreCart((state) => state.fetchGames);
-
-  useEffect(() => {
-    fetchGames();
-  }, []);
-
-  console.log(data)
   const initialGames = [data[0], data[2], data[9]];
   const [mostPriceGames, setMostPriceGames] = useState(initialGames);
-  console.log('inicial', initialGames)
   let dataToRender = data;
 
   const [filtrado, setFiltrado] = useState(false);
@@ -119,7 +106,6 @@ const HomePage = () => {
 
   return (
     <div>
-       <ParticlesWall/>
       <MostPrice mostPrice={mostPriceGames} />
       <Offerts games={mostPriceGames} />
       <Genders types={uniqueArrTypesGames} />
@@ -138,7 +124,6 @@ const HomePage = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      <Cahatbot/>
     </div>
   );
 };
