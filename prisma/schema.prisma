@@ -33,7 +33,7 @@ model User {
   user_id   String    @unique
   email     String    @unique
   username  String?
-  active    Boolean   @default(true)
+  active    Boolean
   createAt  DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   licenses  License[]

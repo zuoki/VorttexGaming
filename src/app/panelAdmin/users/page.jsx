@@ -22,14 +22,37 @@ const Page = () => {
   }, []);
 
   // Función para eliminar un usuario por id
-  const deleteUser = (userId) => {
-    const updatedUsers = allUsers.filter((user) => user.id !== userId);
-    setAllUsers(updatedUsers);
-    if (searchTerm) {
-      const updatedFilteredUsers = filteredUsers.filter(
-        (user) => user.id !== userId
-      );
-      setFilteredUsers(updatedFilteredUsers);
+  // const deleteUser = (userId) => {
+  //   const updatedUsers = allUsers.filter((user) => user.id !== userId);
+  //   setAllUsers(updatedUsers);
+  //   if (searchTerm) {
+  //     const updatedFilteredUsers = filteredUsers.filter(
+  //       (user) => user.id !== userId
+  //     );
+  //     setFilteredUsers(updatedFilteredUsers);
+  //   }
+  // };
+  const deleteUser = async (userId) => {
+    try {
+      console.log("User exists in the database.");
+
+      await axios.post("/api/webhook", {
+        type: "user.deleted",
+        data: { id: String(userId) },
+      });
+      console.log("User deleted successfully.");
+      // Actualizar el estado local después de la eliminación exitosa
+      const updatedUsers = allUsers.filter((user) => user.id !== userId);
+      setAllUsers(updatedUsers);
+
+      if (searchTerm) {
+        const updatedFilteredUsers = filteredUsers.filter(
+          (user) => user.id !== userId
+        );
+        setFilteredUsers(updatedFilteredUsers);
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
     }
   };
 
