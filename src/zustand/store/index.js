@@ -20,6 +20,10 @@ export const useStoreCart = create((set) => ({
     }
   },
 
+  fetchPrime: (games)=>{
+    set((state)=>{state.data.push(games)})
+    return games
+  },
   //Storage
   setUserId: (id) =>
     set((state) => {

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { data } from "../app/api/data";
+// import { data } from "../app/api/data";
 import filter from "./utils/filter.js";
 import order from "./utils/order.js";
 import Card from "@/components/card/Card.jsx";
@@ -12,12 +12,35 @@ import Genders from "@/components/generos/Genders.jsx";
 import SearchBar from "@/components/searchbar/Searchbar.jsx";
 import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
+import zustand from "zustand";
+import { useStoreCart } from "@/zustand/store";
 
 const gamesPerPage = 8;
 
 const HomePage = () => {
+
+  const [data, setData] = useState([]);
+  const [mostPriceGames, setMostPriceGames] = useState([]);
+  const  store  = useStoreCart();
+
+  useEffect(() => {
+    fetch("/api/games")
+      .then((response) => response.json())
+      .then((games) => {
+        setData(games);
+        setMostPriceGames([games[0], games[2], games[9]]);
+        fetchPrime(games)
+        console.log(store
+)
+      });
+  }, []);
+
+  console.log("tengo datos", data);
+  if (mostPriceGames.length > 0) {
+    console.log("most price", mostPriceGames);
+  }
+
   const initialGames = [data[0], data[2], data[9]];
-  const [mostPriceGames, setMostPriceGames] = useState(initialGames);
   let dataToRender = data;
 
   const [filtrado, setFiltrado] = useState(false);
