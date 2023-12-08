@@ -2,8 +2,15 @@ import { create } from "zustand";
 import Swal from "sweetalert2";
 
 export const useStoreCart = create((set) => ({
+  data: [],
   userId: null,
   gamesInCart: [],
+  getGames: (games) => {
+    set((state) => {
+      state.data = games;
+    })
+    return games;
+  },
   //Storage
   setUserId: (id) =>
     set((state) => {

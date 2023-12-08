@@ -1,12 +1,11 @@
 .gamesContainer {
     font-family: "Kdam Thmor Pro", sans-serif;
-    background: rgba(34, 34, 34, .35);
     backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(5.5px);
     width: 90%;
     height: 80vh;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 5%;
     border-radius: 5px;
     display: flex;
 }
@@ -28,6 +27,7 @@
     border-radius: 4px;
     justify-content: space-around;
     transition: .2s;
+    border-left: 2px solid transparent;
 }
 
 .gamesContainer .gameDiv p {
@@ -41,6 +41,7 @@
 
 .gameDiv:hover {
     color: white;
+    border-left: solid 2px white;
 }
 
 .gameDiv .eyeGame {

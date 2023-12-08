@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { data } from "../app/api/data";
+/* import { data } from "../app/api/data"; */
 import filter from "./utils/filter.js";
 import order from "./utils/order.js";
 import Card from "@/components/card/Card.jsx";
@@ -14,13 +14,41 @@ import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import Cahatbot from "@/components/chatbot/cahatbot";
+import { useStoreCart } from "@/zustand/store";
+import axios from "axios";
+import { useStore } from "zustand";
 
 const gamesPerPage = 8;
 
 const HomePage = () => {
+
+  const [data, setData] = useState([]);
+
   const initialGames = [data[0], data[2], data[9]];
   const [mostPriceGames, setMostPriceGames] = useState(initialGames);
   let dataToRender = data;
+
+  const store = useStoreCart();
+
+  let getGames;
+  if(store) getGames = store.getGames;
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get('http://localhost:3000/api/games');
+        setData(data);
+        if(typeof getGames === "function"){
+          getGames(data).then(() => {
+          });
+        }
+      } catch (error) {
+      }
+    };
+
+    fetchData();
+  }, [getGames]); 
 
   const [filtrado, setFiltrado] = useState(false);
   const [filtrados, setFiltrados] = useState([]);
@@ -39,7 +67,6 @@ const HomePage = () => {
           randomGameIndexes.push(randomIndex);
         }
       }
-
       const randomGames = randomGameIndexes.map((index) => data[index]);
 
       setMostPriceGames(randomGames);
@@ -108,7 +135,7 @@ const HomePage = () => {
 
   return (
     <div>
-       <ParticlesWall/>
+      <ParticlesWall />
       <MostPrice mostPrice={mostPriceGames} />
       <Offerts games={mostPriceGames} />
       <Genders types={uniqueArrTypesGames} />
@@ -127,7 +154,7 @@ const HomePage = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      <Cahatbot/>
+      <Cahatbot />
     </div>
   );
 };
