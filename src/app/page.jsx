@@ -4,16 +4,13 @@ import filter from "./utils/filter.js";
 import order from "./utils/order.js";
 import Card from "@/components/card/Card.jsx";
 import MostPrice from "@/components/mostPrice/MostPrice.jsx";
-import Select from "@/components/select/Select.jsx";
 import Offerts from "@/components/offerts/Offerts.jsx";
 import Aside from "@/components/aside/Aside.jsx";
 import Genders from "@/components/generos/Genders.jsx";
 import SearchBar from "@/components/searchbar/Searchbar.jsx";
 import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
-import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
-import Cahatbot from "@/components/chatbot/cahatbot";
-import Footer from "@/components/footer/footer";
+import { useStoreCart } from "@/zustand/store";
 
 const gamesPerPage = 8;
 
@@ -138,7 +135,6 @@ const HomePage = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      <Cahatbot />
     </div>
   );
 };

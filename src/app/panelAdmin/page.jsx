@@ -1,3 +1,4 @@
+"use client";
 import "./panelAdmin.css";
 
 // import { FaUser, FaThList } from "react-icons/fa";
@@ -73,7 +74,7 @@ import "./panelAdmin.css";
 // }
 
 // export default Page;
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
 import { FaUser, FaThList } from "react-icons/fa";
 import { BiSolidCategory, BiSupport } from "react-icons/bi";
@@ -82,14 +83,17 @@ import { LuLayoutPanelLeft } from "react-icons/lu";
 import Link from "next/link";
 
 const Page = () => {
-  const { roles } = useUser();
+  // const { roles } = useUser();
+  const user = useUser();
+  const roles = user?.publicMetadata;
+  console.log("llllllllll", user?.publicMetadata);
   const router = useRouter();
+  console.log(useUser);
 
   // Redirige a los usuarios que no son administradores a la página de inicio
-  if (!roles.includes("admin")) {
+  if (!roles.includes("Admin")) {
     router.push("/");
   }
-
   const options = [
     {
       icon: 1,
