@@ -18,18 +18,20 @@ import Footer from "@/components/footer/footer";
 const gamesPerPage = 8;
 
 const HomePage = () => {
-  
-  const { data } = useStoreCart();
-  const fetchGames = useStoreCart((state) => state.fetchGames);
+  const [data, setData] = useState([]);
+  const [mostPriceGames, setMostPriceGames] = useState([]);
+  const store = useStoreCart();
 
   useEffect(() => {
-    fetchGames();
+    fetch("/api/games")
+      .then((response) => response.json())
+      .then((games) => {
+        setData(games);
+        setMostPriceGames([games[0], games[2], games[9]]);
+        console.log(store);
+      });
   }, []);
 
-  console.log(data)
-  const initialGames = [data[0], data[2], data[9]];
-  const [mostPriceGames, setMostPriceGames] = useState(initialGames);
-  console.log('inicial', initialGames)
   let dataToRender = data;
 
   const [filtrado, setFiltrado] = useState(false);
@@ -44,7 +46,7 @@ const HomePage = () => {
     const intervalId = setInterval(() => {
       let randomGameIndexes = [];
       while (randomGameIndexes.length < 3) {
-        const randomIndex = Math.floor(Math.random() * 24);
+        const randomIndex = Math.floor(Math.random() * 10);
         if (!randomGameIndexes.includes(randomIndex)) {
           randomGameIndexes.push(randomIndex);
         }
@@ -56,7 +58,7 @@ const HomePage = () => {
     }, 10000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [data]);
 
   const mostPrice = data
     .map((game) => (game.precio >= 49.99 ? game : null))
@@ -100,7 +102,6 @@ const HomePage = () => {
     setFiltrado(false);
     setOrdenado(false);
     setFind(true);
-    setCurrentPage(1)
   };
 
   const handlePageChange = (page) => {
@@ -119,8 +120,7 @@ const HomePage = () => {
 
   return (
     <div>
-       <ParticlesWall/>
-      <MostPrice mostPrice={mostPriceGames} />
+      <MostPrice />
       <Offerts games={mostPriceGames} />
       <Genders types={uniqueArrTypesGames} />
       <SearchBar handleSearch={handleSearch} />
@@ -138,8 +138,7 @@ const HomePage = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      <Cahatbot/>
-      <Footer />
+      <Cahatbot />
     </div>
   );
 };
