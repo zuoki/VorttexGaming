@@ -12,10 +12,15 @@ import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import Cahatbot from "@/components/chatbot/cahatbot";
+import { useStoreCart } from "@/zustand/store/index.js";
+import axios from "axios";
 
 const gamesPerPage = 8;
 
 const HomePage = () => {
+
+  const [data, setData] = useState([]);
+
   const initialGames = [data[0], data[2], data[9]];
   const [mostPriceGames, setMostPriceGames] = useState(initialGames);
   let dataToRender = data;
@@ -23,24 +28,22 @@ const HomePage = () => {
   const store = useStoreCart();
 
   let getGames;
-  if(store) getGames = store.getGames;
-
+  if (store) getGames = store.getGames;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get('http://localhost:3000/api/games');
+        const { data } = await axios('http://localhost:3000/api/games');
         setData(data);
-        if(typeof getGames === "function"){
-          getGames(data).then(() => {
-          });
-        }
+        setMostPriceGames([data[0], data[2], data[9]])
+        getGames(data).then(() => {
+        });
       } catch (error) {
       }
     };
 
     fetchData();
-  }, [getGames]); 
+  }, []);
 
   const [filtrado, setFiltrado] = useState(false);
   const [filtrados, setFiltrados] = useState([]);
@@ -125,30 +128,34 @@ const HomePage = () => {
 
   const totalPages = Math.ceil(dataToRender.length / gamesPerPage);
 
-  return (
-    <div>
-       <ParticlesWall/>
-      <MostPrice mostPrice={mostPriceGames} />
-      <Offerts games={mostPriceGames} />
-      <Genders types={uniqueArrTypesGames} />
-      <SearchBar handleSearch={handleSearch} />
-      <div className="cardsAndAside">
-        <Card data={currentGames} />
-
-        <Aside
-          types={uniqueArrTypesGames}
-          onChange={[handleFilter, handleOrder]}
+  if(data.length > 0){
+    return (
+      <div>
+        <ParticlesWall />
+        <MostPrice mostPrice={mostPriceGames} />
+        <Offerts games={mostPriceGames} />
+        <Genders types={uniqueArrTypesGames} />
+        <SearchBar handleSearch={handleSearch} />
+        <div className="cardsAndAside">
+          <Card data={currentGames} />
+  
+          <Aside
+            types={uniqueArrTypesGames}
+            onChange={[handleFilter, handleOrder]}
+          />
+        </div>
+  
+        <Paginado
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
         />
+        <Cahatbot />
       </div>
-
-      <Paginado
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
-      <Cahatbot/>
-    </div>
-  );
+    );
+  } return <div>
+    <img className="imgLoader" src="https://media3.giphy.com/media/2WjpfxAI5MvC9Nl8U7/giphy.gif?cid=ecf05e47sghjlima89cq85qo6qekftzu5ue7j089bo1trw1z&ep=v1_gifs_search&rid=giphy.gif&ct=g" />
+  </div>
 };
 
 export default HomePage;

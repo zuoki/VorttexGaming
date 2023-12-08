@@ -5,27 +5,13 @@ export const useStoreCart = create((set) => ({
   data: [],
   userId: null,
   gamesInCart: [],
-  data: [], // Valor inicial para 
   
-  fetchGames: async () => {
-    try {
-      const res = await fetch("/api/games", {
-        method: 'GET',
-      });
-      const games = await res.json();
-      console.log("estado global", games)
-      set({ data: games }); // Actualizar el estado data con los juegos recuperados
-      return games
-    } catch (error) {
-      console.error(error);
-    }
+  getGames: (games) => {
+    set((state) => {
+      state.data = games;
+    })
   },
 
-  fetchPrime: (games)=>{
-    set((state)=>{state.data.push(games)})
-    return games
-  },
-  //Storage
   setUserId: (id) =>
     set((state) => {
       const storedGamesInCart =

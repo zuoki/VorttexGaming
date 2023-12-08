@@ -1,6 +1,9 @@
 import Link from "next/link";
 import "./offerts.css";
 const Offerts = ({ games }) => {
+
+  console.log(games)
+
   const img = "imgOffert";
   const imgClass = [
     "allImg primerImagen",
