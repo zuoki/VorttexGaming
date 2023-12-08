@@ -100,7 +100,7 @@ export const data = [
         "id": 7,
         "platform": "Steam",
         "description": "Open-world Action Adventure. GTA V immerses players in a sprawling open world of crime and chaos. Follow the interconnected lives of three protagonists as they navigate the criminal underworld, offering a gripping narrative alongside the freedom of sandbox exploration.",
-        "genre": "Acction",
+        "genre": "Action",
         "releaseDate": "2013-09-17",
         "developer": "Rockstar North",
         "publishedby": "Rockstar Games",

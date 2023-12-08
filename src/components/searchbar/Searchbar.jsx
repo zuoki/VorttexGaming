@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import "./Searchbar.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { data as games } from "@/app/api/data";
 
 const SearchBar = ({ handleSearch }) => {
   const [inputName, setInputName] = useState("");

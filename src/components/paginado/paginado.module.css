@@ -9,12 +9,19 @@
     background-color:#333333;
     color: aliceblue;
     padding: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    border: rgb(246, 105, 0);
+    margin: 5px;
 }
 
 .buttonPage:hover{
     background-color:#FF9500;   
 }
+
+
 .active{
-    transform: scale(1.2);
     background-color: #FF9500;
+    color: #fff;
+    border: rgb(246, 105, 0);
 }

@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 
 export async function PUT(request) {
-  const { userId, idGame } = await request.json();
+  const { idUser, idGame } = await request.json();
+  console.log(idUser)
   const availableGame = await prisma.games.findFirst({
     where: {
       id: idGame,
@@ -26,7 +27,7 @@ export async function PUT(request) {
         id: availableLicense.id,
       },
       data: {
-        userId: userId,
+        userId: idUser,
         active: false
       },
     });

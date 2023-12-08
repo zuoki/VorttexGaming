@@ -4,7 +4,7 @@ import { data } from ".././data";
 
 export async function GET() {
   const games = await prisma.games.findMany();
-  const allData = [...games, ...data];
+  const allData = games;
   return NextResponse.json(allData);
 }
 

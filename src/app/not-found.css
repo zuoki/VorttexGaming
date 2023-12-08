@@ -1,0 +1,50 @@
+.notfCont{
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(../../public/error404.gif);
+    background-color: black;
+}
+
+.notfTitle{
+    color: darkred;
+    margin-top: 15%;
+    text-align: center;
+}
+
+.notfP{
+    margin-top: 2%;
+    text-align: center;
+}
+
+.gifCont{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.gif{
+    width: 31%;
+    
+}
+
+.notfLink{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.notfLink p {
+    background-color:darkred;
+    color: aliceblue;
+    border: 3px solid darkred;
+    padding: 10px 10px;
+}
+
+.notfLink p:hover{
+    background-color: black;
+    border: 3px solid darkred;
+    color: darkred ;
+}

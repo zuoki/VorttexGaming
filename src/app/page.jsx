@@ -1,11 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-/* import { data } from "../app/api/data"; */
 import filter from "./utils/filter.js";
 import order from "./utils/order.js";
 import Card from "@/components/card/Card.jsx";
 import MostPrice from "@/components/mostPrice/MostPrice.jsx";
-import Select from "@/components/select/Select.jsx";
 import Offerts from "@/components/offerts/Offerts.jsx";
 import Aside from "@/components/aside/Aside.jsx";
 import Genders from "@/components/generos/Genders.jsx";
@@ -14,16 +12,10 @@ import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import Cahatbot from "@/components/chatbot/cahatbot";
-import { useStoreCart } from "@/zustand/store";
-import axios from "axios";
-import { useStore } from "zustand";
 
 const gamesPerPage = 8;
 
 const HomePage = () => {
-
-  const [data, setData] = useState([]);
-
   const initialGames = [data[0], data[2], data[9]];
   const [mostPriceGames, setMostPriceGames] = useState(initialGames);
   let dataToRender = data;
@@ -62,7 +54,7 @@ const HomePage = () => {
     const intervalId = setInterval(() => {
       let randomGameIndexes = [];
       while (randomGameIndexes.length < 3) {
-        const randomIndex = Math.floor(Math.random() * 24);
+        const randomIndex = Math.floor(Math.random() * 10);
         if (!randomGameIndexes.includes(randomIndex)) {
           randomGameIndexes.push(randomIndex);
         }
@@ -73,7 +65,7 @@ const HomePage = () => {
     }, 10000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [data]);
 
   const mostPrice = data
     .map((game) => (game.precio >= 49.99 ? game : null))
@@ -135,7 +127,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <ParticlesWall />
+       <ParticlesWall/>
       <MostPrice mostPrice={mostPriceGames} />
       <Offerts games={mostPriceGames} />
       <Genders types={uniqueArrTypesGames} />
@@ -154,7 +146,7 @@ const HomePage = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      <Cahatbot />
+      <Cahatbot/>
     </div>
   );
 };
