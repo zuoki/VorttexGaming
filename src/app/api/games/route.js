@@ -2,12 +2,19 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 import { data } from ".././data";
 
-export async function GET() {
-  const games = await prisma.games.findMany();
-  const allData = games;
-  return NextResponse.json(allData);
+export async function GET() { 
+  const games = await prisma.games.findMany({ 
+    include: { 
+      license: { 
+        where: { 
+          active: true, 
+        }, 
+      }, 
+    }, 
+  }); 
+  const allData = games; 
+  return NextResponse.json(allData); 
 }
-
 export async function POST(request) {
   const data = await request.json();
   const newGame = await prisma.games.create({ data });
