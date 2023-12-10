@@ -11,49 +11,19 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 
 const Page = () => {
-	// const { roles } = useUser();
-	const user = useUser();
-	// const {
-	//   isLoaded,
-	//   organization,
-	//   membership,
-	//   invitations,
-	//   memberships,
-	//   membershipRequests,
-	//   domains,
-	// } = ;
-	// const { organizationMembership } = useOrganization();
-	const { organizationList, isLoaded, setActive } = useOrganizationList();
-
-	// const role = organizationMembership;
-	// console.log(role);
+	const { organizationList, isLoaded } = useOrganizationList();
 	const router = useRouter();
 
 	useEffect(() => {
 		if (isLoaded) {
-			// Find the admin organization from the loaded organization list
 			const adminOrganization = organizationList.find(
 				(org) => org.membership.role === 'admin'
 			);
-
-			// If the user is not an admin, redirect to the homepage
 			if (!adminOrganization || adminOrganization.membership.role !== 'admin') {
-				router.push('/'); // Replace '/' with the homepage URL
-			} else {
-				// If the user is an admin, no need to wait for the organization list; render the admin page directly
-				setShowLoader(false);
+				router.push('/');
 			}
 		}
 	}, [isLoaded, organizationList]);
-
-	// const roles = user?.publicMetadata;
-	// console.log("llllllllll", user?.publicMetadata);
-	// console.log(useUser);
-
-	// Redirige a los usuarios que no son administradores a la página de inicio
-	// if (!roles.includes("Admin")) {
-	//   router.push("/");
-	// }
 	const options = [
 		{
 			icon: 1,
@@ -77,7 +47,6 @@ const Page = () => {
 		},
 	];
 
-	// Mapeo de valores de icon a componentes de íconos correspondientes
 	const iconMapping = {
 		1: FaThList,
 		2: BiSolidCategory,
