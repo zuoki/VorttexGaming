@@ -10,26 +10,43 @@ import Genders from "@/components/generos/Genders.jsx";
 import SearchBar from "@/components/searchbar/Searchbar.jsx";
 import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
-import { useStoreCart } from "@/zustand/store";
+import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
+import Cahatbot from "@/components/chatbot/cahatbot";
+import { useStoreCart } from "@/zustand/store/index.js";
+import axios from "axios";
+import Loader from "@/components/loader/Loader.jsx";
 
 const gamesPerPage = 8;
 
 const HomePage = () => {
+
   const [data, setData] = useState([]);
-  const [mostPriceGames, setMostPriceGames] = useState([]);
+
+  const initialGames = [data[0], data[2], data[9]];
+  const [mostPriceGames, setMostPriceGames] = useState(initialGames);
+  let dataToRender = data;
+
   const store = useStoreCart();
 
-  useEffect(() => {
-    fetch("/api/games")
-      .then((response) => response.json())
-      .then((games) => {
-        setData(games);
-        setMostPriceGames([games[0], games[2], games[9]]);
-        console.log(store);
-      });
-  }, []);
+  let getGames;
+  if (store) getGames = store.getGames;
 
-  let dataToRender = data;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios('http://localhost:3000/api/games');
+        setTimeout(() => {
+          setData(data);
+        }, 2000);
+        setMostPriceGames([data[0], data[2], data[9]])
+        getGames(data).then(() => {
+        });
+      } catch (error) {
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const [filtrado, setFiltrado] = useState(false);
   const [filtrados, setFiltrados] = useState([]);
@@ -48,7 +65,6 @@ const HomePage = () => {
           randomGameIndexes.push(randomIndex);
         }
       }
-
       const randomGames = randomGameIndexes.map((index) => data[index]);
 
       setMostPriceGames(randomGames);
@@ -57,17 +73,13 @@ const HomePage = () => {
     return () => clearInterval(intervalId);
   }, [data]);
 
-  const mostPrice = data
-    .map((game) => (game.precio >= 49.99 ? game : null))
-    .filter((game) => game !== null);
-
   const arrTypesdata = data.map((game) => game.genre).flat();
   const uniqueArrTypesGames = arrTypesdata.filter((type, index, array) => {
     return array.indexOf(type) === index;
   });
 
   const handleFilter = (types) => {
-    setFiltrados(filter(types));
+    setFiltrados(filter(data, types));
     setOrdenado(false);
     setFind(false);
     setFiltrado(true);
@@ -75,7 +87,7 @@ const HomePage = () => {
   };
 
   const handleOrder = (op) => {
-    setOrdenados(order(op, dataToRender));
+    setOrdenados(order(data, op, dataToRender));
     setFiltrado(false);
     setFind(false);
     setOrdenado(true);
@@ -95,7 +107,7 @@ const HomePage = () => {
       }
       return;
     }
-    setFinds(search(letters));
+    setFinds(search(data, letters));
     setFiltrado(false);
     setOrdenado(false);
     setFind(true);
@@ -115,28 +127,32 @@ const HomePage = () => {
 
   const totalPages = Math.ceil(dataToRender.length / gamesPerPage);
 
-  return (
-    <div>
-      <MostPrice />
-      <Offerts games={mostPriceGames} />
-      <Genders types={uniqueArrTypesGames} />
-      <SearchBar handleSearch={handleSearch} />
-      <div className="cardsAndAside">
-        <Card data={currentGames} />
+  if (data.length > 0) {
+    return (
+      <div>
+        <ParticlesWall />
+        <MostPrice mostPrice={mostPriceGames} />
+        <Offerts games={mostPriceGames} />
+        <Genders types={uniqueArrTypesGames} />
+        <SearchBar handleSearch={handleSearch} />
+        <div className="cardsAndAside">
+          <Card data={currentGames} />
 
-        <Aside
-          types={uniqueArrTypesGames}
-          onChange={[handleFilter, handleOrder]}
+          <Aside
+            types={uniqueArrTypesGames}
+            onChange={[handleFilter, handleOrder]}
+          />
+        </div>
+
+        <Paginado
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
         />
+        <Cahatbot />
       </div>
-
-      <Paginado
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
-    </div>
-  );
+    );
+  } return <Loader />
 };
 
 export default HomePage;

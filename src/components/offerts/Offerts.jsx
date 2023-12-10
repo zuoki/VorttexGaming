@@ -1,6 +1,9 @@
 import Link from "next/link";
 import "./offerts.css";
+import { useStoreCart } from "../../zustand/store/index";
+
 const Offerts = ({ games }) => {
+
   const img = "imgOffert";
   const imgClass = [
     "allImg primerImagen",

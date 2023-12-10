@@ -6,12 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import EmptyCart from "@/components/emptyCartt/EmptyCart";
 import { useUser } from "@clerk/nextjs";
-import axios from "axios";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import { useEffect } from "react";
 
 const Page = () => {
-  const { gamesInCart, removeGameFromCart, emptyCart, setUserId, userId } =
+  const { gamesInCart, removeGameFromCart, emptyCart, setUserId, userId, data } =
     useStoreCart();
 
   let subtotal = 0;

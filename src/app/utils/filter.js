@@ -1,6 +1,6 @@
-import { data } from '../api/data';
+/* import { data } from '../api/data'; */
 
-const filter = (types) => {
+const filter = (data, types) => {
 
     if(types.includes('all')) return data;
 
