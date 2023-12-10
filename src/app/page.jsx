@@ -14,6 +14,7 @@ import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import Cahatbot from "@/components/chatbot/cahatbot";
 import { useStoreCart } from "@/zustand/store/index.js";
 import axios from "axios";
+import Loader from "@/components/loader/Loader.jsx";
 
 const gamesPerPage = 8;
 
@@ -34,7 +35,9 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios('http://localhost:3000/api/games');
-        setData(data);
+        setTimeout(() => {
+          setData(data);
+        }, 2000);
         setMostPriceGames([data[0], data[2], data[9]])
         getGames(data).then(() => {
         });
@@ -70,17 +73,13 @@ const HomePage = () => {
     return () => clearInterval(intervalId);
   }, [data]);
 
-  const mostPrice = data
-    .map((game) => (game.precio >= 49.99 ? game : null))
-    .filter((game) => game !== null);
-
   const arrTypesdata = data.map((game) => game.genre).flat();
   const uniqueArrTypesGames = arrTypesdata.filter((type, index, array) => {
     return array.indexOf(type) === index;
   });
 
   const handleFilter = (types) => {
-    setFiltrados(filter(types));
+    setFiltrados(filter(data, types));
     setOrdenado(false);
     setFind(false);
     setFiltrado(true);
@@ -88,7 +87,7 @@ const HomePage = () => {
   };
 
   const handleOrder = (op) => {
-    setOrdenados(order(op, dataToRender));
+    setOrdenados(order(data, op, dataToRender));
     setFiltrado(false);
     setFind(false);
     setOrdenado(true);
@@ -108,7 +107,7 @@ const HomePage = () => {
       }
       return;
     }
-    setFinds(search(letters));
+    setFinds(search(data, letters));
     setFiltrado(false);
     setOrdenado(false);
     setFind(true);
@@ -128,7 +127,7 @@ const HomePage = () => {
 
   const totalPages = Math.ceil(dataToRender.length / gamesPerPage);
 
-  if(data.length > 0){
+  if (data.length > 0) {
     return (
       <div>
         <ParticlesWall />
@@ -138,13 +137,13 @@ const HomePage = () => {
         <SearchBar handleSearch={handleSearch} />
         <div className="cardsAndAside">
           <Card data={currentGames} />
-  
+
           <Aside
             types={uniqueArrTypesGames}
             onChange={[handleFilter, handleOrder]}
           />
         </div>
-  
+
         <Paginado
           currentPage={currentPage}
           totalPages={totalPages}
@@ -153,9 +152,7 @@ const HomePage = () => {
         <Cahatbot />
       </div>
     );
-  } return <div>
-    <img className="imgLoader" src="https://media3.giphy.com/media/2WjpfxAI5MvC9Nl8U7/giphy.gif?cid=ecf05e47sghjlima89cq85qo6qekftzu5ue7j089bo1trw1z&ep=v1_gifs_search&rid=giphy.gif&ct=g" />
-  </div>
+  } return <Loader />
 };
 
 export default HomePage;

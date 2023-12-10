@@ -21,7 +21,7 @@ const Details = ({ game }) => {
           src="https://github.com/zuoki/imagenesPF/blob/main/ofertaDetails.png?raw=true"
         />
         <Galery className="GaleryDC" game={game} />
-        <Trailer game={game} />
+        <Trailer video={game.video} />
         <Advertising game={game} />
         <Buy game={game} />
       </section>

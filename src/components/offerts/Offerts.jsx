@@ -1,8 +1,8 @@
 import Link from "next/link";
 import "./offerts.css";
-const Offerts = ({ games }) => {
+import { useStoreCart } from "../../zustand/store/index";
 
-  console.log(games)
+const Offerts = ({ games }) => {
 
   const img = "imgOffert";
   const imgClass = [

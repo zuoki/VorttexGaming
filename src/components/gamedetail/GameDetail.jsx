@@ -1,14 +1,16 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './gamedetail.css';
 import { FaPen } from 'react-icons/fa';
 import Modal from './modal/Modal';
 import { validations } from './util';
-import { valuesIn } from 'lodash';
+import Video from './video/Video';
+import Swal from "sweetalert2";
 
 const GameDetail = ({ game }) => {
   const [gameEdited, setGameEdited] = useState(game);
   const [selectedImagePreview, setSelectedImagePreview] = useState(null);
+  const [currentImg, setCurrentImg] = useState('Image');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputErrors, setInputErrors] = useState(
     {
@@ -17,6 +19,7 @@ const GameDetail = ({ game }) => {
       price: false
     }
   )
+  const [galeryClass, setGaleryClass] = useState('imgAndPen');
   const [inputTitle, setInputTitle] = useState("titleInputClass");
   const [inputDescription, setInputDescription] = useState("descriptionInputClass");
   const [inputPrice, setInputPrice] = useState("priceInputClass");
@@ -90,20 +93,47 @@ const GameDetail = ({ game }) => {
         } */
 
   };
-
   const handleImagePreview = (event) => {
+
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setSelectedImagePreview(reader.result);
+        /* setSelectedImagePreview(reader.result); */
+
+        if (currentImg === 'Image') {
+
+          Swal.fire({
+            title: "the image has been changed successfully!",
+            imageUrl: reader.result,
+            imageWidth: 200,
+            imageHeight: 270,
+            imageAlt: "Custom image"
+          });
+
+          setCurrentImg('Wallpeaper');
+          setSelectedImagePreview(game.wallpeaper)
+        }
+
+        if (currentImg === 'Wallpeaper') {
+          Swal.fire({
+            title: "the wallpeaper has been changed successfully!",
+            imageUrl: reader.result,
+            imageWidth: 200,
+            imageHeight: 270,
+            imageAlt: "Custom image"
+          });
+
+          setCurrentImg('Trailer');
+          setSelectedImagePreview(game.trailer)
+          setGaleryClass('imgAndPen trailerClassContainerVideo')
+        }
+
       };
       reader.readAsDataURL(file);
     }
     setIsModalOpen(false);
   };
-
-
   const verifyErrors = () => {
     const valuesInputErrors = Object.values(inputErrors);
 
@@ -115,43 +145,57 @@ const GameDetail = ({ game }) => {
 
     return false;
   };
-
   const cleanInputs = () => {
     setGameEdited(game)
   }
 
+  const sentGameEdited = () => {
+    
+  }
 
   return (
     <div className='gameDetailContainer'>
+
+      <h1 className='idCurrentGame' >{game.id}</h1>
+
       <div className='gridDetail'>
-        <div className='imgAndPen'>
-          {selectedImagePreview ? (
-            <img
-              src={selectedImagePreview}
-              alt='Selected'
-              className='imgToEdit'
-              style={{ width: '100%', height: '100%' }}
-            />
+        <div className={galeryClass}>
+          {currentImg === 'Trailer' ? (
+            <Video game={game} currentImg={currentImg} setGameEdited={setGameEdited} gameEdited={gameEdited} />
           ) : (
-            <img
-              src={gameEdited.image}
-              alt='Original'
-              className='imgToEdit'
-              style={{ width: '100%', height: '100%' }}
-            />
+            <>
+              {selectedImagePreview ? (
+                <img
+                  src={selectedImagePreview}
+                  alt='Selected'
+                  className='imgToEdit'
+                  style={{ width: '100%', height: '100%' }}
+                />
+              ) : (
+                <img
+                  src={gameEdited.image}
+                  alt='Original'
+                  className='imgToEdit'
+                  style={{ width: '100%', height: '100%' }}
+                />
+              )}
+              <span onClick={() => setIsModalOpen(!isModalOpen)} className='spanPen' ><FaPen /></span>
+              <div className='penAndModal' >
+                <Modal
+                  isOpen={isModalOpen}
+                  setIsModalOpen={setIsModalOpen}
+                  setGameEdited={setGameEdited}
+                  gameEdited={gameEdited}
+                  handleImagePreview={handleImagePreview}
+                  selectedImagePreview={selectedImagePreview}
+                  setSelectedImagePreview={setSelectedImagePreview}
+                  setCurrentImg={setCurrentImg}
+                  currentImg={currentImg}
+                  setGaleryClass={setGaleryClass}
+                />
+              </div>
+            </>
           )}
-          <span onClick={() => setIsModalOpen(!isModalOpen)} className='spanPen' ><FaPen /></span>
-          <div className='penAndModal' >
-            <Modal
-              isOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-              setGameEdited={setGameEdited}
-              gameEdited={gameEdited}
-              handleImagePreview={handleImagePreview}
-              selectedImagePreview={selectedImagePreview}
-              setSelectedImagePreview={setSelectedImagePreview}
-            />
-          </div>
         </div>
 
         <div className='propsToEdit'>

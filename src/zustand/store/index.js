@@ -6,21 +6,15 @@ export const useStoreCart = create((set) => ({
   userId: null,
   gamesInCart: [],
   
-  getGames: (games) => {
-    set((state) => {
-      state.data = games;
-    })
-  },
-
   setUserId: (id) =>
-    set((state) => {
-      const storedGamesInCart =
-        typeof window !== "undefined"
-          ? JSON.parse(localStorage.getItem("gamesInCart" + id))
-          : [];
-      return { userId: id, gamesInCart: storedGamesInCart || [] };
-    }),
-
+  set((state) => {
+    const storedGamesInCart =
+    typeof window !== "undefined"
+    ? JSON.parse(localStorage.getItem("gamesInCart" + id))
+    : [];
+    return { userId: id, gamesInCart: storedGamesInCart || [] };
+  }),
+  
   //Storage
   addGamesToCart: (games) => {
     set((state) => {
@@ -33,15 +27,15 @@ export const useStoreCart = create((set) => ({
           background: '#333333', // Color de fondo negro
           html: '<span style="color: orange;"></span>', // Cambia el color del texto a blanco
           footer: '<a href="http://localhost:3000/cart">Success! The game has been added to your shopping cart.</a>',
-         
+          
         });
         if (typeof window !== "undefined") {
           localStorage.setItem(
             "gamesInCart" + state.userId,
             JSON.stringify(newGamesInCart)
-          );
-        }
-        return { gamesInCart: newGamesInCart };
+            );
+          }
+          return { gamesInCart: newGamesInCart };
       } else {
         Swal.fire({
           icon: 'warning',
@@ -74,7 +68,7 @@ export const useStoreCart = create((set) => ({
       return { gamesInCart: newGamesInCart };
     });
   },
-
+  
   emptyCart: () => {
     set((state) => {
       if (typeof window !== "undefined") {
@@ -82,6 +76,13 @@ export const useStoreCart = create((set) => ({
       }
       return { gamesInCart: [] };
     });
+  },
+
+  getGames: (games) => {
+    if (typeof window === "undefined") return;
+    set((state) => {
+      return { ...state, data: games };
+    })
   },
 }));
 

@@ -10,7 +10,7 @@ import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import { useEffect } from "react";
 
 const Page = () => {
-  const { gamesInCart, removeGameFromCart, emptyCart, setUserId, userId } =
+  const { gamesInCart, removeGameFromCart, emptyCart, setUserId, userId, data } =
     useStoreCart();
 
   let subtotal = 0;
