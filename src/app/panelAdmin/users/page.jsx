@@ -2,6 +2,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./users.css";
+import { clerk } from "@clerk/nextjs";
+// import { clerkClient } from "@clerk/nextjs";
+// import { Clerk } from "@clerk/clerk-sdk-node";
+// import {CLERK_SECRET_KEY} from process.env
 
 const Page = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -22,35 +26,18 @@ const Page = () => {
   }, []);
 
   // Función para eliminar un usuario por id
-  // const deleteUser = (userId) => {
-  //   const updatedUsers = allUsers.filter((user) => user.id !== userId);
-  //   setAllUsers(updatedUsers);
-  //   if (searchTerm) {
-  //     const updatedFilteredUsers = filteredUsers.filter(
-  //       (user) => user.id !== userId
-  //     );
-  //     setFilteredUsers(updatedFilteredUsers);
-  //   }
-  // };
+
   const deleteUser = async (userId) => {
     try {
-      console.log("User exists in the database.");
+      console.log("eliminaa??");
+      console.log(userId);
+      // const clerkClient = new Clerk(process.env.CLERK_SECRET_KEY);
+      const user = await clerk.users.deleteUser(userId);
+      console.log(user);
 
-      await axios.post("/api/webhook", {
-        type: "user.deleted",
-        data: { id: String(userId) },
-      });
-      console.log("User deleted successfully.");
-      // Actualizar el estado local después de la eliminación exitosa
       const updatedUsers = allUsers.filter((user) => user.id !== userId);
       setAllUsers(updatedUsers);
-
-      if (searchTerm) {
-        const updatedFilteredUsers = filteredUsers.filter(
-          (user) => user.id !== userId
-        );
-        setFilteredUsers(updatedFilteredUsers);
-      }
+      setFilteredUsers(updatedUsers);
     } catch (error) {
       console.error("Error deleting user:", error);
     }
