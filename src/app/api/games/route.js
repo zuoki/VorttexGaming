@@ -10,12 +10,14 @@ export async function GET() {
 
 export async function POST(request) {
   const data = await request.json();
+  console.log(data)
   const newGame = await prisma.games.create({ data });
   return NextResponse.json(newGame);
 }
 
 export async function PUT(request) {
   const data = await request.json();
+  console.log(typeof data.price)
   const updateGame = await prisma.games.update({
     where: { id: data.id },
     data,

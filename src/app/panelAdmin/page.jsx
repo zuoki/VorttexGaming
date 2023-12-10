@@ -86,14 +86,14 @@ const Page = () => {
   // const { roles } = useUser();
   const user = useUser();
   const roles = user?.publicMetadata;
-  console.log("llllllllll", user?.publicMetadata);
+  /*   console.log("llllllllll", user?.publicMetadata); */
   const router = useRouter();
-  console.log(useUser);
+  /*   console.log(useUser); */
 
   // Redirige a los usuarios que no son administradores a la página de inicio
-/*   if (!roles.includes("Admin")) {
-    router.push("/");
-  } */
+  /*   if (!roles.includes("Admin")) {
+      router.push("/");
+    } */
   const options = [
     {
       icon: 1,
