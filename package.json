@@ -10,6 +10,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@clerk/clerk-sdk-node": "^4.13.0",
     "@clerk/nextjs": "^4.27.2",
     "@clerk/themes": "^1.7.9",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
