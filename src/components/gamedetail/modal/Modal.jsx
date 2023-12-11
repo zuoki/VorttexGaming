@@ -77,7 +77,7 @@ const Modal = ({
                 imageAlt: "Custom image"
             });
 
-            setSelectedImagePreview(gameEdited.wallpeaper);
+            setSelectedImagePreview(gameEdited.wallpaper);
             setCurrentImg('Wallpeaper');
         }
 

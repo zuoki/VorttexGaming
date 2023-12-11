@@ -8,7 +8,7 @@ import { MdDiscount, MdBuild } from 'react-icons/md';
 import { LuLayoutPanelLeft } from 'react-icons/lu';
 import { useOrganization, useOrganizationList } from '@clerk/nextjs';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Page = () => {
 	const { organizationList, isLoaded } = useOrganizationList();
@@ -66,15 +66,30 @@ const Page = () => {
 
 			<div className="optionsPanelContainer">
 				{options.map((option) => {
+
+					let route = `/panelAdmin/${option.data.toLowerCase()}`;
 					const IconComponent = iconMapping[option.icon];
 					let clase = 'optionPanel';
-					if (option.icon == 4 || option.icon == 5) clase = 'optionPanel last';
+					let claseSpan = 'iconPanel';
+					if (option.icon === 2) {
+						clase = 'optionPanel comingSoon';
+						claseSpan = 'iconPanel comingSoonIcon';
+						route = '/panelAdmin';
+					}
+					if (option.icon == 4 || option.icon == 5) {
+						clase = 'optionPanel last comingSoon';
+						claseSpan = 'iconPanel comingSoonIcon';
+						route = '/panelAdmin';
+					}
+
+
 					return (
 						<div key={option.icon} className={clase}>
-							<Link href={`/panelAdmin/${option.data.toLowerCase()}`}>
+							{option.icon === 2 || option.icon === 4 || option.icon === 5 ? <p className='comingSoonText' >COMING SOON</p> : <p></p>}
+							<Link href={route}>
 								<div>
 									{IconComponent && (
-										<span className="iconPanel">
+										<span className={claseSpan}>
 											<IconComponent />
 										</span>
 									)}
@@ -83,6 +98,7 @@ const Page = () => {
 							</Link>
 						</div>
 					);
+
 				})}
 			</div>
 		</div>
