@@ -1,0 +1,99 @@
+.panelAdminContainer {
+    font-family: "Kdam Thmor Pro", sans-serif;
+    background: rgba(34, 34, 34, .35);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    width: 90%;
+    height: 80vh;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-radius: 5px;
+    display: flex;
+}
+
+.panelAdminContainer .iconAndTittlePanel {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.panelAdminContainer .iconAndTittlePanel h1 {
+    font-size: 40px;
+    margin-top: 1%;
+}
+
+
+.panelAdminContainer .iconAndTittlePanel span {
+    font-size: 70px;
+    color: #3ddbe6;
+    margin-right: 1%;
+}
+
+.optionsPanelContainer {
+    display: grid;
+    width: 25%;
+    grid-template-columns: repeat(3, 70%);
+    grid-template-rows: repeat(2, 43%);
+    gap: 15%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-left: -63.5%;
+    height: 80%;
+}
+
+.optionsPanelContainer .optionPanel {
+    background-color: #222;
+    color: #ccc;
+    cursor: pointer;
+    text-align: center;
+    height: 85%;
+    border-radius: 4px;
+    width: 110%;
+    transition: .2s;
+    border-bottom: solid 1px transparent;
+}
+
+.optionsPanelContainer .optionPanel:hover {
+    color: white;
+    transform: scale(1.015);
+    border-bottom: solid 1px #3ddbe6;
+}
+
+.optionsPanelContainer .optionPanel .iconPanel {
+    font-size: 50px;
+}
+
+.optionsPanelContainer .last {
+    margin-top: -50%;
+    margin-left: 60%;
+}
+
+.optionsPanelContainer .optionPanel div {
+    margin-top: 20%;
+}
+
+.optionsPanelContainer .comingSoon {
+    opacity: .5;
+    cursor: auto;
+    transition: .2s;
+}
+
+.optionsPanelContainer .comingSoon:hover {
+    transform: scale(1);
+    opacity: .5;
+    border-bottom: solid 1px #175f64;
+}
+
+.optionsPanelContainer .comingSoonIcon {
+    cursor: auto;
+}
+
+.optionsPanelContainer .comingSoonText {
+    background-color: #888;
+    font-size: 15px;
+}

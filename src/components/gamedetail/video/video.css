@@ -1,0 +1,94 @@
+.videoContainer {
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+}
+
+.videoContainer h2 {
+    margin-top: 15%;
+    margin-left: 10%;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.videoContainer .inputVideo {
+    width: 80%;
+    margin: 0 auto;
+    padding: 3% 2%;
+    background-color: black;
+    color: #ccc;
+    display: flex;
+    margin-top: 5%;
+    border: solid 1px #888;
+    border-radius: 3px;
+    outline: none;
+    transition: .2s;
+}
+
+.videoContainer .inputVideo:focus {
+    border: solid 1px #ccc;
+}
+
+.videoContainer .trailerInVideo {
+    width: 300%;
+    margin-top: 15%;
+    margin-left: -198%;
+}
+
+.videoContainer .divButtonVideo {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.videoContainer .divButtonVideo button {
+    background-color: black;
+    color: white;
+    border: solid 1px transparent;
+    border-radius: 3px;
+    width: 100%;
+    margin-top: 3%;
+    cursor: pointer;
+    padding: 1.5% 0;
+    width: 100%;
+    margin-top: 3%;
+    padding: 1.5% 0;
+    transition: .2s;
+}
+
+.videoContainer .divButtonVideo button:active {
+    background-color: white;
+    color: black;
+}
+
+.videoContainer .inputClassError {
+    width: 80%;
+    margin: 0 auto;
+    padding: 3% 2%;
+    background-color: black;
+    color: #ccc;
+    display: flex;
+    margin-top: 5%;
+    border: solid 2px #ff5757;
+    border-radius: 3px;
+    outline: none;
+    transition: .2s;
+}
+
+.videoContainer .inputClassError:focus {
+    border: solid 1px #a33636;
+}
+
+.videoContainer .divButtonVideo button[disabled] {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 1px #999;
+    color: #999;
+    border-radius: 3px;
+    width: 100%;
+    margin-top: 3%;
+    padding: 1.5% 0;
+    cursor: no-drop;
+}
+
+.gameDetailContainer .trailerClassContainerVideo {
+    border: 3px dashed transparent;
+}

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import "./Buy.css";
 import ButtonComponent from "@/components/utils/button_Component/ButtonComponent";
 // import { useStoreCart, useStoreGame } from '@/zustand/store';
@@ -38,8 +38,15 @@ import { useStoreCart } from "@/zustand/store";
 import { useUser } from "@clerk/nextjs";
 
 const Buy = ({ game }) => {
-  const { addGamesToCart } = useStoreCart();
+  const { addGamesToCart, userId, setUserId } = useStoreCart();
   const user = useUser();
+
+  // Storage NO TOCAR
+  useEffect(() => {
+    if (user && user.user && user.user.id !== userId) {
+      setUserId(user.user.id);
+    }
+  }, [user]);
 
   const handleCart = () => {
     if (user?.isSignedIn) {

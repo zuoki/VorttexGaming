@@ -1,0 +1,243 @@
+.gameDetailContainer {
+    background: rgba(34, 34, 34, 0.35);
+    height: 80vh;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 7%;
+    border-radius: 5px;
+}
+
+.gridDetail {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10%;
+    padding-top: 5%;
+}
+
+.gridDetail .imgAndPen {
+    width: 77%;
+    border-radius: 3px;
+    transition: .2s;
+    margin: 0 auto;
+    display: flex;
+    opacity: .7;
+    border: 2px dashed #ccc;
+}
+
+.gridDetail .imgAndPen img {
+    border-radius: 3px;
+    width: 99.5%;
+}
+
+.gridDetail .imgAndPen:hover {
+    opacity: 1;
+}
+
+.gridDetail .propsToEdit input {
+    width: 100%;
+    margin-bottom: 7%;
+    padding: 2.5% 5%;
+    border: none;
+    background-color: black;
+    outline: none;
+    border-radius: 2px;
+    transition: .2s;
+    border: 3px solid transparent;
+    color: #ccc;
+}
+
+.gridDetail .propsToEdit input:focus {
+    border: solid 3px #666;
+}
+
+.gridDetail .propsToEdit input[disabled] {
+    background-color: #333;
+    cursor: no-drop;
+}
+
+.gridDetail .propsToEdit .cleanButton {
+    width: 100%;
+    text-align: center;
+    padding: 3%;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #1096aa;
+    color: #333;
+    border-radius: 3px;
+    transition: .2s;
+    margin-bottom: 4%;
+    margin-top: 6%;
+}
+
+.gridDetail .propsToEdit .cleanButton:hover {
+    background-color: #10bcca;
+}
+
+.gridDetail .propsToEdit .deleteButton {
+    width: 100%;
+    text-align: center;
+    padding: 3%;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #b10303;
+    color: white;
+    border-radius: 3px;
+    transition: .2s;
+}
+
+.gridDetail .propsToEdit .deleteButton:hover {
+    background-color: #d70000;
+}
+
+.gameDetailContainer .confirmAndCancel {
+    width: 35%;
+    margin: 0 auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gameDetailContainer .confirmAndCancel button {
+    padding: 3%;
+    background-color: white;
+    width: 45%;
+    color: black;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+.gameDetailContainer .confirmAndCancel .confirm {
+    background-color: #1096aa;
+    color: #333;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.gameDetailContainer .confirmAndCancel .confirm:hover {
+    background-color: #10bcca;
+}
+
+.gameDetailContainer .confirmAndCancel .cancel {
+    background-color: #d70000;
+    color: white;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.gameDetailContainer .confirmAndCancel .cancel:hover {
+    background-color: #b10303;
+}
+
+.gameDetailContainer .penAndModal {
+    color: white;
+    margin-top: 10%;
+    display: flex;
+}
+
+.gameDetailContainer .imgAndPen span {
+    margin-left: -10%;
+    margin-top: 5%;
+    transition: .2s;
+    cursor: pointer;
+    height: 5%;
+}
+
+.gameDetailContainer .imgAndPen span:hover {
+    transform: scale(1.1);
+}
+
+.gridDetail .imgAndPen {
+    /*     height: 84%; */
+    /*     background-color: red; */
+
+    border-radius: 3px;
+    /* También puedes ajustar otros estilos según sea necesario */
+}
+
+.gridDetail .imgAndPen .spanPen,
+.modalImg {
+    display: none;
+}
+
+.gridDetail .imgAndPen:hover .spanPen {
+    display: flex;
+}
+
+.gridDetail .imgAndPen:hover .modalImg {
+    display: block;
+}
+
+.gameDetailContainer .gridDetail .propsToEdit .titleInputClassError {
+    width: 100%;
+    margin-bottom: 7%;
+    padding: 2.5% 5%;
+    border: none;
+    background-color: black;
+    outline: none;
+    border-radius: 2px;
+    transition: .2s;
+    border: 3px solid #ff5757;
+    color: #ccc;
+}
+
+.gameDetailContainer .gridDetail .propsToEdit .descriptionInputClassError {
+    width: 100%;
+    margin-bottom: 7%;
+    padding: 2.5% 5%;
+    border: none;
+    background-color: black;
+    outline: none;
+    border-radius: 2px;
+    transition: .2s;
+    border: 3px solid #ff5757;
+    color: #ccc;
+}
+
+.gameDetailContainer .gridDetail .propsToEdit .priceInputClassError {
+    width: 100%;
+    margin-bottom: 7%;
+    padding: 2.5% 5%;
+    border: none;
+    background-color: black;
+    outline: none;
+    border-radius: 2px;
+    transition: .2s;
+    border: 3px solid #ff5757;
+    color: #ccc;
+}
+
+.gameDetailContainer .confirmAndCancel .confirm[disabled],
+.gameDetailContainer .propsToEdit .cleanButton[disabled] {
+    background-color: rgba(16, 188, 202, 0.2);
+    color: #888;
+    cursor: no-drop;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.gameDetailContainer .confirmAndCancel .cancel[disabled],
+.gameDetailContainer .propsToEdit .deleteButton[disabled] {
+    background-color: rgba(215, 0, 0, 0.2);
+    color: #888;
+    cursor: no-drop;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.gameDetailContainer .idCurrentGame {
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    width: 4%;
+    text-align: center;
+    font-size: 20px;
+    border-bottom-right-radius: 3px;
+    padding-bottom: .5%;
+}

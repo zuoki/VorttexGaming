@@ -1,6 +1,6 @@
-import { data } from '../api/data';
+/* import { data } from '../api/data'; */
 
-const order = (op, dataToRender) => {
+const order = (data, op, dataToRender) => {
     const dataCopy = [...dataToRender];
 
     if (op === "CLEAN") return data;

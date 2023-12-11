@@ -1,7 +1,7 @@
 import React from "react";
 import Galery from "./components_details/Galery/Galery";
 import Advertising from "./components_details/Advertising/Advertising.jsx";
-import Buy from "./components_details/Buy/Buy";
+import Buy from "./components_details/Buy/Buy"; 
 import AdvertisingHandler from "./components_details/AdvertisingHandler/AdvertisingHandler.jsx";
 
 import "./Details.css";
@@ -21,7 +21,7 @@ const Details = ({ game }) => {
           src="https://github.com/zuoki/imagenesPF/blob/main/ofertaDetails.png?raw=true"
         />
         <Galery className="GaleryDC" game={game} />
-        <Trailer game={game} />
+        <Trailer video={game.video} />
         <Advertising game={game} />
         <Buy game={game} />
       </section>

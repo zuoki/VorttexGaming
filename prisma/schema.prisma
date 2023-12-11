@@ -25,6 +25,7 @@ model Games {
   capture     String
   size        String
   price       Float
+  offert      Int       @default(0)
   license     License[]
 }
 
@@ -32,6 +33,8 @@ model User {
   id        Int       @id @default(autoincrement())
   user_id   String    @unique
   email     String    @unique
+  username  String    @unique
+  active    Boolean
   createAt  DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   licenses  License[]

@@ -16,7 +16,7 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  const { name, active, idGame } = await request.json();
+  const { name, active, titleGame } = await request.json();
 
   const createLicense = await prisma.license.create({
     data: {
@@ -24,7 +24,7 @@ export async function POST(request) {
       active,
       game: {
         connect: {
-          id: idGame,
+          title: titleGame,
         },
       },
     },
