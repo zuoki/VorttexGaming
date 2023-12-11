@@ -11,7 +11,6 @@ export async function POST(request) {
     case "user.deleted":
       console.log("ELIMINANDO USUARIO..");
       if (id) {
-        console.log("cambioooooooo", id);
         const deletedUser = await prisma.user.update({
           where: { user_id: id },
           data: {
@@ -25,7 +24,6 @@ export async function POST(request) {
       break;
 
     case "user.updated":
-      console.log("ACTUALIZANDO USUARIO..");
       if (id && data) {
         const updatedUser = await prisma.user.update({
           where: { user_id: id },
@@ -41,7 +39,6 @@ export async function POST(request) {
       break;
 
     case "user.created":
-      console.log("CREANDO USUARIO..");
       if (data) {
         const existingUser = await prisma.user.findUnique({
           where: { email: data?.email_addresses[0]?.email_address },
@@ -57,7 +54,6 @@ export async function POST(request) {
                 username: data?.username,
               },
             });
-            console.log("actualizandooooooo", updatedUser);
             return NextResponse.json(updatedUser);
           } catch (error) {
             console.error("Error al actualizar el usuario:", error);
