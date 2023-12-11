@@ -14,6 +14,11 @@ const Page = async ({ params }) => {
       <p>Active: {user[0].active ? "Yes" : "No"}</p>
       <p>Create At: {user[0].createAt}</p>
       <p>Updated At: {user[0].updatedAt}</p>
+      {user[0].licenses.length > 0 ? (
+        <p> licencias {user[0].licenses}</p>
+      ) : (
+        <p> licencias: "el usuario no tiene licencias disponibles" </p>
+      )}
     </div>
   );
 };

@@ -8,9 +8,9 @@ export async function GET(request, { params }) {
     const result = await prisma.user.findMany({
       where: {
         id: numeros,
-        // include: {
-        //   licenses: License,
-        // },
+      },
+      include: {
+        licenses: true,
       },
     });
     return NextResponse.json(result);
