@@ -10,8 +10,12 @@ const Payment = () => {
   const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
   const [css, setCss] = useState("progress");
   const data = useUser();
-  //const email = data?.user?.emailAddresses?.[0]?.emailAddress;
-  const email = "riosdeborasabrina@gmail.com";
+  const email = data?.user?.emailAddresses?.[0]?.emailAddress;
+  console.log(
+    "SOY EL EMAAAAAAAAAAAAAAAAAAILLLLLLLLLLLLLLLLLLLLLLLLLLLLL",
+    email
+  );
+  // const email = "riosdeborasabrina@gmail.com";
   const { emptyCart } = useStoreCart();
 
   return (
@@ -37,18 +41,18 @@ const Payment = () => {
             }}
             onApprove={async (data, actions) => {
               Swal.fire({
-                background: '#fff',
+                background: "#fff",
                 title: "Success!...",
                 text: "You will be sent the codes for the games purchased",
-                imageUrl: "https://media0.giphy.com/media/XreQmk7ETCak0/giphy.gif?cid=ecf05e47390bwrvnc8r79ic7r23v8yovq0s5lw4uz7kdcb4u&ep=v1_gifs_search&rid=giphy.gif&ct=g",
+                imageUrl:
+                  "https://media0.giphy.com/media/XreQmk7ETCak0/giphy.gif?cid=ecf05e47390bwrvnc8r79ic7r23v8yovq0s5lw4uz7kdcb4u&ep=v1_gifs_search&rid=giphy.gif&ct=g",
                 imageWidth: 300,
                 imageHeight: 200,
-                imageAlt: "Custom image"
+                imageAlt: "Custom image",
               });
               // agregamos async
-              await actions.order.capture(); // agregamos await *Debbb 
+              await actions.order.capture(); // agregamos await *Debbb
               // Vacía el carrito de compras después de que se haya realizado un pago exitoso
-
 
               await axios.post(
                 "/api/sendEmail",
@@ -60,18 +64,20 @@ const Payment = () => {
                 }
               );
               emptyCart();
+              // await main(email);
             }}
             // fin bloque backend
             onCancel={async (data) => {
               console.log(data);
               Swal.fire({
-                background: '#fff',
+                background: "#fff",
                 title: "Opss!...",
                 text: "It seems that you have canceled the purchase",
-                imageUrl: "https://static.vecteezy.com/system/resources/previews/017/396/313/non_2x/illustration-businessman-holding-an-empty-wallet-free-png.png",
+                imageUrl:
+                  "https://static.vecteezy.com/system/resources/previews/017/396/313/non_2x/illustration-businessman-holding-an-empty-wallet-free-png.png",
                 imageWidth: 400,
                 imageHeight: 200,
-                imageAlt: "Custom image"
+                imageAlt: "Custom image",
               });
 
               // Hacer una solicitud al back-end para enviar un correo electrónico
