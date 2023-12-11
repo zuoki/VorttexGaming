@@ -5,7 +5,8 @@ import { data } from ".././data";
 export async function GET() {
   const games = await prisma.games.findMany();
   const allData = games;
-  return NextResponse.json(allData);
+  const allDataSorted = allData.sort((a,b) => a.id - b.id);
+  return NextResponse.json(allDataSorted);
 }
 
 export async function POST(request) {

@@ -50,7 +50,6 @@
 }
 
 .createGameContainerGrid .inputsToCreate {
-    background-color: #333;
     width: 80%;
     height: 100%;
 }
@@ -61,11 +60,50 @@
     border: none;
     border-radius: 3px;
     outline: none;
-    padding: 2% 2%;
-    border: 1px solid transparent;
+    padding: 2.4% 2%;
+    background-color: #222;
+    border: 2px solid transparent;
     transition: .2s;
 }
 
 .createGameContainerGrid .inputsToCreate input:focus {
-    border: solid 1px #ccc;
+    border: solid 2px #777;
 }
+
+.createGameContainer .createButtons {
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7%;
+}
+
+.createGameContainer .createButtons button {
+    width: 45%;
+    padding: 3% 0;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.createButtons .createButtonsConfirm {
+    background-color: #4ed111;
+    color: white;
+}
+
+.createButtons .createButtonsConfirm:hover {
+    background-color: #348a0c;
+}
+
+.createButtons .createButtonsCancel {
+    background-color: #f01212;
+    color: white;
+}
+
+.createButtons .createButtonsCancel:hover {
+    background-color: #a80d0d;
+    color: white;
+}
+
