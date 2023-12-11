@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./users.css";
-// import { clerk, useUser } from "@clerk/nextjs";
-import { Clerk } from "@clerk/clerk-sdk-node";
-const clerk = new Clerk(process.env.CLERK_SECRET_KEY);
+// // import { clerk, useUser } from "@clerk/nextjs";
+// import { Clerk } from "@clerk/clerk-sdk-node";
+// const clerk = new Clerk(process.env.CLERK_SECRET_KEY);
 
 const Page = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -30,10 +30,11 @@ const Page = () => {
   const deleteUser = async (userId) => {
     try {
       console.log("eliminaa??");
-      console.log(userId);
       // const clerkClient = new Clerk(process.env.CLERK_SECRET_KEY);
-      const user = await clerk.users.deleteUser(userId);
-      console.log(user);
+      // const user = await clerk.users.deleteUser(userId);
+      // console.log(user);
+      const userDelete = await axios.delete(`/api/users/delete`, userId);
+      // console.log(userDelete);
 
       // const updatedUsers = allUsers.filter((user) => user.id !== userId);
       // setAllUsers(updatedUsers);
