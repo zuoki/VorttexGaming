@@ -2,10 +2,10 @@
 import React from 'react';
 import './Trailer.css'
 
-const Trailer = ({ game }) => {
+const Trailer = (/* { game } */ {video} ) => {
   return (
     <div className="trailer-container">
-      <iframe width="100%" height="100%" src={game.video} allow="autoplay" allowFullScreen style={{ border: '0px' }} ></iframe>
+      <iframe width="100%" height="100%" src=/* {game.video} */{video} allow="autoplay" allowFullScreen style={{ border: '0px' }} ></iframe>
     </div>
   );
 };

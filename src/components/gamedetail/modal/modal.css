@@ -1,0 +1,81 @@
+.modalImg {
+    width: 70%;
+    margin-left: -80%;
+    margin-top: 5%;
+}
+
+.modalImg .selectFile {
+    margin-left: -310%;
+    width: 380%;
+}
+
+.modalImg .insertURL {
+    width: 500%;
+    margin-left: -430%;
+    margin-top: 20%;
+    padding: 20%;
+    background-color: #eee;
+    color: #333;
+    border: none;
+    outline: none;
+    transition: .1s;
+    border-radius: 3px;
+}
+
+.modalImg .insertURL:active {
+    background-color: white;
+}
+
+.modalImg .inputUrl {
+    width: 500%;
+    margin-left: -430%;
+    padding: 15%;
+    outline: none;
+    border: none;
+    border-radius: 3%;
+    transition: .3s;
+    margin-top: 20%;
+    border: solid 2px transparent;
+}
+
+.modalImg .applyUrl {
+    background-color: #18d5f1;
+    border: 1px solid transparent;
+    border: none;
+    outline: none;
+    padding: 10%;
+    width: 250%;
+    color: black;
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-left: -185%;
+    cursor: pointer;
+    margin-top: 20%;
+}
+
+.emptyInputUrl {
+    padding-left: 12%;
+}
+
+.inputError {
+    width: 1000%;
+}
+
+.modalImg .msjAndButton p {
+    width: 470%;
+    font-size: 12px;
+    margin-left: -400%;
+    margin-top: 20%;
+    background-color: rgba(154, 10, 10, 0.5);
+    border: solid 1px #ff0000;
+    border-radius: 3px;
+    text-align: center;
+    padding: 5% 0;
+}
+
+.applyUrl[disabled] {
+    background-color: #888;
+    color: #ccc;
+    border: solid 1px #ccc;
+    cursor: no-drop;
+}

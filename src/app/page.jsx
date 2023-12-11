@@ -1,11 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import { data } from "../app/api/data";
 import filter from "./utils/filter.js";
 import order from "./utils/order.js";
 import Card from "@/components/card/Card.jsx";
 import MostPrice from "@/components/mostPrice/MostPrice.jsx";
-import Select from "@/components/select/Select.jsx";
 import Offerts from "@/components/offerts/Offerts.jsx";
 import Aside from "@/components/aside/Aside.jsx";
 import Genders from "@/components/generos/Genders.jsx";
@@ -14,14 +12,38 @@ import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import Cahatbot from "@/components/chatbot/cahatbot";
-import Footer from "@/components/footer/footer";
+import { useStoreCart } from "@/zustand/store/index.js";
+import axios from "axios";
+import Loader from "@/components/loader/Loader.jsx";
 
 const gamesPerPage = 8;
 
 const HomePage = () => {
+  const [data, setData] = useState([]);
+
   const initialGames = [data[0], data[2], data[9]];
   const [mostPriceGames, setMostPriceGames] = useState(initialGames);
   let dataToRender = data;
+
+  const store = useStoreCart();
+
+  let getGames;
+  if (store) getGames = store.getGames;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios("http://localhost:3000/api/games");
+        setTimeout(() => {
+          setData(data);
+        }, 2000);
+        setMostPriceGames([data[0], data[2], data[9]]);
+        getGames(data).then(() => {});
+      } catch (error) {}
+    };
+
+    fetchData();
+  }, []);
 
   const [filtrado, setFiltrado] = useState(false);
   const [filtrados, setFiltrados] = useState([]);
@@ -35,23 +57,18 @@ const HomePage = () => {
     const intervalId = setInterval(() => {
       let randomGameIndexes = [];
       while (randomGameIndexes.length < 3) {
-        const randomIndex = Math.floor(Math.random() * 24);
+        const randomIndex = Math.floor(Math.random() * 10);
         if (!randomGameIndexes.includes(randomIndex)) {
           randomGameIndexes.push(randomIndex);
         }
       }
-
       const randomGames = randomGameIndexes.map((index) => data[index]);
 
       setMostPriceGames(randomGames);
     }, 10000);
 
     return () => clearInterval(intervalId);
-  }, []);
-
-  const mostPrice = data
-    .map((game) => (game.precio >= 49.99 ? game : null))
-    .filter((game) => game !== null);
+  }, [data]);
 
   const arrTypesdata = data.map((game) => game.genre).flat();
   const uniqueArrTypesGames = arrTypesdata.filter((type, index, array) => {
@@ -59,7 +76,7 @@ const HomePage = () => {
   });
 
   const handleFilter = (types) => {
-    setFiltrados(filter(types));
+    setFiltrados(filter(data, types));
     setOrdenado(false);
     setFind(false);
     setFiltrado(true);
@@ -67,7 +84,7 @@ const HomePage = () => {
   };
 
   const handleOrder = (op) => {
-    setOrdenados(order(op, dataToRender));
+    setOrdenados(order(data, op, dataToRender));
     setFiltrado(false);
     setFind(false);
     setOrdenado(true);
@@ -87,11 +104,10 @@ const HomePage = () => {
       }
       return;
     }
-    setFinds(search(letters));
+    setFinds(search(data, letters));
     setFiltrado(false);
     setOrdenado(false);
     setFind(true);
-    setCurrentPage(1)
   };
 
   const handlePageChange = (page) => {
@@ -108,31 +124,33 @@ const HomePage = () => {
 
   const totalPages = Math.ceil(dataToRender.length / gamesPerPage);
 
-  return (
-    <div>
-       <ParticlesWall/>
-      <MostPrice mostPrice={mostPriceGames} />
-      <Offerts games={mostPriceGames} />
-      <Genders types={uniqueArrTypesGames} />
-      <SearchBar handleSearch={handleSearch} />
-      <div className="cardsAndAside">
-        <Card data={currentGames} />
+  if (data.length > 0) {
+    return (
+      <div>
+        <ParticlesWall />
+        <MostPrice mostPrice={mostPriceGames} />
+        <Offerts games={mostPriceGames} />
+        <Genders types={uniqueArrTypesGames} />
+        <SearchBar handleSearch={handleSearch} />
+        <div className="cardsAndAside">
+          <Card data={currentGames} />
 
-        <Aside
-          types={uniqueArrTypesGames}
-          onChange={[handleFilter, handleOrder]}
+          <Aside
+            types={uniqueArrTypesGames}
+            onChange={[handleFilter, handleOrder]}
+          />
+        </div>
+
+        <Paginado
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
         />
+        <Cahatbot />
       </div>
-
-      <Paginado
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
-      <Cahatbot/>
-      <Footer />
-    </div>
-  );
+    );
+  }
+  return <Loader />;
 };
 
 export default HomePage;

@@ -1,0 +1,109 @@
+.createGameContainer {
+    margin-top: 7%;
+    margin: 0 auto;
+    background: rgba(34, 34, 34, 0.35);
+    background-color: black;
+    color: white;
+    height: 80vh;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 7%;
+    border-radius: 5px;
+}
+
+.createGameContainerGrid {
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 5%;
+    gap: 10%;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.createGameContainerGrid div {
+    background-color: black;
+}
+
+.createGameContainerGrid .galerySeccionContainer {
+    width: 70%;
+    border-radius: 3px;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: dashed 2px #ccc;
+    transition: .2s;
+}
+
+.createGameContainerGrid .galerySeccionContainer:hover {
+    border: solid 2px white;
+}
+
+.robotPngCreate {
+    width: 100%;
+    height: 100%;
+    transition: .2s;
+}
+.createGameContainerGrid .galerySeccionContainer:hover .robotPngCreate{
+    transform: scale(.85);
+}
+
+.createGameContainerGrid .inputsToCreate {
+    width: 80%;
+    height: 100%;
+}
+
+.createGameContainerGrid .inputsToCreate input {
+    width: 100%;
+    margin-bottom: 2%;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    padding: 2.4% 2%;
+    background-color: #222;
+    border: 2px solid transparent;
+    transition: .2s;
+}
+
+.createGameContainerGrid .inputsToCreate input:focus {
+    border: solid 2px #777;
+}
+
+.createGameContainer .createButtons {
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7%;
+}
+
+.createGameContainer .createButtons button {
+    width: 45%;
+    padding: 3% 0;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.createButtons .createButtonsConfirm {
+    background-color: #4ed111;
+    color: white;
+}
+
+.createButtons .createButtonsConfirm:hover {
+    background-color: #348a0c;
+}
+
+.createButtons .createButtonsCancel {
+    background-color: #f01212;
+    color: white;
+}
+
+.createButtons .createButtonsCancel:hover {
+    background-color: #a80d0d;
+    color: white;
+}
+

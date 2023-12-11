@@ -1,6 +1,6 @@
-import { data } from "@/app/api/data";
+const search = (data, letters) => {
 
-const search = (letters) => {
+
     letters = letters.trim();
     letters = letters.split(' ').join('');
     const dataCopy = [...data];

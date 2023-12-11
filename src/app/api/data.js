@@ -1,4 +1,4 @@
-
+import axios from "axios";
 export const data = [
     {
         "title": "Son of the forest",
@@ -25,8 +25,8 @@ export const data = [
         "developer": "Sledgehammer Games",
         "publishedby": "Activision",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/Call%20of%20Duty%20Modern%20Warfare%203/caratula.png?raw=true",
-        "wallpeaper":"https://github.com/zuoki/imagenesPF/blob/main/Call%20of%20Duty%20Modern%20Warfare%203/wallpeaper.png?raw=true",
-        "capture":"https://github.com/zuoki/imagenesPF/blob/main/Call%20of%20Duty%20Modern%20Warfare%203/captura.png?raw=true",       
+        "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/Call%20of%20Duty%20Modern%20Warfare%203/wallpeaper.png?raw=true",
+        "capture": "https://github.com/zuoki/imagenesPF/blob/main/Call%20of%20Duty%20Modern%20Warfare%203/captura.png?raw=true",
         "video": "https://www.youtube.com/embed/CEeVm-dGVKQ?si=cJMPSfqydbQjFK4s",
         "size": "64GB",
         "price": 12.99,
@@ -41,8 +41,8 @@ export const data = [
         "developer": "Playground Games",
         "publishedby": "Microsoft Studios",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/Forza%20Horizon/caratula.png?raw=true",
-        "wallpeaper":"https://github.com/zuoki/imagenesPF/blob/main/Forza%20Horizon/wallpeaper.png?raw=true",
-        "capture":"https://github.com/zuoki/imagenesPF/blob/main/Forza%20Horizon/captura.png?raw=true",
+        "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/Forza%20Horizon/wallpeaper.png?raw=true",
+        "capture": "https://github.com/zuoki/imagenesPF/blob/main/Forza%20Horizon/captura.png?raw=true",
         "video": "https://www.youtube.com/embed/Rv7xLt5yNsM?si=dhLvaQnsmfsvEqnh?autoplay=1",
         "size": "103GB",
         "price": 59.99
@@ -57,8 +57,8 @@ export const data = [
         "developer": "EA Sports",
         "publishedby": "EA Swiss Sarl",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/FIFA%2024/caratula.png?raw=true",
-        "wallpeaper":"https://github.com/zuoki/imagenesPF/blob/main/FIFA%2024/wallpeaper.png?raw=true",
-        "capture":"https://github.com/zuoki/imagenesPF/blob/main/FIFA%2024/captura.png?raw=true",       
+        "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/FIFA%2024/wallpeaper.png?raw=true",
+        "capture": "https://github.com/zuoki/imagenesPF/blob/main/FIFA%2024/captura.png?raw=true",
         "video": "https://www.youtube.com/embed/L30zvMbVJlM?si=BhKHJ7PcK5PJMkpw",
         "size": "24GB",
         "price": 24.99
@@ -89,8 +89,8 @@ export const data = [
         "developer": "Ubisoft Toronto",
         "publishedby": "Ubisoft",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/Far%20Cry%206/caratula.png?raw=true",
-        "wallpeaper":"https://github.com/zuoki/imagenesPF/blob/main/Far%20Cry%206/wallpeaper.png?raw=true",
-        "capture":"https://github.com/zuoki/imagenesPF/blob/main/Far%20Cry%206/captura.png?raw=true",       
+        "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/Far%20Cry%206/wallpeaper.png?raw=true",
+        "capture": "https://github.com/zuoki/imagenesPF/blob/main/Far%20Cry%206/captura.png?raw=true",
         "video": "https://www.youtube.com/embed/IYoya-4DCbs?si=gKyCoAueiwCOEge4",
         "size": "30GB",
         "price": 25.99
@@ -105,8 +105,8 @@ export const data = [
         "developer": "Rockstar North",
         "publishedby": "Rockstar Games",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/Grand%20Theft%20Auto%20V/caratula.png?raw=true",
-        "wallpeaper":"https://github.com/zuoki/imagenesPF/blob/main/Grand%20Theft%20Auto%20V/wallpeaper.png?raw=true",
-        "capture":"https://github.com/zuoki/imagenesPF/blob/main/Grand%20Theft%20Auto%20V/captura.png?raw=true",
+        "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/Grand%20Theft%20Auto%20V/wallpeaper.png?raw=true",
+        "capture": "https://github.com/zuoki/imagenesPF/blob/main/Grand%20Theft%20Auto%20V/captura.png?raw=true",
         "video": "https://www.youtube.com/embed/QkkoHAzjnUs?si=cdObb5_g1U9-6SHy",
         "size": "72GB",
         "price": 30.99
@@ -121,9 +121,9 @@ export const data = [
         "developer": "Kunos Simulazioni",
         "publishedby": "Kunos Simulazioni",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/Assetto%20Corsa/caratula.png?raw=true",
-        "wallpeaper":"https://github.com/zuoki/imagenesPF/blob/main/Assetto%20Corsa/wallpeaper.png?raw=true",
-        "capture":"https://github.com/zuoki/imagenesPF/blob/main/Assetto%20Corsa/captura.png?raw=true",       
-         "video": "https://www.youtube.com/embed/2naR61zAD-Q?si=F5ggnP_w8CLaHVZQ",
+        "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/Assetto%20Corsa/wallpeaper.png?raw=true",
+        "capture": "https://github.com/zuoki/imagenesPF/blob/main/Assetto%20Corsa/captura.png?raw=true",
+        "video": "https://www.youtube.com/embed/2naR61zAD-Q?si=F5ggnP_w8CLaHVZQ",
         "size": "54GB",
         "price": 19.99
     },
@@ -137,8 +137,8 @@ export const data = [
         "developer": "Relic Entertainment",
         "publishedby": "Xbox Game Studios",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/Age%20of%20Empires%20IV%20The%20Sultans%20Ascend/caratula.png?raw=true",
-        "wallpeaper":"https://github.com/zuoki/imagenesPF/blob/main/Age%20of%20Empires%20IV%20The%20Sultans%20Ascend/wallpeaper.png?raw=true",
-        "capture":"https://github.com/zuoki/imagenesPF/blob/main/Age%20of%20Empires%20IV%20The%20Sultans%20Ascend/captura.png?raw=true",      
+        "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/Age%20of%20Empires%20IV%20The%20Sultans%20Ascend/wallpeaper.png?raw=true",
+        "capture": "https://github.com/zuoki/imagenesPF/blob/main/Age%20of%20Empires%20IV%20The%20Sultans%20Ascend/captura.png?raw=true",
         "video": "https://www.youtube.com/embed/_j-uv3lN3B4?si=hj_2uUBSfjadxMu4",
         "size": "N/A",
         "price": 19.99
@@ -153,8 +153,8 @@ export const data = [
         "developer": "Sony Santa Monica",
         "publishedby": "Sony Interactive Entertainment",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/God%20of%20War%20Ragnarok/caratula.png?raw=true",
-        "wallpeaper":"https://github.com/zuoki/imagenesPF/blob/main/God%20of%20War%20Ragnarok/wallpeaper.png?raw=true",
-        "capture":"https://github.com/zuoki/imagenesPF/blob/main/God%20of%20War%20Ragnarok/captura.png?raw=true",      
+        "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/God%20of%20War%20Ragnarok/wallpeaper.png?raw=true",
+        "capture": "https://github.com/zuoki/imagenesPF/blob/main/God%20of%20War%20Ragnarok/captura.png?raw=true",
         "video": "https://www.youtube.com/embed/F3jePdO9_jc?si=SYpbJTjedAfpwNK-",
         "size": "76GB",
         "price": 55.99
@@ -248,7 +248,7 @@ export const data = [
         "releaseDate": "2020-03-20",
         "developer": "id Software",
         "publishedby": "Bethesda Softworks",
-        "video": "https://www.youtube.com/embed/2HOClc6Svg4?si=ntv1pe_cIAKuYEZl" ,
+        "video": "https://www.youtube.com/embed/2HOClc6Svg4?si=ntv1pe_cIAKuYEZl",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/Doom%20Ethernal/caratula.png?raw=true",
         "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/Doom%20Ethernal/wallpeaper.png?raw=true",
         "capture": "https://github.com/zuoki/imagenesPF/blob/main/Doom%20Ethernal/captura.png?raw=true",
@@ -305,7 +305,7 @@ export const data = [
     },
     {
         "title": "Among Us",
-        "id": 21,
+        "id": 20,
         "platform": "Steam",
         "description": "Social Deduction Multiplayer Game. Among Us, developed by InnerSloth, is a social deduction game set on a space-themed setting. Work with crewmates to complete tasks, but beware of impostors trying to eliminate the crew. Trust and deception are key.",
         "genre": "Strategy",
@@ -321,7 +321,7 @@ export const data = [
     },
     {
         "title": "Rocket League",
-        "id": 22,
+        "id": 21,
         "platform": "Epic",
         "description": "Vehicular Soccer and Action. Combine soccer with rocket-powered cars in Rocket League. Developed by Psyonix, this unique sports game offers fast-paced multiplayer action and a variety of game modes, including competitive and casual play.",
         "genre": "Sports",
@@ -337,7 +337,7 @@ export const data = [
     },
     {
         "title": "Stardew Valley",
-        "id": 23,
+        "id": 22,
         "platform": "Steam",
         "description": "Farming Simulation and RPG. Escape to the countryside in Stardew Valley. Developed by ConcernedApe, this charming farming simulator lets players cultivate their farm, build relationships, and explore a delightful pixelated world.",
         "genre": "Simulation",
@@ -353,7 +353,7 @@ export const data = [
     },
     {
         "title": "Overwatch 2",
-        "id": 24,
+        "id": 23,
         "platform": "Blizzard",
         "description": "Team-based Multiplayer FPS. Join the fight for the future in Overwatch. Developed by Blizzard Entertainment, this team-based shooter features a diverse cast of heroes, each with unique abilities, in intense and objective-based battles.",
         "genre": "FPS",
@@ -369,14 +369,14 @@ export const data = [
     },
     {
         "title": "NieR: Automata",
-        "id": 20,
+        "id": 24,
         "platform": "Steam",
         "description": "Action RPG in a Dystopian Future. Explore a post-apocalyptic world as 2B, an android warrior, in NieR: Automata. Developed by PlatinumGames, this action RPG offers a compelling narrative, fast-paced combat, and an atmospheric dystopian setting.",
         "genre": "RPG",
         "releaseDate": "2017-03-17",
         "developer": "PlatinumGames",
         "publishedby": "Square Enix",
-        "video": "https://www.youtube.com/embed/wJxNhJ8fjFk?si=jp8XD-tF7q4d7RDH" ,
+        "video": "https://www.youtube.com/embed/wJxNhJ8fjFk?si=jp8XD-tF7q4d7RDH",
         "image": "https://github.com/zuoki/imagenesPF/blob/main/NieR%20Automata/caratula.png?raw=true",
         "wallpeaper": "https://github.com/zuoki/imagenesPF/blob/main/NieR%20Automata/wallpeaper.png?raw=true",
         "capture": "https://github.com/zuoki/imagenesPF/blob/main/NieR%20Automata/captura.png?raw=true",
