@@ -15,9 +15,14 @@ const Page = async ({ params }) => {
       <p>Create At: {user[0].createAt}</p>
       <p>Updated At: {user[0].updatedAt}</p>
       {user[0].licenses.length > 0 ? (
-        <p> licencias {user[0].licenses}</p>
+        user[0].licenses.map((license) => (
+          <div key={license.id}>
+            <p>Licencia: {license.name}</p>
+            <p>Juego: {license.game.title}</p> {/* Acceder al título del juego */}
+          </div>
+        ))
       ) : (
-        <p> licencias: "el usuario no tiene licencias disponibles" </p>
+        <p>El usuario no tiene licencias disponibles</p>
       )}
     </div>
   );
