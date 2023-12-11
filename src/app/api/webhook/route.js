@@ -5,6 +5,7 @@ export async function POST(request) {
   const { type, data } = await request.json();
 
   const id = data?.id;
+  console.log(data);
 
   switch (type) {
     case "user.deleted":
@@ -31,7 +32,6 @@ export async function POST(request) {
           data: {
             email: data?.email,
             username: data?.username,
-            role: data?.publicMetadata?.role,
           },
         });
         return NextResponse.json(updatedUser);
@@ -55,7 +55,6 @@ export async function POST(request) {
                 active: true,
                 user_id: data?.id,
                 username: data?.username,
-                role: data?.publicMetadata?.role,
               },
             });
             console.log("actualizandooooooo", updatedUser);
@@ -70,7 +69,6 @@ export async function POST(request) {
               email: data?.email_addresses[0]?.email_address,
               username: data?.username,
               active: true,
-              role: data?.publicMetadata?.role,
             },
           });
           return NextResponse.json(newUser);

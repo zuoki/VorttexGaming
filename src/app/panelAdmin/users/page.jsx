@@ -2,15 +2,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./users.css";
-import { clerk } from "@clerk/nextjs";
-// import { clerkClient } from "@clerk/nextjs";
-// import { Clerk } from "@clerk/clerk-sdk-node";
-// import {CLERK_SECRET_KEY} from process.env
+// import { clerk, useUser } from "@clerk/nextjs";
+import { Clerk } from "@clerk/clerk-sdk-node";
+const clerk = new Clerk(process.env.CLERK_SECRET_KEY);
 
 const Page = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  // const users = useUser();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -35,9 +35,9 @@ const Page = () => {
       const user = await clerk.users.deleteUser(userId);
       console.log(user);
 
-      const updatedUsers = allUsers.filter((user) => user.id !== userId);
-      setAllUsers(updatedUsers);
-      setFilteredUsers(updatedUsers);
+      // const updatedUsers = allUsers.filter((user) => user.id !== userId);
+      // setAllUsers(updatedUsers);
+      // setFilteredUsers(updatedUsers);
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -79,8 +79,12 @@ const Page = () => {
           <tbody>
             {filteredUsers.map((user) => (
               <tr key={user.id}>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
+                <td>
+                  <a href={`/panelAdmin/users/${user.id}`}>{user.username}</a>
+                </td>
+                <td>
+                  <a href={`/panelAdmin/users/${user.id}`}>{user.email}</a>
+                </td>
                 <td>
                   <button onClick={() => deleteUser(user.id)}>🗑️</button>
                 </td>

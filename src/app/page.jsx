@@ -19,7 +19,6 @@ import Loader from "@/components/loader/Loader.jsx";
 const gamesPerPage = 8;
 
 const HomePage = () => {
-
   const [data, setData] = useState([]);
 
   const initialGames = [data[0], data[2], data[9]];
@@ -34,15 +33,13 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios('http://localhost:3000/api/games');
+        const { data } = await axios("http://localhost:3000/api/games");
         setTimeout(() => {
           setData(data);
         }, 2000);
-        setMostPriceGames([data[0], data[2], data[9]])
-        getGames(data).then(() => {
-        });
-      } catch (error) {
-      }
+        setMostPriceGames([data[0], data[2], data[9]]);
+        getGames(data).then(() => {});
+      } catch (error) {}
     };
 
     fetchData();
@@ -152,7 +149,8 @@ const HomePage = () => {
         <Cahatbot />
       </div>
     );
-  } return <Loader />
+  }
+  return <Loader />;
 };
 
 export default HomePage;

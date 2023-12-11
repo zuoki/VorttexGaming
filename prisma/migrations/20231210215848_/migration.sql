@@ -1,6 +1,3 @@
--- CreateEnum
-CREATE TYPE "UserRole" AS ENUM ('ADMIN', 'USER');
-
 -- CreateTable
 CREATE TABLE "Games" (
     "id" SERIAL NOT NULL,
@@ -26,9 +23,8 @@ CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "user_id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "username" TEXT,
+    "username" TEXT NOT NULL,
     "active" BOOLEAN NOT NULL,
-    "role" "UserRole" NOT NULL DEFAULT 'USER',
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -55,6 +51,9 @@ CREATE UNIQUE INDEX "User_user_id_key" ON "User"("user_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "License_name_key" ON "License"("name");
