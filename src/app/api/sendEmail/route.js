@@ -10,8 +10,14 @@ export async function POST(request) {
 
   try {
     subject = "Confirmacion de compra";
-    html =
-      "Tu compra ha sido realizada con éxito. Gracias por tu compra. vortex gaming te ama <br> TU KEY: 25643HJ5-212S1-2FH2SAS";
+    html = "Hello!";
+    ("Thank you for choosing Vorttex Gaming. We appreciate your purchase and hope you enjoy it to the fullest. If you have any questions, we are here to help.");
+
+    ("Thank you again and have great gaming moments!");
+
+    ("Sincerely,");
+    "Vorttex Gaming Team" < br > "YOUR KEY: 25643HJ5-212S1-2FH2SAS";
+
     await resend.emails.send({
       from: "vorttexgaming <onboarding@resend.dev>",
       to: "riosdeborasabrina@gmail.com",
