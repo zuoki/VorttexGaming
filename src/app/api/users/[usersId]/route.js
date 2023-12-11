@@ -8,12 +8,17 @@ export async function GET(request, { params }) {
     const result = await prisma.user.findMany({
       where: {
         id: numeros,
+        // include: {
+        //   licenses: License,
+        // },
       },
     });
     return NextResponse.json(result);
   } catch (error) {
     // Si ocurre algún error, devolver un mensaje de error
     console.log(error);
-    return NextResponse.json({ error: "Ocurrió un error al buscar el juego" });
+    return NextResponse.json({
+      error: "Ocurrió un error al buscar el usuario",
+    });
   }
 }

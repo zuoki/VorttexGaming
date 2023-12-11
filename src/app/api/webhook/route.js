@@ -5,6 +5,7 @@ export async function POST(request) {
   const { type, data } = await request.json();
 
   const id = data?.id;
+  console.log(data);
 
   switch (type) {
     case "user.deleted":
