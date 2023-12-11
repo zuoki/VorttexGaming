@@ -5,17 +5,20 @@ import { data } from ".././data";
 export async function GET() {
   const games = await prisma.games.findMany();
   const allData = games;
-  return NextResponse.json(allData);
+  const allDataSorted = allData.sort((a,b) => a.id - b.id);
+  return NextResponse.json(allDataSorted);
 }
 
 export async function POST(request) {
   const data = await request.json();
+  console.log(data)
   const newGame = await prisma.games.create({ data });
   return NextResponse.json(newGame);
 }
 
 export async function PUT(request) {
   const data = await request.json();
+  console.log(typeof data.price)
   const updateGame = await prisma.games.update({
     where: { id: data.id },
     data,

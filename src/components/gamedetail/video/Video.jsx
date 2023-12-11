@@ -25,6 +25,11 @@ const Video = ({ game, currentImg, setGameEdited, gameEdited }) => {
 
     const handleChange = async (event) => {
         setUrl(event.target.value);
+        if(!event.target.value.includes('embed')){
+            setInputClass('inputClassError');
+            setUrlError(true);
+            return;
+        };
 
         let esUrlValida = true;
         try {
