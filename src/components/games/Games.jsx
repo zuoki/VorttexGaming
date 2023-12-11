@@ -21,7 +21,7 @@ const Games = () => {
         };
         fetchData();
     }, [])
-    if (data.length === 0) return <Loader />
+    if (data.length === 0) return <Loader />;
 
     return (
         <div>

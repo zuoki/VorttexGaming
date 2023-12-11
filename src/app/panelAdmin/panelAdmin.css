@@ -35,7 +35,7 @@
 .optionsPanelContainer {
     display: grid;
     width: 25%;
-    grid-template-columns: repeat(3,70%);
+    grid-template-columns: repeat(3, 70%);
     grid-template-rows: repeat(2, 43%);
     gap: 15%;
     margin: 0 auto;
@@ -75,4 +75,25 @@
 
 .optionsPanelContainer .optionPanel div {
     margin-top: 20%;
+}
+
+.optionsPanelContainer .comingSoon {
+    opacity: .5;
+    cursor: auto;
+    transition: .2s;
+}
+
+.optionsPanelContainer .comingSoon:hover {
+    transform: scale(1);
+    opacity: .5;
+    border-bottom: solid 1px #175f64;
+}
+
+.optionsPanelContainer .comingSoonIcon {
+    cursor: auto;
+}
+
+.optionsPanelContainer .comingSoonText {
+    background-color: #888;
+    font-size: 15px;
 }

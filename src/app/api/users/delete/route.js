@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function DELETE(request) {
   const { userId } = await request.json();
-  console.log(userId)
 
   try {
     let data;

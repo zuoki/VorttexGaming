@@ -29,6 +29,10 @@ const GameDetail = ({ game }) => {
   const [inputDescription, setInputDescription] = useState("descriptionInputClass");
   const [inputPrice, setInputPrice] = useState("priceInputClass");
 
+  useEffect(() => {
+    setGameEdited(gameEdited);
+  }, [gameEdited])
+
   const handleEdit = (event) => {
 
     if (event.target.name === "price" && isNaN(event.target.value)) return;
@@ -110,7 +114,7 @@ const GameDetail = ({ game }) => {
           });
 
           setCurrentImg('Wallpeaper');
-          setSelectedImagePreview(game.wallpeaper)
+          setSelectedImagePreview(game.wallpaper)
         }
 
         if (currentImg === 'Wallpeaper') {
