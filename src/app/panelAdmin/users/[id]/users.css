@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
 
+*{
+    font-family: "Kdam Thmor Pro", sans-serif;
 
-.usersDetails{
+}
+.usersDetails {
+
     justify-content: center;
     align-items: center;
     font-family: "Kdam Thmor Pro", sans-serif;
@@ -9,15 +13,58 @@
     height: 70vh;
     margin: 0 auto;
     margin-top: 9%;
-    background: rgba( 34, 34, 34, 0.75 );
-    backdrop-filter: blur( 5.5px );
-    -webkit-backdrop-filter: blur( 5.5px );
+    background: rgba(34, 34, 34, 0.25);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
     border-radius: 10px;
-}
-
-.h1ud{
+    overflow-y: auto; /* Agrega la propiedad para permitir el desplazamiento vertical */
+  }
+  
+  .h1ud {
     position: relative;
     width: 20%;
+    left: 40%;
+  }
+  
+  .juegosUd {
+    position: absolute;
+    right: 5%;
+    background-color: #222222;
+    border-radius: 10px;
+    top: 10%; 
+    width: 40%; /* Ajusta el ancho al 100% para ocupar todo el ancho del contenedor principal */
+    height: 70%; /* Ajusta la altura a automático para permitir que crezca según el contenido */
+    display: grid;
+    gap: 10px; /* Ajusta el espacio entre las tarjetas */
+    grid-template-columns: 1fr; /* Una sola columna para una apariencia de tarjeta */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Ajusta el relleno según tus preferencias */
+  }
+  
+  /* Estilo para cada tarjeta de juego dentro de .juegosUd */
+  .mateconmote > div {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    margin-bottom: 10px;
+  }
 
-left:40%;
-}
+  .pepitoNombre{
+
+    position: absolute;
+    left: 5%;
+    background-color: #222222;
+    border-radius: 10px;
+    top:10% ;
+    width: 40%; /* Ajusta el ancho al 100% para ocupar todo el ancho del contenedor principal */
+    height: 70%;
+    display: grid;
+    gap: 10px; /* Ajusta el espacio entre las tarjetas */
+    grid-template-columns: 1fr; /* Una sola columna para una apariencia de tarjeta */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Ajusta el relleno según tus preferencias */
+  }
+
+  
+  

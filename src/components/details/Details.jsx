@@ -9,7 +9,7 @@ import Trailer from "./components_details/Trailer/Trailer";
 
 const Details = ({ game }) => {
   const detailsStyle = {
-    backgroundImage: `url(${game.wallpeaper})`,
+    backgroundImage: `url(${game.wallpaper})`,
   };
 
   return (

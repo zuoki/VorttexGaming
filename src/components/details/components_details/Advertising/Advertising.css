@@ -11,13 +11,11 @@
   border-radius: 1%;
 }
 .tituloCDJ {
-  
   background-color: rgb(0, 0, 0);
   width: 100%;
   height: 10%;
 }
 .tituloDJ {
-  
   margin-left: auto;
   text-align: center;
   font-size: 2em;
@@ -38,48 +36,40 @@
   height: 15%;
   z-index: 255;
 }
-.textInfoDetails{
+.textInfoDetails {
   width: 100%;
   height: 70%;
   background-color: #ff9500;
 }
 
-
-.destaco{
-  width: 33%; 
-  position: relative;
-  left: 3%;
-  top: 5%;
-}
-
-.PlatformD{
-  width: 33%; 
-  position: relative;
-  top: 0.5%;
-  left: 37%;
-}
-.SizeD{
-
-  width: 33%; 
-  position: relative;
-  top: -4.2%;
-  left: 69%;
-
-}
-
-.imgD2{
+.imgD2 {
   border-radius: 2%;
   position: relative;
   top: 1%;
- left: 10%;
+  left: 10%;
   width: 80%;
-
 }
 
-.odetails{
+.odetails {
   width: 90%;
   background-color: #181817;
   position: relative;
   top: 2.5%;
   left: 5%;
+}
+
+.fffix {
+
+  display: flex;
+  margin-top: 10%;
+  justify-content: space-between; /* Ajusta el espacio entre los elementos */
+  align-items: center; /* Alinea los elementos verticalmente en el centro (opcional) */
+}
+
+/* Estilos individuales para cada elemento h2 */
+.destaco,
+.PlatformD,
+.SizeD {
+  /* Puedes agregar estilos adicionales aquí, como tamaño de fuente, color, etc. */
+  margin: 0; /* Elimina el margen por defecto de los elementos h2 */
 }
