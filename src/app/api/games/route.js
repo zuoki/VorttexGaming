@@ -5,76 +5,33 @@ import { data } from ".././data";
 export async function GET() {
   const games = await prisma.games.findMany();
   const allData = games;
-  const allDataSorted = allData.sort((a,b) => a.id - b.id);
+  const allDataSorted = allData.sort((a, b) => a.id - b.id);
   return NextResponse.json(allDataSorted);
 }
 
 export async function POST(request) {
   const data = await request.json();
-  console.log(data)
+  console.log(data);
   const newGame = await prisma.games.create({ data });
   return NextResponse.json(newGame);
 }
 
 export async function PUT(request) {
   const data = await request.json();
-  console.log(typeof data.price)
+  console.log(typeof data.price);
   const updateGame = await prisma.games.update({
     where: { id: data.id },
     data,
   });
   return NextResponse.json(updateGame);
 }
+//ruta delete funcional.
+export async function DELETE(request) {
+  const data = await request.json();
+  console.log(data);
+  const deletedGame = await prisma.games.delete({
+    where: { id: data.id },
+  });
 
-//VERSION ANTIGUA DE POST
-// export async function POST(request) {
-//   const {
-//     title,
-//     platform,
-//     description,
-//     genre,
-//     releaseDate,
-//     developer,
-//     publishedby,
-//     image,
-//     video,
-//     size,
-//     price,
-//   } = await request.json();
-//   const newGame = await prisma.games.create({
-//     data: {
-//       title,
-//       platform,
-//       description,
-//       genre,
-//       releaseDate,
-//       developer,
-//       publishedby,
-//       image,
-//       video,
-//       size,
-//       price,
-//     },
-//   });
-//   return NextResponse.json(newGame);
-// }
-
-// export async function PUT(request) {
-//   const data = await request.json();
-//   const updateGame = await prisma.games.update({ data });
-//   return NextResponse.json(updateGame);
-// }
-
-//VERSION ANTIGUA DE PUT
-// export async function PUT(request) {
-//   const data = await request.json();
-//   const updateGame = await prisma.games.update({
-//     where: {
-//       id: data.id,
-//     },
-//     data: {
-//       title: data.title,
-//     },
-//   });
-//   return NextResponse.json(updateGame);
-// }
+  return NextResponse.json(deletedGame);
+}
