@@ -9,7 +9,7 @@ export async function POST(req) {
     secure: true,
     auth: {
       user: "pabloverat2@gmail.com",
-      pass: "pluk euby ygwb svcu",
+      pass: process.env.EMAIL_PASS,
     },
   });
 
