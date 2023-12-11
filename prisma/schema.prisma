@@ -25,6 +25,7 @@ model Games {
   capture     String
   size        String
   price       Float
+  offert      Int       @default(0)
   license     License[]
 }
 
