@@ -34,8 +34,7 @@ const Page = () => {
       // const user = await clerk.users.deleteUser(userId);
       // console.log(user);
       const userDelete = await axios.delete(`/api/users/delete`, { data: { userId } });
-      console.log(userDelete)
-      // console.log(userDelete);
+      console.log(userDelete);
 
       // const updatedUsers = allUsers.filter((user) => user.id !== userId);
       // setAllUsers(updatedUsers);
@@ -88,7 +87,7 @@ const Page = () => {
                   <a href={`/panelAdmin/users/${user.id}`}>{user.email}</a>
                 </td>
                 <td>
-                  <button onClick={() => deleteUser(user.id)}>🗑️</button>
+                  <button onClick={() => deleteUser(user.user_id)}>🗑️</button>
                 </td>
               </tr>
             ))}
