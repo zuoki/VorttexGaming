@@ -3,7 +3,7 @@ import { prisma } from "@/libs/prisma";
 
 export async function PUT(request) {
   const { idUser, idGame } = await request.json();
-  console.log(idUser)
+  console.log(idUser, "id")
   const availableGame = await prisma.games.findFirst({
     where: {
       id: idGame,
