@@ -33,11 +33,11 @@ const Page = () => {
 
   const deleteUser = async (userId) => {
     try {
-      console.log("eliminaa??");
-      // const clerkClient = new Clerk(process.env.CLERK_SECRET_KEY);
-      // const user = await clerk.users.deleteUser(userId);
-      // console.log(user);
-      const userDelete = await axios.delete(`/api/users/delete`, {
+      const API_URL =
+        process.env.NODE_ENV === "development"
+          ? process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_DELETE_LOCAL
+          : p;
+      const userDelete = await axios.delete(API_URL, {
         data: { userId },
       });
       console.log(userDelete);
