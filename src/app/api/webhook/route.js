@@ -5,7 +5,6 @@ export async function POST(request) {
   const { type, data } = await request.json();
 
   const id = data?.id;
-  console.log(data);
 
   switch (type) {
     case "user.deleted":
@@ -19,7 +18,6 @@ export async function POST(request) {
         });
         return NextResponse.json(deletedUser);
       } else {
-        console.log("No se pudo eliminar el usuario. id no existe.");
       }
       break;
 
@@ -70,9 +68,6 @@ export async function POST(request) {
           return NextResponse.json(newUser);
         }
       } else {
-        console.log(
-          "No se pudo crear el usuario. data o data.user no existen."
-        );
       }
       break;
 

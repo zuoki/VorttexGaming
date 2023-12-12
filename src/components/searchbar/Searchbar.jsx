@@ -35,7 +35,7 @@ const SearchBar = ({ handleSearch, games }) => {
             style={{ color: "#dedede" }}
           />
         </div>
-        {data && <div>{console.log(data)}</div>}
+        {data && <div></div>}
       </div>
     </div>
   );

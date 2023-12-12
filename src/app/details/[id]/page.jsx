@@ -19,7 +19,6 @@ const Page = ({ params }) => {
           : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
       axios(`${API_URL}/${params.id}`)
         .then((response) => {
-          console.log(response);
           setGames(response.data);
         })
         .catch((error) => {

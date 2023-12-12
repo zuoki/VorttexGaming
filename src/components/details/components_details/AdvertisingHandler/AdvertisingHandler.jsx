@@ -6,7 +6,6 @@ import "./AdvertisingHandler.css";
 
 const AdvertisingHandler = () => {
   const AdversingHandler = (value) => {
-    console.log(value);
   };
 
   return (

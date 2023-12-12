@@ -18,10 +18,10 @@ const Page = ({ params }) => {
 
     const fetchData = async () => {
       try {
-        const { data } = await axios('http://localhost:3000/api/games');
+        const { data } = await axios('/api/games');
           setDataa(data);
       } catch (error) {
-        console.log('Error: ', error.message)
+       
       }
     };
 

@@ -63,7 +63,7 @@ const Payment = () => {
             }}
             // fin bloque backend
             onCancel={async (data) => {
-              console.log(data);
+              
               Swal.fire({
                 background: '#fff',
                 title: "Opss!...",

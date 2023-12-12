@@ -32,7 +32,6 @@ const Page = () => {
       console.log("eliminaa??");
       // const clerkClient = new Clerk(process.env.CLERK_SECRET_KEY);
       // const user = await clerk.users.deleteUser(userId);
-      // console.log(user);
       const userDelete = await axios.delete(`/api/users/delete`, { data: { userId } });
       console.log(userDelete);
 

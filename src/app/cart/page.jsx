@@ -28,7 +28,7 @@ const Page = () => {
   };
   // Storage NO TOCAR
   const user = useUser();
-  console.log(user);
+ 
 
   useEffect(() => {
     if (user && user.user && user.user.id !== userId) {
