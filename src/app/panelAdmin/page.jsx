@@ -3,12 +3,13 @@ import "./panelAdmin.css";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
 import { FaUser, FaThList } from "react-icons/fa";
-import { BiSolidCategory, BiSupport } from "react-icons/bi";
+import { BiSolidCategory } from "react-icons/bi";
 import { MdDiscount, MdBuild } from "react-icons/md";
 import { LuLayoutPanelLeft } from "react-icons/lu";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { GrLicense } from "react-icons/gr";
 
 const Page = () => {
   const { organizationList, isLoaded } = useOrganizationList();
@@ -43,7 +44,7 @@ const Page = () => {
     },
     {
       icon: 5,
-      data: "SUPPORT",
+      data: "LICENSE",
     },
   ];
 
@@ -52,7 +53,7 @@ const Page = () => {
     2: BiSolidCategory,
     3: FaUser,
     4: MdDiscount,
-    5: BiSupport,
+    5: GrLicense,
   };
 
   return (

@@ -1,5 +1,7 @@
+"use client";
 import { useState } from "react";
 import axios from "axios";
+import "./postLicense.css";
 
 function LicenseComponent() {
   const [licenses, setLicenses] = useState([]);
@@ -18,7 +20,7 @@ function LicenseComponent() {
   };
 
   return (
-    <div>
+    <div className="contenedorLicense">
       <h1>Crear Licencia</h1>
       <input
         type="text"

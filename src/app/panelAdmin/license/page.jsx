@@ -19,8 +19,8 @@ function LicenseComponent() {
       <h1>Licencias Activas</h1>
       {licenses.map((license) => (
         <div key={license.id}>
-          <h2>{license.name}</h2>
-          <p>{license.game.title}</p>
+          <h2>Licencia: {license.name}</h2>
+          <p>Game: {license.game.title}</p>
         </div>
       ))}
     </div>
