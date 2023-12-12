@@ -3,6 +3,7 @@ import Details from "@/components/details/Details";
 import React from "react";
 import Footer from "@/components/footer/footer";
 import axios from "axios";
+import "./page.css"
 
 /* const URL_REQUESTS_GAMES = process.env.URL_REQUESTS_GAMES; */
 
@@ -17,7 +18,7 @@ const Page = async ({ params }) => {
   return (
     <div>
       <Details game={data} />
-      <Footer />
+      <Footer clasname="ffffffsa" />
     </div>
   );
 };

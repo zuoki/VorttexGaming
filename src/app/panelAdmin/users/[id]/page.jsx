@@ -1,12 +1,15 @@
+"use client"
 import axios from "axios";
 import "./users.css";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
+import Link from 'next/link';
+
 
 const Page = async ({ params }) => {
   const URL = "http://localhost:3000/api/users/";
   const response = await axios(`${URL}${params.id}`);
   const user = response.data;
-  console.log("holaaaaaaaaaaaa", user);
+
 
   return (
     <>
@@ -31,14 +34,18 @@ const Page = async ({ params }) => {
               <div key={license.id}>
                 <p>Licencia: {license.name}</p>
                 <p>Juego: {license.game.title}</p>{" "}
-                {/* Acceder al título del juego */}
               </div>
             ))
             ) : (
               <p>El usuario no tiene licencias disponibles</p>
               )}
               </div>
+
         </section>
+        <Link href={'/panelAdmin/users'}>
+				
+              <button className="butonsled" > {" R ⬅ BACK   "} </button>
+			</Link>
       </div>
     </>
   );

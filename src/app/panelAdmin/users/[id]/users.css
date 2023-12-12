@@ -66,5 +66,21 @@
     padding: 20px; /* Ajusta el relleno según tus preferencias */
   }
 
+
+  .butonsled{
+    transform: scale(1.5);
+    transition: all .3s;
+  
+
+
+    color: black;
+    background-color: #fff;
+  }
+
+  .butonsled:hover{
+    color: #fff;
+    background-color:black;
+  }
+
   
   

@@ -87,7 +87,7 @@ const Page = () => {
                   <a href={`/panelAdmin/users/${user.id}`}>{user.email}</a>
                 </td>
                 <td>
-                  <button onClick={() => deleteUser(user.user_id)}>🗑️</button>
+                  <button  onClick={() => deleteUser(user.user_id)}>🗑️</button>
                 </td>
               </tr>
             ))}
