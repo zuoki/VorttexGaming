@@ -81,6 +81,7 @@
     cursor: pointer;
     opacity: 1;
     transition: .3s;
+    overflow: visible;
 }
 
 .cardGame:hover {
@@ -93,6 +94,10 @@
     height: 280px;
     border-radius: 5px;
     
+}
+.name-gameC{
+    height: 50px;
+    overflow: visible;
 }
 
 .cardGame .spans {

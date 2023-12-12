@@ -60,9 +60,9 @@ const Aside = ({ types, onChange }) => {
         <p onClick={() => onChange[1]("FD")}>By Release Date (Newest)</p>
         <p onClick={() => onChange[1]("FA")}>By Release Date (Oldest)</p>
 
-        <p className="broom" onClick={() => onChange[1]("CLEAN")} >
+        <h1 className="broom" onClick={() => onChange[1]("CLEAN")} >
         RESET SORTING
-        </p>
+        </h1>
       </div>
             <div className="jesusAside">
       <div className="aside">
@@ -74,10 +74,11 @@ const Aside = ({ types, onChange }) => {
               value={"listButton--click"}
               onClick={handleClass}
               >
-              <a className="listLink">FILTER</a>
+              <a className="listLink">SHOW FILTERS</a>
             </div>
           
             <ul className="listShow">
+             <div className="typesga">
               <li className="listInside">
                 <p
                   className="listLink listLink--inside all"
@@ -105,6 +106,7 @@ const Aside = ({ types, onChange }) => {
                   </li>
                 );
               })}
+                </div>
               <button
                 disabled={typesToSend.length === 0}
                 className="apply"

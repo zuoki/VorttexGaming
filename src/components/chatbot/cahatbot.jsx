@@ -36,11 +36,14 @@ const Chatbot = () => {
   };
 
   return (
+    <div className='contenedorchatbotfix'>
+
     <div className='chatContainer'>
       <Image className={vortixClass} src={vLogo} alt='Chat Logo' />
       <div className="escondido" onClick={toggleVortix}>
           <h1>  HI VORT  </h1>
       </div>
+    </div>
     </div>
   );
 };
