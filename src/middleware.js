@@ -33,6 +33,8 @@ export default authMiddleware({
     "/details/:id",
     "/api/users",
     "/api/users/:id",
+    "/chatForo",
+    "/api/chatForo/socket",
   ],
   ignoredRoutes: [
     "/(api/games)(.*)",
@@ -41,6 +43,9 @@ export default authMiddleware({
     "/api/sendEmail",
     "/api/webhook",
     "/api/users/username",
+    "/chatForo",
+    "/api/chatForo",
+    "/api/chatForo/socket",
   ], // Utiliza .* para representar cualquier cadena de caracteres.
   requireAdminRoutes: ["/panelAdmin"], // Rutas que requieren ser administrador
   onUnauthorized: (req, res) => {

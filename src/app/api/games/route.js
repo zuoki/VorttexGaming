@@ -8,7 +8,6 @@ export async function GET() {
   const allDataSorted = allData.sort((a, b) => a.id - b.id);
   return NextResponse.json(allDataSorted);
 }
-
 export async function POST(request) {
   const data = await request.json();
   console.log(data);

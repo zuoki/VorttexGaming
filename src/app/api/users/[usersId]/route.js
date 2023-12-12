@@ -10,7 +10,11 @@ export async function GET(request, { params }) {
         id: numeros,
       },
       include: {
-        licenses: true,
+        licenses: {
+          include: {
+            game: true,
+          },
+        },
       },
     });
     return NextResponse.json(result);
