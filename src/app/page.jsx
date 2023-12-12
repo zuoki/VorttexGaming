@@ -33,13 +33,13 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios("http://localhost:3000/api/games");
-        setTimeout(() => {
+        const { data } = await axios("https://vorttex-gaming-topabli2-topablis-projects.vercel.app/api/games");
           setData(data);
-        }, 2000);
         setMostPriceGames([data[0], data[2], data[9]]);
         getGames(data).then(() => {});
-      } catch (error) {}
+      } catch (error) {
+        console.log(error.message)
+      }
     };
 
     fetchData();
