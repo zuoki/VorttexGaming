@@ -11,7 +11,6 @@ const Payment = () => {
   const [css, setCss] = useState("progress");
   const data = useUser();
   const email = data?.user?.emailAddresses?.[0]?.emailAddress;
-  // const email = "riosdeborasabrina@gmail.com";
   const { emptyCart } = useStoreCart();
   const client = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
 
