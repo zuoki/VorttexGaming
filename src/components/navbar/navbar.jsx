@@ -7,6 +7,7 @@ import { UserButton, useUser } from '@clerk/nextjs';
 import vLogo from './vortexLogo.png';
 import Image from 'next/image';
 import { useStoreCart } from '@/zustand/store';
+import { TiGroup } from "react-icons/ti";
 
 const NavBar = () => {
 	const user = useUser();
@@ -46,8 +47,8 @@ const NavBar = () => {
 						</Link>
 					)}
 					<Link href={'/panelAdmin'}>
-						<li>
-							<MdDashboardCustomize />
+						<li className='tiGroup' >
+							<TiGroup />
 						</li>
 					</Link>
 				</ul>

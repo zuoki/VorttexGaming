@@ -11,8 +11,10 @@ const Payment = () => {
   const [css, setCss] = useState("progress");
   const data = useUser();
   const email = data?.user?.emailAddresses?.[0]?.emailAddress;
-  const { emptyCart } = useStoreCart();
-  const client = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
+  const { emptyCart, gamesInCart } = useStoreCart();
+
+  let id;
+  if (gamesInCart.length > 0) id = gamesInCart[0].id;
 
   return (
     <div className="paypal">
@@ -20,7 +22,8 @@ const Payment = () => {
         <h1 className={css}>{statebuy}</h1>
         <PayPalScriptProvider
           options={{
-            clientId: client,
+            clientId:
+              "AVwb2hp2ZMkuRiQgJ1GujcCeizroHgzH-pOwUlWYdCNmPNcgRPaDjwrVg4BfI_k98Qd4DtUVpsYCquD8",
           }}
         >
           <PayPalButtons
@@ -28,11 +31,7 @@ const Payment = () => {
               label: "pay",
             }}
             createOrder={async () => {
-              const API_URL =
-                process.env.NODE_ENV === "development"
-                  ? process.env.NEXT_PUBLIC_URL_REQUESTS_PAYMENT_LOCAL
-                  : process.env.NEXT_PUBLIC_URL_REQUESTS_PAYMENT_DEPLOY;
-              const res = await fetch(API_URL, {
+              const res = await fetch("/api/checkout", {
                 method: "POST",
               });
               const order = await res.json();
@@ -53,15 +52,29 @@ const Payment = () => {
               await actions.order.capture(); // agregamos await *Debbb
               // Vacía el carrito de compras después de que se haya realizado un pago exitoso
 
-              await axios.post(
-                "/api/sendEmail",
-                { email },
+              const response = await axios.put(
+                "/api/userLicense",
+                { email, id },
                 {
                   headers: {
                     "Content-Type": "application/json",
                   },
                 }
               );
+
+              const dataPut = response.data;
+              const nameLicense = dataPut.name;
+
+              await axios.post(
+                "/api/sendEmail",
+                { email, nameLicense },
+                {
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+
               emptyCart();
               window.location.href = "/";
             }}
@@ -79,11 +92,7 @@ const Payment = () => {
               });
 
               // Hacer una solicitud al back-end para enviar un correo electrónico
-              const API_SEND_EMAIL_URL =
-                process.env.NODE_ENV === "development"
-                  ? process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_LOCAL
-                  : process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_DEPLOY;
-              const res = await fetch(API_SEND_EMAIL_URL, {
+              await fetch("/api/sendEmail", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

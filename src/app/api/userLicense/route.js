@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 
 export async function PUT(request) {
-  const { idUser, idGame } = await request.json();
-  console.log(idUser, "id")
+  const { email, idGame } = await request.json();
+  console.log('EMAIL: ', email, 'ID: ', idGame)
   const availableGame = await prisma.games.findFirst({
     where: {
       id: idGame,
@@ -18,6 +18,12 @@ export async function PUT(request) {
     },
   });
 
+  const user = await prisma.user.findUnique({
+    where: {
+      email: email
+    }
+  });
+
   if (!availableGame || availableGame.license.length === 0) {
     return NextResponse.json({ error: "No hay licencias disponibles en el momento para este juego" });
   } else {
@@ -27,7 +33,7 @@ export async function PUT(request) {
         id: availableLicense.id,
       },
       data: {
-        userId: idUser,
+        userId: user.id,
         active: false
       },
     });

@@ -10,6 +10,7 @@ import axios from "axios";
 import Loader from "../loader/Loader";
 
 const GameDetail = ({ game }) => {
+  if (!game) return <Loader />
   const [gameEdited, setGameEdited] = useState(game);
   const [selectedImagePreview, setSelectedImagePreview] = useState(null);
   const [currentImg, setCurrentImg] = useState("Image");

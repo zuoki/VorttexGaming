@@ -17,7 +17,7 @@ export async function POST(req) {
     from: '"Topabli👻" <pabloverat2@gmail.com>', // sender address
     to: request.email,
     subject: "Holita ✔",
-    html: `Aca esta tu licencia, ${request.license}`,
+    html: `Acá esta tu licencia, ${request.nameLicense}`,
   };
 
   try {

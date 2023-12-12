@@ -7,7 +7,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import EmptyCart from "@/components/emptyCartt/EmptyCart";
 import { useUser } from "@clerk/nextjs";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loader from "@/components/loader/Loader";
 
 const Page = () => {
@@ -19,6 +19,8 @@ const Page = () => {
     userId,
     data,
   } = useStoreCart();
+
+  const [loading, setLoading] = useState(true); // State to track loading
 
   let subtotal = 0;
   gamesInCart.forEach((game) => {
@@ -33,25 +35,25 @@ const Page = () => {
     event.preventDefault();
     emptyCart();
   };
-  // Storage NO TOCAR
+
   const user = useUser();
 
   useEffect(() => {
     if (user && user.user && user.user.id !== userId) {
       setUserId(user.user.id);
     }
+    setLoading(false); // Set loading to false once user is loaded
   }, [user]);
 
   // if (!user.id) {
   //   return Loader;
   // }
 
-  if (user && user.user) {
-    const user_id = user.user.id;
-    const email = user.user.primaryEmailAddress.emailAddress;
-  } else {
-    console.log("No user is authenticated");
-  }
+  // if (!user.id) {
+  //   return Loader;
+  // }
+
+  if (loading) return <Loader />; // Show loader while loading user
 
   return (
     <>
