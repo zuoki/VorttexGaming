@@ -34,12 +34,10 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios(
-          "https://vorttex-gaming-a8qvhratn-topablis-projects.vercel.app/api/games"
+          "https://vorttex-gaming-topabli2-topablis-projects.vercel.app/api/games"
         ); //"http://localhost:3000/api/games"
-        console.log(data);
-        setTimeout(() => {
-          setData(data);
-        }, 2000);
+        // setTimeout(() => {
+        setData(data);
         setMostPriceGames([data[0], data[2], data[9]]);
         getGames(data).then(() => {});
       } catch (error) {
