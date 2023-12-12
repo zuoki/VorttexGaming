@@ -16,12 +16,6 @@ const Page = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-<<<<<<< HEAD
-        const { data } = await axios('/api/games');
-          setDataa(data);
-      } catch (error) {
-       
-=======
         const API_URL =
           process.env.NODE_ENV === "development"
             ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
@@ -30,7 +24,6 @@ const Page = ({ params }) => {
         setDataa(data);
       } catch (error) {
         console.log("Error: ", error.message);
->>>>>>> cdbd93a4a1b8653c75c024c352938aa793d108ea
       }
     };
 

@@ -71,21 +71,20 @@ const Page = () => {
 					const IconComponent = iconMapping[option.icon];
 					let clase = 'optionPanel';
 					let claseSpan = 'iconPanel';
-					if (option.icon === 2) {
+/* 					if (option.icon === 2) {
 						clase = 'optionPanel comingSoon';
 						claseSpan = 'iconPanel comingSoonIcon';
 						route = '/panelAdmin';
-					}
-					if (option.icon == 4 || option.icon == 5) {
+					} */
+/* 					if (option.icon == 5) {
 						clase = 'optionPanel last comingSoon';
 						claseSpan = 'iconPanel comingSoonIcon';
 						route = '/panelAdmin';
-					}
-
+					} */
 
 					return (
 						<div key={option.icon} className={clase}>
-							{option.icon === 2 || option.icon === 4 || option.icon === 5 ? <p className='comingSoonText' >COMING SOON</p> : <p></p>}
+							{/* {option.icon === 2 ? <p className='comingSoonText' >COMING SOON</p> : <p></p>} */}
 							<Link href={route}>
 								<div>
 									{IconComponent && (

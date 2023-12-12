@@ -117,3 +117,7 @@
     --accent: #2378a0;
     --bg: hsl(187.08deg 100% 50% / 59%);
 }
+
+.tiGroup {
+    font-size: 20px;
+}

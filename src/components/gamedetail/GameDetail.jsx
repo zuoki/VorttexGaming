@@ -10,6 +10,7 @@ import axios from 'axios';
 import Loader from '../loader/Loader';
 
 const GameDetail = ({ game }) => {
+  if (!game) return <Loader />
   const [gameEdited, setGameEdited] = useState(game);
   const [selectedImagePreview, setSelectedImagePreview] = useState(null);
   const [currentImg, setCurrentImg] = useState("Image");
@@ -75,7 +76,7 @@ const GameDetail = ({ game }) => {
     }
     if (!inputEvaluated[1] && inputEvaluated[0] == "price") {
       setInputErrors({
-        title: false, 
+        title: false,
         description: false,
         price: false,
       });
@@ -164,9 +165,9 @@ const GameDetail = ({ game }) => {
           try {
             const url = "http://localhost:3000/api/games";
             const { data } = await axios.put(url, gameEdited);
-      
+
           } catch (error) {
-           
+
           }
         };
         fetchData();
@@ -197,9 +198,9 @@ const GameDetail = ({ game }) => {
           try {
             const url = 'http://localhost:3000/api/games'
             const { data } = await axios.delete(url, gameEdited.id);
-           
+
           } catch (error) {
-            
+
           }
         }
         fetchData();
@@ -234,7 +235,7 @@ const GameDetail = ({ game }) => {
     fnAsync();
   };
 
-  return (      
+  return (
     <div className='gameDetailContainer'>
 
       <div className="gridDetail">
@@ -289,9 +290,12 @@ const GameDetail = ({ game }) => {
 
         <div className='propsToEdit'>
           <input className={inputTitle} type='text' onChange={handleEdit} value={gameEdited.title} name='title' placeholder={gameEdited.title} />
+
           <input className={inputDescription} type='text' onChange={handleEdit} value={gameEdited.description} name='description' placeholder={gameEdited.description} />
+
           <input className={inputPrice} type='text' onChange={handleEdit} value={gameEdited.price} name='price' placeholder={`${gameEdited.price} $`} />
-          <input /* className={inputOffert} */ type='text' onChange={handleEdit} value={gameEdited.offert} name='offert' placeholder={!gameEdited.offert && 'this game has no offers'} disabled={!gameEdited.offert} />
+
+          <input /* className={inputOffert} */ type='text' onChange={handleEdit} value={gameEdited.offert > 0 ? gameEdited.offert : 'this game has no offers'} name='offert' placeholder={!gameEdited.offert && 'this game has no offers'} disabled={!gameEdited.offert} />
 
           <button
             className="cleanButton"

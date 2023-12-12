@@ -43,6 +43,7 @@ const Page = () => {
     if (validations(name, value)) {
       gameCreatedError(...gameCreatedError);
     }
+    console.log(validations(name,value))
   };
 
   return (

@@ -7,12 +7,14 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import EmptyCart from "@/components/emptyCartt/EmptyCart";
 import { useUser } from "@clerk/nextjs";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
-import { useEffect } from "react";
+import { useEffect, useState } from "react"; // Import useState
 import Loader from "@/components/loader/Loader";
 
 const Page = () => {
   const { gamesInCart, removeGameFromCart, emptyCart, setUserId, userId, data } =
     useStoreCart();
+
+  const [loading, setLoading] = useState(true); // State to track loading
 
   let subtotal = 0;
   gamesInCart.forEach((game) => {
@@ -27,24 +29,17 @@ const Page = () => {
     event.preventDefault();
     emptyCart();
   };
-  // Storage NO TOCAR
+
   const user = useUser();
- 
 
   useEffect(() => {
     if (user && user.user && user.user.id !== userId) {
       setUserId(user.user.id);
     }
+    setLoading(false); // Set loading to false once user is loaded
   }, [user]);
 
-  if (user && user.user) {
-    const user_id = user.user.id;
-    const email = user.user.primaryEmailAddress.emailAddress;
-  } else {
-    console.log("No user is authenticated");
-  }
-
-  if(!user.isSignedIn) return <Loader />
+  if (loading) return <Loader />; // Show loader while loading user
 
   return (
     <>
@@ -58,7 +53,6 @@ const Page = () => {
                 <p>{game.title}</p>
                 {/*<p>Cantidad: {game.id}</p>*/}
                 <p>Precio: ${game.price}</p>
-
                 <FontAwesomeIcon
                   icon={faTrash}
                   className="subtotal"
@@ -80,7 +74,7 @@ const Page = () => {
             <hr /> <p>${subtotal.toFixed(2)}</p>
           </h4>
           <Link href="/payment">
-            <button className="firstButton" disabled={subtotal == 0}>
+            <button className="firstButton" disabled={subtotal === 0}>
               Ir a pagar
             </button>
           </Link>
