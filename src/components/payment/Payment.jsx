@@ -64,6 +64,7 @@ const Payment = () => {
                 }
               );
               emptyCart();
+              window.location.href = "/";
             }}
             // fin bloque backend
             onCancel={async (data) => {
