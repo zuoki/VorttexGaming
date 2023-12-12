@@ -8,7 +8,6 @@ import Video from "./video/Video";
 import Swal from "sweetalert2";
 import axios from 'axios';
 import Loader from '../loader/Loader';
-import { PiArrowsInLineVertical } from 'react-icons/pi';
 
 const GameDetail = ({ game }) => {
   const [gameEdited, setGameEdited] = useState(game);
