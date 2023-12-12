@@ -131,7 +131,7 @@ const HomePage = () => {
         <MostPrice mostPrice={mostPriceGames} />
         <Offerts games={mostPriceGames} />
         <Genders types={uniqueArrTypesGames} />
-        <SearchBar handleSearch={handleSearch} />
+        <SearchBar handleSearch={handleSearch} games={data} />
         <div className="cardsAndAside">
           <Card data={currentGames} />
 

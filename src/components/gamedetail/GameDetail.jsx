@@ -8,7 +8,6 @@ import Video from './video/Video';
 import Swal from "sweetalert2";
 import axios from 'axios';
 import Loader from '../loader/Loader';
-import { PiArrowsInLineVertical } from 'react-icons/pi';
 
 const GameDetail = ({ game }) => {
   if (!game) return <Loader />;
@@ -78,7 +77,7 @@ const GameDetail = ({ game }) => {
     }
     if (!inputEvaluated[1] && inputEvaluated[0] == 'price') {
       setInputErrors({
-        title: false,
+        title: false, 
         description: false,
         price: false
       })
@@ -185,7 +184,6 @@ const GameDetail = ({ game }) => {
   const goToList = () => {
     window.location.href = '/panelAdmin/games';
   };
-
   const deleteGame = () => {
 
     Swal.fire({
@@ -203,6 +201,16 @@ const GameDetail = ({ game }) => {
           text: "This game has been deleted.",
           icon: "success"
         });
+        const fetchData = async () => {
+          try {
+            const url = 'http://localhost:3000/api/games'
+            const { data } = await axios.delete(url, gameEdited.id);
+            console.log(data)
+          } catch (error) {
+            console.log(error)
+          }
+        }
+        fetchData();
       }
     });
 
@@ -225,17 +233,18 @@ const GameDetail = ({ game }) => {
         if (val.params.title !== `["DELETE ${game.title}"]`) {
           Swal.fire("Something went wrong in the confirmation");
           return;
-        } 
+        }
         Swal.fire({
           title: "The game has been deleted successfully!",
           icon: "success"
         });
+
       }
     }
     fnAsync();
   }
 
-  return (      
+  return (
     <div className='gameDetailContainer'>
 
       <h1 className='idCurrentGame' >{game.id}</h1>
@@ -284,7 +293,7 @@ const GameDetail = ({ game }) => {
           <input className={inputTitle} type='text' onChange={handleEdit} value={gameEdited.title} name='title' placeholder={gameEdited.title} />
           <input className={inputDescription} type='text' onChange={handleEdit} value={gameEdited.description} name='description' placeholder={gameEdited.description} />
           <input className={inputPrice} type='text' onChange={handleEdit} value={gameEdited.price} name='price' placeholder={`${gameEdited.price} $`} />
-          <input /* className={inputOffert} */ type='text' onChange={handleEdit} value={gameEdited.offert} name='offert' placeholder={!gameEdited.offert && 'this game has no offers'} disabled={!gameEdited.offert} />
+          <input /* className={inputOffert} */ type='text' onChange={handleEdit} value={gameEdited.offert > 0 ? gameEdited.offert : 'this game has no offers'} name='offert' placeholder={gameEdited.offert === 0 && 'this game has no offers'} disabled={gameEdited.offert === 0} />
 
           <button className='cleanButton' disabled={verifyErrors() || JSON.stringify(gameEdited) === JSON.stringify(game)} onClick={cleanInputs}>CLEAN</button>
           <button className='deleteButton' onClick={deleteGame}>DELETE GAME</button>

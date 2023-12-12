@@ -18,7 +18,6 @@ export async function POST(request) {
 
 export async function PUT(request) {
   const data = await request.json();
-  console.log(typeof data.price);
   const updateGame = await prisma.games.update({
     where: { id: data.id },
     data,
@@ -28,7 +27,6 @@ export async function PUT(request) {
 //ruta delete funcional.
 export async function DELETE(request) {
   const data = await request.json();
-  console.log(data);
   const deletedGame = await prisma.games.delete({
     where: { id: data.id },
   });

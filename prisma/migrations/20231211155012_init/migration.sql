@@ -14,6 +14,7 @@ CREATE TABLE "Games" (
     "capture" TEXT NOT NULL,
     "size" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
+    "offert" INTEGER NOT NULL DEFAULT 0,
 
     CONSTRAINT "Games_pkey" PRIMARY KEY ("id")
 );

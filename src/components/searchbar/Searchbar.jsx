@@ -4,7 +4,7 @@ import "./Searchbar.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SearchBar = ({ handleSearch }) => {
+const SearchBar = ({ handleSearch, games }) => {
   const [inputName, setInputName] = useState("");
   const [data, setData] = useState(null);
 
@@ -13,13 +13,17 @@ const SearchBar = ({ handleSearch }) => {
     handleSearch(e.target.value);
   };
 
+  const randomNumber = Math.floor(Math.random() * 24);
+  console.log(randomNumber)
+  const placeHolderName = games[randomNumber].title;
+
   return (
     <div className="SearchBar-Container">
       <div className="containerN">
         <div className="SearchBar-input">
           <input
             type="text"
-            placeholder="The Witcher 3..."
+            placeholder={`${placeHolderName}...`}
             value={inputName}
             onChange={handleInputChange}
           />

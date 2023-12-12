@@ -23,7 +23,7 @@ const Categories = () => {
         {
           genres.length > 0 &&
              genres.map(genre => (
-              <div className='genre'>
+              <div className='genre' key={genre} >
                 <p className='genreP' >{genre}</p>
 
                 <div className='iconContainer' >
