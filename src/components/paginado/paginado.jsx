@@ -1,5 +1,19 @@
+import { Pagination, ConfigProvider } from 'antd';
+import theme from './theme/themeConfig';
+
 import React from 'react';
 import style from './paginado.module.css';
+
+const AntdPaginado = ({ current, total, onChange }) => (
+  <ConfigProvider theme={theme} >
+
+      <Pagination showQuickJumper current={current} total={total} onChange={onChange}
+
+      />
+
+  </ConfigProvider>
+  
+);
 
 const Paginado = ({ currentPage, totalPages, onPageChange }) => {
   const renderPageNumbers = () => {
@@ -22,7 +36,9 @@ const Paginado = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <div className={style.containButPage}>
-      <ul className="pagination">{renderPageNumbers()}</ul>
+      <ul className="pagination">
+        <AntdPaginado current={currentPage} total={totalPages * 10} onChange={onPageChange}  />
+      </ul>
     </div>
   );
 };
