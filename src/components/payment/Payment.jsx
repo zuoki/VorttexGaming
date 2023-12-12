@@ -79,11 +79,7 @@ const Payment = () => {
               );
 
               emptyCart();
-<<<<<<< HEAD
               window.location.href = "/";
-=======
-              window.location.href = '/';
->>>>>>> 868e561db9cfb44e739a3471828b289390a135d5
             }}
             // fin bloque backend
             onCancel={async (data) => {
