@@ -15,7 +15,11 @@ const Page = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios("/api/users");
+        const API_URL =
+          process.env.NODE_ENV === "development"
+            ? process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_LOCAL
+            : process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_DEPLOY;
+        const response = await axios(API_URL);
         setAllUsers(response.data);
         setFilteredUsers(response.data);
       } catch (error) {
@@ -33,7 +37,9 @@ const Page = () => {
       // const clerkClient = new Clerk(process.env.CLERK_SECRET_KEY);
       // const user = await clerk.users.deleteUser(userId);
       // console.log(user);
-      const userDelete = await axios.delete(`/api/users/delete`, { data: { userId } });
+      const userDelete = await axios.delete(`/api/users/delete`, {
+        data: { userId },
+      });
       console.log(userDelete);
 
       // const updatedUsers = allUsers.filter((user) => user.id !== userId);
@@ -87,7 +93,7 @@ const Page = () => {
                   <a href={`/panelAdmin/users/${user.id}`}>{user.email}</a>
                 </td>
                 <td>
-                  <button  onClick={() => deleteUser(user.user_id)}>🗑️</button>
+                  <button onClick={() => deleteUser(user.user_id)}>🗑️</button>
                 </td>
               </tr>
             ))}
