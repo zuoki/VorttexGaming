@@ -30,6 +30,9 @@ const Page = () => {
     price: 0,
   });
 
+  const [inputClass, setInputClass] = useState('classInputCreate');
+
+
   // useEffect(() => {
   //   setGameCreated(gameCreated)
   // }, [gameCreated])
@@ -41,9 +44,14 @@ const Page = () => {
       [name]: value,
     });
     if (validations(name, value)) {
-      gameCreatedError(...gameCreatedError);
+      setGameCreatedError(
+        {
+          ...gameCreatedError,
+          [name]: value
+        }
+      );
+      setInputClass('classInputCreate error')
     }
-    console.log(validations(name,value))
   };
 
   return (

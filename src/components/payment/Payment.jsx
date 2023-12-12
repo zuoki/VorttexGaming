@@ -11,8 +11,10 @@ const Payment = () => {
   const [css, setCss] = useState("progress");
   const data = useUser();
   const email = data?.user?.emailAddresses?.[0]?.emailAddress;
-  // const email = "riosdeborasabrina@gmail.com";
-  const { emptyCart } = useStoreCart();
+  const { emptyCart, gamesInCart } = useStoreCart();
+
+  let id;
+  if (gamesInCart.length > 0) id = gamesInCart[0].id;
 
   return (
     <div className="paypal">
@@ -50,20 +52,34 @@ const Payment = () => {
               await actions.order.capture(); // agregamos await *Debbb
               // Vacía el carrito de compras después de que se haya realizado un pago exitoso
 
-              await axios.post(
-                "/api/sendEmail",
-                { email },
+              const response = await axios.put(
+                "/api/userLicense",
+                { email, id },
                 {
                   headers: {
                     "Content-Type": "application/json",
                   },
                 }
               );
+
+              const dataPut = response.data;
+              const nameLicense = dataPut.name;
+
+              await axios.post(
+                "/api/sendEmail",
+                { email, nameLicense },
+                {
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+
               emptyCart();
             }}
             // fin bloque backend
             onCancel={async (data) => {
-              
+
               Swal.fire({
                 background: "#fff",
                 title: "Opss!...",
