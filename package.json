@@ -25,6 +25,7 @@
     "install": "^0.13.0",
     "lodash": "^4.17.21",
     "next": "^14.0.4",
+    "nodemailer": "^6.9.7",
     "npm": "^10.2.4",
     "particles.js": "^2.0.0",
     "react": "^18",
