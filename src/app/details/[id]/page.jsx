@@ -1,17 +1,40 @@
 // /* import  from ""; */
+"use client";
 import Details from "@/components/details/Details";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "@/components/footer/footer";
 import axios from "axios";
+import Loader from "@/components/loader/Loader";
 
-const URL_REQUESTS_GAMES = process.env.URL_REQUESTS_GAMES;
+// const URL_REQUESTS_GAMES = process.env.URL_REQUESTS_GAMES;
 
-const Page = async ({ params }) => {
-  const response = await axios(`${URL_REQUESTS_GAMES}/${params.id}`);
+const Page = ({ params }) => {
+  const [games, setGames] = useState({});
+
+  useEffect(() => {
+    const fetchData = () => {
+      const API_URL =
+        process.env.NODE_ENV === "development"
+          ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
+          : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
+      axios(`${API_URL}/${params.id}`)
+        .then((response) => {
+          console.log(response);
+          setGames(response.data);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    };
+    fetchData();
+  }, []);
+  if (!games.id) {
+    return Loader;
+  }
 
   return (
     <div>
-      <Details game={response} />
+      <Details game={games} />
       <Footer />
     </div>
   );
