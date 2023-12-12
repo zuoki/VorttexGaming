@@ -1,12 +1,11 @@
-"use client"; 
+"use client";
 import GameDetail from "@/components/gamedetail/GameDetail";
-import { data } from '../../../api/data';
+import { data } from "../../../api/data";
 import { useState, useEffect } from "react";
 import { useStoreCart } from "@/zustand/store";
 import axios from "axios";
 
 const Page = ({ params }) => {
-
   const [dataa, setDataa] = useState([]);
 
   const store = useStoreCart();
@@ -15,13 +14,16 @@ const Page = ({ params }) => {
   if (store) getGames = store.getGames;
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
-        const { data } = await axios('http://localhost:3000/api/games');
-          setDataa(data);
+        const API_URL =
+          process.env.NODE_ENV === "development"
+            ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
+            : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
+        const { data } = await axios(API_URL);
+        setDataa(data);
       } catch (error) {
-        console.log('Error: ', error.message)
+        console.log("Error: ", error.message);
       }
     };
 
@@ -29,20 +31,21 @@ const Page = ({ params }) => {
   }, []);
 
   let game = [];
-  const gameToMap = [...params.game]
+  const gameToMap = [...params.game];
   gameToMap.forEach((letter, index) => {
-    if(letter === "-") letter = " ";
-    if(letter === "%") {
+    if (letter === "-") letter = " ";
+    if (letter === "%") {
       letter = ":";
-      gameToMap[index+1] = "";
-      gameToMap[index+2] = "";
+      gameToMap[index + 1] = "";
+      gameToMap[index + 2] = "";
     }
-    game.push(letter)
+    game.push(letter);
   });
 
-  game = game.join('');
-  
-  const gameFound = dataa.length > 0 && dataa.find(juego => juego.title === game);
+  game = game.join("");
+
+  const gameFound =
+    dataa.length > 0 && dataa.find((juego) => juego.title === game);
 
   return (
     <div>
