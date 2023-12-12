@@ -48,7 +48,7 @@ const HomePage = () => {
     };
 
     fetchData();
-  }, []);
+  }, [setMostPriceGames, setData]);
 
   const [filtrado, setFiltrado] = useState(false);
   const [filtrados, setFiltrados] = useState([]);
