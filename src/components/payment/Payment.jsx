@@ -16,7 +16,6 @@ const Payment = () => {
   let id;
   if (gamesInCart.length > 0) id = gamesInCart[0].id;
 
-
   return (
     <div className="paypal">
       <div className="visualP">
@@ -80,11 +79,10 @@ const Payment = () => {
               );
 
               emptyCart();
-              window.location.href = '/';
+              window.location.href = "/";
             }}
             // fin bloque backend
             onCancel={async (data) => {
-
               Swal.fire({
                 background: "#fff",
                 title: "Opss!...",
