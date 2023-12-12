@@ -30,20 +30,6 @@ const HomePage = () => {
   let getGames;
   if (store) getGames = store.getGames;
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const { data } = await axios(
-  //         "https://vorttex-gaming-topabli2-topablis-projects.vercel.app/api/games"
-  //       ); //"http://localhost:3000/api/games"
-  //       setData(data);
-  //       setMostPriceGames([data[0], data[2], data[9]]);
-  //       getGames(data).then(() => {});
-  //     } catch (error) {}
-  //   };
-
-  //   fetchData();
-  // }, []);
   useEffect(() => {
     const fetchData = async () => {
       try {
