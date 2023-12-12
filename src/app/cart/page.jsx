@@ -20,7 +20,7 @@ const Page = () => {
     data,
   } = useStoreCart();
 
-  const [loading, setLoading] = useState(true); // State to track loading
+  const [loading, setLoading] = useState(true);
 
   let subtotal = 0;
   gamesInCart.forEach((game) => {
@@ -42,18 +42,8 @@ const Page = () => {
     if (user && user.user && user.user.id !== userId) {
       setUserId(user.user.id);
     }
-    setLoading(false); // Set loading to false once user is loaded
+    setLoading(false); 
   }, [user]);
-
-  // if (!user.id) {
-  //   return Loader;
-  // }
-
-  // if (!user.id) {
-  //   return Loader;
-  // }
-
-  if (loading) return <Loader />; // Show loader while loading user
 
   return (
     <>
