@@ -4,7 +4,6 @@ import { prisma } from "@/libs/prisma";
 export async function GET(request,  { params }) {
 
     const  id  =  Number(params.id);
-    // console.log(id)
     const availableGame = await prisma.license.findMany({
       where: {
         active: true,

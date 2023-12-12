@@ -164,9 +164,9 @@ const GameDetail = ({ game }) => {
           try {
             const url = "http://localhost:3000/api/games";
             const { data } = await axios.put(url, gameEdited);
-            console.log(data);
+      
           } catch (error) {
-            console.log(error);
+           
           }
         };
         fetchData();
@@ -197,9 +197,9 @@ const GameDetail = ({ game }) => {
           try {
             const url = 'http://localhost:3000/api/games'
             const { data } = await axios.delete(url, gameEdited.id);
-            console.log(data)
+           
           } catch (error) {
-            console.log(error)
+            
           }
         }
         fetchData();

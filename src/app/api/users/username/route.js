@@ -14,8 +14,6 @@ import { prisma } from "@/libs/prisma";
 //       },
 //     },
 //   });
-//   console.log("holaaaaaaaaaaa", result);
-
 //   //return new Response(JSON.stringify({ name, result }), { status: 200 })
 //   return NextResponse.json(result);
 // }
@@ -37,7 +35,5 @@ export async function GET(request) {
   const filteredResult = result.filter((user) =>
     user.username.toLowerCase().includes(name)
   );
-  console.log("holaaaaaaaaaaa", filteredResult)
-
   return NextResponse.json(filteredResult);
 }

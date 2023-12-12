@@ -4,6 +4,11 @@
 *{
   font-family: "Kdam Thmor Pro", sans-serif;
 }
+.typesga{
+    width: 100%;
+    position: relative;
+    left: -9%;
+}
 
 
 .diosAside{
@@ -16,7 +21,7 @@
 .jesusAside{
     width: 100%;
     justify-content: center;
-    background-color: #00747c;
+    border-bottom-left-radius:20px;
 }
 
 
@@ -75,6 +80,13 @@
     color: #ccc;
     padding-top: 25px;
      height: 10%;
+     width: 70%;
+     position: relative;
+     left: 15%;
+     transition: all .3s;
+}
+.listLink:hover{
+color: #FF9301;
 }
 
 .listLink--inside {
@@ -170,24 +182,33 @@
     position: relative;
     background-color: #333;
     width: 100%;
-    border-radius: 2px;
     color: #ccc;
-    border-radius: 2%;
+    border-radius: 4px;
 }
 
 .ordenarAside a {
     text-align: center;
     font-size: 150%;
-    position: relative;
     width: 50%;
-    left: 25%;
+    position: relative;
+    top: 10px;
+    left: 35%;
+}
+.ordenarAside h1{
+    cursor: pointer;
+    position: relative;
+    top: 5px;
 }
 
 .ordenarAside p {
+    position: relative;
+    top: 5px;
     font-size: 100%;
     padding: 8px 10px;
     cursor: pointer;
     transition: .2s;
+    left: 0;
+    text-indent: 12.5%;
 
 }
 
