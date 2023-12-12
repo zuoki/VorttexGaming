@@ -1,10 +1,8 @@
 import paypal from "@paypal/checkout-server-sdk";
 import { NextResponse } from "next/server";
 
-const clientID =
-  "AVwb2hp2ZMkuRiQgJ1GujcCeizroHgzH-pOwUlWYdCNmPNcgRPaDjwrVg4BfI_k98Qd4DtUVpsYCquD8";
-const clientSecret =
-  "EC1dDcbNkGeGame0Xo6VXQk3GGbMrIDlAj-pSxFxyiZ1wcppR26wl-H-sykk642hpXRjldoMYChsM00q";
+const clientID = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
+const clientSecret = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_SECRET_ID;
 
 const environment = new paypal.core.SandboxEnvironment(clientID, clientSecret);
 
