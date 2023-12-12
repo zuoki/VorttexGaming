@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
@@ -48,9 +49,12 @@ const Footer = () => {
                         <h4>Redes Sociales</h4>
 
                     <div className="socialmedia" >
-                        <p> <FaGithub /> </p>
-                        <p> <FaInstagram /> </p>
-                        <p> <FaFacebook /> </p>
+                        
+                        <a href="https://github.com"> <FaGithub /> </a>
+                        
+                        
+                        <a href="https://www.instagram.com/vorttexgamingar/"> <FaInstagram /> </a>
+                        <a href="https://www.facebook.com"> <FaFacebook /> </a>
                     </div>
                    
                     </div>

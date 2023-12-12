@@ -4,7 +4,6 @@
 
 .footer{
     background-color: black;
-    margin-top: 3%;
 }
 
 .sb_footer{
@@ -38,13 +37,14 @@ a{
 }
 
 .socialmedia{
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 18px;
+    margin-left: 18px;
     display: flex;
     flex-direction: row;
 }
 
-.socialmedia p{
+.socialmedia a{
+    color: white;
     width: 80%;
 }
 
