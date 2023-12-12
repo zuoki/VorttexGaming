@@ -1,9 +1,10 @@
 .section_padding{
-    padding: 4rem 4rem;
+    padding: 1rem 4rem;
 }
 
 .footer{
     background-color: black;
+    margin-top: 3%;
 }
 
 .sb_footer{
@@ -37,6 +38,8 @@ a{
 }
 
 .socialmedia{
+    margin-top: 20px;
+    margin-left: 20px;
     display: flex;
     flex-direction: row;
 }
