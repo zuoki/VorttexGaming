@@ -14,6 +14,17 @@ const Payment = () => {
   const { emptyCart, gamesInCart } = useStoreCart();
   const client = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
   let id;
+
+  const API_SEND_EMAIL_URL =
+    process.env.NODE_ENV === "development"
+      ? process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_LOCAL
+      : process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_DEPLOY;
+
+  const API_SEND_LICENSE_URL =
+    process.env.NODE_ENV === "development"
+      ? process.env.NEXT_PUBLIC_URL_REQUESTS_LICENSE_LOCAL
+      : process.env.NEXT_PUBLIC_URL_REQUESTS_LICENSE_DEPLOY;
+
   if (gamesInCart.length > 0) id = gamesInCart[0].id;
 
   return (
@@ -56,7 +67,7 @@ const Payment = () => {
               // Vacía el carrito de compras después de que se haya realizado un pago exitoso
 
               const response = await axios.put(
-                "/api/userLicense",
+                API_SEND_LICENSE_URL,
                 { email, id },
                 {
                   headers: {
@@ -69,7 +80,7 @@ const Payment = () => {
               const nameLicense = dataPut.name;
 
               await axios.post(
-                "/api/sendEmail",
+                API_SEND_EMAIL_URL,
                 { email, nameLicense },
                 {
                   headers: {
@@ -95,10 +106,6 @@ const Payment = () => {
               });
 
               // Hacer una solicitud al back-end para enviar un correo electrónico
-              const API_SEND_EMAIL_URL =
-                process.env.NODE_ENV === "development"
-                  ? process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_LOCAL
-                  : process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_DEPLOY;
               const res = await fetch(API_SEND_EMAIL_URL, {
                 method: "POST",
                 headers: {
