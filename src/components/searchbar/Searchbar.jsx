@@ -14,7 +14,6 @@ const SearchBar = ({ handleSearch, games }) => {
   };
 
   const randomNumber = Math.floor(Math.random() * 24);
-  console.log(randomNumber)
   const placeHolderName = games[randomNumber].title;
 
   return (
