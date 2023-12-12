@@ -8,6 +8,7 @@ import EmptyCart from "@/components/emptyCartt/EmptyCart";
 import { useUser } from "@clerk/nextjs";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import { useEffect } from "react";
+import Loader from "@/components/loader/Loader";
 
 const Page = () => {
   const { gamesInCart, removeGameFromCart, emptyCart, setUserId, userId, data } =
@@ -42,6 +43,8 @@ const Page = () => {
   } else {
     console.log("No user is authenticated");
   }
+
+  if(!user.isSignedIn) return <Loader />
 
   return (
     <>
