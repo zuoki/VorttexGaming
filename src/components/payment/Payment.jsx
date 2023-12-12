@@ -12,7 +12,7 @@ const Payment = () => {
   const data = useUser();
   const email = data?.user?.emailAddresses?.[0]?.emailAddress;
   const { emptyCart, gamesInCart } = useStoreCart();
-
+  const client = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
   let id;
   if (gamesInCart.length > 0) id = gamesInCart[0].id;
 
@@ -22,8 +22,7 @@ const Payment = () => {
         <h1 className={css}>{statebuy}</h1>
         <PayPalScriptProvider
           options={{
-            clientId:
-              "AVwb2hp2ZMkuRiQgJ1GujcCeizroHgzH-pOwUlWYdCNmPNcgRPaDjwrVg4BfI_k98Qd4DtUVpsYCquD8",
+            clientId: client,
           }}
         >
           <PayPalButtons
@@ -31,7 +30,11 @@ const Payment = () => {
               label: "pay",
             }}
             createOrder={async () => {
-              const res = await fetch("/api/checkout", {
+              const API_URL =
+                process.env.NODE_ENV === "development"
+                  ? process.env.NEXT_PUBLIC_URL_REQUESTS_PAYMENT_LOCAL
+                  : process.env.NEXT_PUBLIC_URL_REQUESTS_PAYMENT_DEPLOY;
+              const res = await fetch(API_URL, {
                 method: "POST",
               });
               const order = await res.json();
@@ -76,7 +79,11 @@ const Payment = () => {
               );
 
               emptyCart();
+<<<<<<< HEAD
               window.location.href = "/";
+=======
+              window.location.href = '/';
+>>>>>>> 868e561db9cfb44e739a3471828b289390a135d5
             }}
             // fin bloque backend
             onCancel={async (data) => {
@@ -92,7 +99,11 @@ const Payment = () => {
               });
 
               // Hacer una solicitud al back-end para enviar un correo electrónico
-              await fetch("/api/sendEmail", {
+              const API_SEND_EMAIL_URL =
+                process.env.NODE_ENV === "development"
+                  ? process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_LOCAL
+                  : process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_DEPLOY;
+              const res = await fetch(API_SEND_EMAIL_URL, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
