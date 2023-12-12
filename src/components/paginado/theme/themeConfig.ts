@@ -4,11 +4,12 @@ const theme: ThemeConfig = {
   token: {
     colorBorder: '#FF9500',
     fontSize: 16,
-    colorPrimary: '#FFFFFF',
+    colorPrimary: '#00000',
     colorText: '#FFFFFF',
     colorBgContainer: '#FF9500',
     colorTextPlaceholder: '#FFFFFF',
     borderRadius: 3,
+    colorPrimaryHover: '#000000'
   },
 };
 
