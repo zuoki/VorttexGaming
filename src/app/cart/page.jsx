@@ -55,7 +55,7 @@ const Page = () => {
 
   return (
     <>
-      {!user ? (
+      {!user.user ? (
         <Loader />
       ) : (
         <>
