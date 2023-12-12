@@ -6,8 +6,8 @@ import Modal from "./modal/Modal";
 import { validations } from "./util";
 import Video from "./video/Video";
 import Swal from "sweetalert2";
-import axios from 'axios';
-import Loader from '../loader/Loader';
+import axios from "axios";
+import Loader from "../loader/Loader";
 
 const GameDetail = ({ game }) => {
   if (!game) return <Loader />
@@ -28,10 +28,6 @@ const GameDetail = ({ game }) => {
   const [inputPrice, setInputPrice] = useState("priceInputClass");
 
   if (!game) return <Loader />;
-
-  // useEffect(() => {
-  //   setGameEdited(gameEdited);
-  // }, [gameEdited])
 
   const handleEdit = (event) => {
     if (event.target.name === "price" && isNaN(event.target.value)) return;
@@ -86,19 +82,12 @@ const GameDetail = ({ game }) => {
       ...gameEdited,
       [event.target.name]: event.target.value,
     });
-
-    //MANEJO DE OFERTAS
-    /*     else {
-    
-        } */
   };
   const handleImagePreview = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        /* setSelectedImagePreview(reader.result); */
-
         if (currentImg === "Image") {
           Swal.fire({
             title: "the image has been changed successfully!",
@@ -163,12 +152,12 @@ const GameDetail = ({ game }) => {
         });
         const fetchData = async () => {
           try {
-            const url = "http://localhost:3000/api/games";
-            const { data } = await axios.put(url, gameEdited);
-
-          } catch (error) {
-
-          }
+            const API_URL =
+              process.env.NODE_ENV === "development"
+                ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
+                : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
+            const { data } = await axios.put(API_URL, gameedited);
+          } catch (error) {}
         };
         fetchData();
         window.location.href = "/panelAdmin/games";
@@ -196,13 +185,13 @@ const GameDetail = ({ game }) => {
         });
         const fetchData = async () => {
           try {
-            const url = 'http://localhost:3000/api/games'
-            const { data } = await axios.delete(url, gameEdited.id);
-
-          } catch (error) {
-
-          }
-        }
+            const API_URL =
+              process.env.NODE_ENV === "development"
+                ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
+                : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
+            const { data } = await axios.delete(API_URL, gameEdited.id);
+          } catch (error) {}
+        };
         fetchData();
       }
     });
@@ -229,15 +218,13 @@ const GameDetail = ({ game }) => {
           title: "The game has been deleted successfully!",
           icon: "success",
         });
-
       }
     };
     fnAsync();
   };
 
   return (
-    <div className='gameDetailContainer'>
-
+    <div className="gameDetailContainer">
       <div className="gridDetail">
         <div className={galeryClass}>
           {currentImg === "Trailer" ? (
@@ -288,14 +275,39 @@ const GameDetail = ({ game }) => {
           )}
         </div>
 
-        <div className='propsToEdit'>
-          <input className={inputTitle} type='text' onChange={handleEdit} value={gameEdited.title} name='title' placeholder={gameEdited.title} />
-
-          <input className={inputDescription} type='text' onChange={handleEdit} value={gameEdited.description} name='description' placeholder={gameEdited.description} />
-
-          <input className={inputPrice} type='text' onChange={handleEdit} value={gameEdited.price} name='price' placeholder={`${gameEdited.price} $`} />
-
-          <input /* className={inputOffert} */ type='text' onChange={handleEdit} value={gameEdited.offert > 0 ? gameEdited.offert : 'this game has no offers'} name='offert' placeholder={!gameEdited.offert && 'this game has no offers'} disabled={!gameEdited.offert} />
+        <div className="propsToEdit">
+          <input
+            className={inputTitle}
+            type="text"
+            onChange={handleEdit}
+            value={gameEdited.title}
+            name="title"
+            placeholder={gameEdited.title}
+          />
+          <input
+            className={inputDescription}
+            type="text"
+            onChange={handleEdit}
+            value={gameEdited.description}
+            name="description"
+            placeholder={gameEdited.description}
+          />
+          <input
+            className={inputPrice}
+            type="text"
+            onChange={handleEdit}
+            value={gameEdited.price}
+            name="price"
+            placeholder={`${gameEdited.price} $`}
+          />
+          <input
+            /* className={inputOffert} */ type="text"
+            onChange={handleEdit}
+            value={gameEdited.offert}
+            name="offert"
+            placeholder={!gameEdited.offert && "this game has no offers"}
+            disabled={!gameEdited.offert}
+          />
 
           <button
             className="cleanButton"

@@ -16,6 +16,7 @@ const Payment = () => {
   let id;
   if (gamesInCart.length > 0) id = gamesInCart[0].id;
 
+
   return (
     <div className="paypal">
       <div className="visualP">
