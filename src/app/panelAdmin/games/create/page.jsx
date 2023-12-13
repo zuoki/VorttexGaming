@@ -1,4 +1,6 @@
 "use client";
+
+import { CldImage } from 'next-cloudinary';
 import { useEffect, useState } from "react";
 import "./creategame.css";
 import robotpng from "./robot.png";
@@ -127,6 +129,7 @@ const Page = () => {
             placeholder="price"
             onChange={handleChange}
           />
+          <input type="file" onChange={(e)=>{console.log(e.target.files[0])}}/>
         </div>
       </div>
 
@@ -134,6 +137,8 @@ const Page = () => {
         <button className="createButtonsConfirm">Create</button>
         <button className="createButtonsCancel">Cancel</button>
       </div>
+
+
     </div>
   );
 };
