@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 
 export async function PUT(request) {
-  const { email, idGame } = await request.json();
-  console.log('EMAIL: ', email, 'ID: ', idGame)
+  const { email, id } = await request.json();
+  
   const availableGame = await prisma.games.findFirst({
     where: {
-      id: idGame,
+      id: id,
       license: {
         some: {
           active: true
@@ -17,6 +17,7 @@ export async function PUT(request) {
       license: true,
     },
   });
+  console.log(availableGame)
 
   const user = await prisma.user.findUnique({
     where: {

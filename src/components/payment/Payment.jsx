@@ -7,16 +7,18 @@ import Swal from 'sweetalert2';
 import { useStoreCart } from '@/zustand/store';
 
 const Payment = () => {
-	const [statebuy, setStateBuy] = useState(' COMPRA EN PROGRESO ');
-	const [css, setCss] = useState('progress');
-	const data = useUser();
-	const email = data?.user?.emailAddresses?.[0]?.emailAddress;
+  const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
+  const [css, setCss] = useState("progress");
+  const data = useUser();
+  const email = data?.user?.emailAddresses?.[0]?.emailAddress;
+  
+  const { emptyCart, gamesInCart } = useStoreCart();
+  const client = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
+  let id;
+  let gameName
 
-	const { emptyCart, gamesInCart } = useStoreCart();
-	const client = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
-	let id;
-
-	if (gamesInCart.length > 0) id = gamesInCart[0].id;
+  if (gamesInCart.length > 0) id = gamesInCart[0].id; console.log(id)
+  if (gamesInCart.length > 0) gameName= gamesInCart[0].title;
 
 	const API_SEND_USER_LICENSE_URL =
 		process.env.NODE_ENV === 'development'
@@ -81,15 +83,15 @@ const Payment = () => {
 									? process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_LOCAL
 									: process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_EMAIL_DEPLOY;
 
-							await axios.post(
-								API_SEND_EMAIL_URL,
-								{ email, nameLicense },
-								{
-									headers: {
-										'Content-Type': 'application/json',
-									},
-								}
-							);
+              await axios.post(
+                API_SEND_EMAIL_URL,
+                { email, nameLicense, gameName },
+                {
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
 
 							emptyCart();
 							setTimeout(function () {
