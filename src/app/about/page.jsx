@@ -1,12 +1,11 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import './about.css'
-import Footer from "@/components/footer/footer";
 import Link from "next/link";
 
 const About = () => {
     return (
         <div className='aboutCont'>
-            <h1 className='aboutTitle'>Nosotros</h1>
+            <h1 className='aboutTitle'>VORTEX TEAM</h1>
 
             <div className='containCards'>
 
@@ -240,7 +239,6 @@ const About = () => {
 
             </div>
 
-            <Footer />
 
         </div>
     )

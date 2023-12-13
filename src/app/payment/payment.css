@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+*{
+  font-family: "Kdam Thmor Pro", sans-serif;
+}
 .paypal {
      margin-top: 20%;
     display: flex;

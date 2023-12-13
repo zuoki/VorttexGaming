@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
@@ -11,51 +12,49 @@ const Footer = () => {
                 <div className="sb_footer-links" >
 
                     <div className="sb_footer-links_div">
-                        <h4> Lorem ipsum </h4>
-                        <a href="/">
-                            <p>Lorem</p>
+                        <h4> Devs </h4>
+                        <a href="/about">
+                            <p>Damian Diaz</p>
                         </a>
-                        <a href="/">
-                            <p>Lorem</p>
+                        <a href="/about">
+                            <p>Debora Rios</p>
                         </a>
-                        <a href="/">
-                            <p>Lorem</p>
+                        <a href="/about">
+                            <p>Pablo Vera</p>
                         </a>
-                    </div>
-
-                    <div className="sb_footer-links_div" >
-                    <h4> Lorem ipsum </h4>
-                        <a href="/">
-                            <p>Lorem</p>
-                        </a>
-                        <a href="/">
-                            <p>Lorem</p>
-                        </a>
-                        <a href="/">
-                            <p>Lorem</p>
+                        <a href="/about" >
+                            <p>Andres Castro</p>
                         </a>
                     </div>
 
                     <div className="sb_footer-links_div" >
-                    <h4> Lorem ipsum </h4>
-                        <a href="/">
-                            <p>Lorem</p>
+                    <h4> Devs </h4>
+                        <a href="/about">
+                            <p>Gabriel Juarez</p>
                         </a>
-                        <a href="/">
-                            <p>Lorem</p>
+                        <a href="/about">
+                            <p>Santiago Friedrich</p>
                         </a>
-                        <a href="/">
-                            <p>Lorem</p>
+                        <a href="/about">
+                            <p>Diego Martins</p>
+                        </a>
+                        <a href="/about">
+                            <p>Christian Natale</p>
                         </a>
                     </div>
 
+                    
+
                     <div className="sb_footer-links_div" >
-                        <h4>Proximamente en:</h4>
+                        <h4>Redes Sociales</h4>
 
                     <div className="socialmedia" >
-                        <p> <FaGithub /> </p>
-                        <p> <FaInstagram /> </p>
-                        <p> <FaFacebook /> </p>
+                        
+                        <a href="https://github.com"> <FaGithub /> </a>
+                        
+                        
+                        <a href="https://www.instagram.com/vorttexgamingar/"> <FaInstagram /> </a>
+                        <a href="https://www.facebook.com"> <FaFacebook /> </a>
                     </div>
                    
                     </div>

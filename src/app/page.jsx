@@ -16,6 +16,7 @@ import { useStoreCart } from "@/zustand/store/index.js";
 import axios from "axios";
 import Loader from "@/components/loader/Loader.jsx";
 import { VAR_AROUND } from './varsprocess.js';
+import Footer from "@/components/footer/footer.jsx";
 
 const gamesPerPage = 8;
 
@@ -153,6 +154,7 @@ const HomePage = () => {
           onPageChange={handlePageChange}
         />
         <Cahatbot />
+        <Footer/>
       </div>
     );
   }

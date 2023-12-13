@@ -32,7 +32,6 @@ const Page = ({ params }) => {
   return (
     <div>
       <Details game={games} />
-      <Footer />
     </div>
   );
 };
