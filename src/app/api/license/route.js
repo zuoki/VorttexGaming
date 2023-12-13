@@ -10,8 +10,10 @@ export async function GET() {
         },
       },
     },
+    where: {
+      active: true,
+    },
   });
-
   return NextResponse.json(findLicense);
 }
 
