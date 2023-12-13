@@ -9,7 +9,7 @@ const Page = async ({ params }) => {
     process.env.NODE_ENV === "development"
       ? process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_LOCAL
       : process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_DEPLOY;
-  const response = await axios(`${API_URL}${params.id}`);
+  const response = await axios(`${API_URL}/${params.id}`);
   const user = response.data;
 
   return (
