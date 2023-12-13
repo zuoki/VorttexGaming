@@ -1,0 +1,70 @@
+.licensesContainer{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10%;
+    background-color: rgba(34, 34, 34, 0.35);
+}
+
+h1{
+    padding-top: 2%;
+    text-align: center;
+}
+
+.licenseDiv{
+    width: 100%;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    padding-bottom: 5%;
+}
+
+.licenseDiv .license{
+    margin-bottom: 2%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 0;
+    border-radius: 5px;
+    border-left: 2px solid transparent;
+    transition: .2s;
+    font-size: 12px;
+}
+
+.licenseDiv .license:hover{
+    border-left: 2px solid #FF9500;
+}
+
+
+.license h2{
+    width: 50%;
+    text-indent: 10%;
+}
+
+.license p{
+    width: 50%;
+    text-indent: 35%;
+}
+
+.license span{
+    font-weight: 200;
+    padding-left: 8%;
+}
+
+.buttonLicense{
+    border: none;
+    outline: none;
+    background-color: #bbb;
+    margin-left: 93%;
+    width: 4%;
+    padding: 1% 0;
+    border-radius: 50%;
+    color: #444;
+    font-size: 20px;
+    position: fixed;
+    transition: .2s;
+}
+
+.buttonLicense:hover{
+    background-color: #FF9500;
+    color: black;
+}
