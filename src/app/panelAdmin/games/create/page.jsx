@@ -14,6 +14,10 @@ const Page = () => {
     releaseDate: "",
     developer: "",
     publishedBy: "",
+    video: "",
+    image: "",
+    wallpaper: "",
+    capture: "",
     size: "",
     price: 0,
   });
@@ -29,8 +33,20 @@ const Page = () => {
     size: "",
     price: 0,
   });
-
-  const [inputClass, setInputClass] = useState('classInputCreate');
+  const [inputClass, setInputClass] = useState(
+    {
+      title: "classInputCreate",
+      platform: "classInputCreate",
+      description: "classInputCreate",
+      genre: "classInputCreate",
+      releaseDate: "classInputCreate",
+      developer: "classInputCreate",
+      publishedBy: "classInputCreate",
+      size: "classInputCreate",
+      price: "classInputCreate",
+    }
+  );
+  const [currentImg, setCurrentImg] = useState('image');
 
 
   // useEffect(() => {
@@ -39,10 +55,7 @@ const Page = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setGameCreated({
-      ...gameCreated,
-      [name]: value,
-    });
+
     if (validations(name, value)) {
       setGameCreatedError(
         {
@@ -50,9 +63,30 @@ const Page = () => {
           [name]: value
         }
       );
-      setInputClass('classInputCreate error')
+      setInputClass(
+        {
+          ...inputClass,
+          [name]: `classInputCreateError${name}`
+        }
+      );
+      return;
     }
+
+    setGameCreated({
+      ...gameCreated,
+      [name]: value,
+    });
+
+    validations(name, value)
+    setInputClass(
+      {
+        ...inputClass,
+        [name]: "classInputCreate"
+      }
+    );
   };
+
+  console.log(gameCreated[currentImg]);
 
   return (
     <div className="createGameContainer">
@@ -60,6 +94,16 @@ const Page = () => {
         <div className="galerySeccionContainer">
           <div className="galerySeccion">
             <Image className="robotPngCreate" src={robotpng} />
+
+            <div className="inputAndInsertCreate"  >
+              <div className="inputCreate" >
+                <input type="text" value={gameCreated[currentImg]} />
+              </div>
+              <div className="buttonInsertCreate" >
+                <button>INSERT</button>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -70,6 +114,7 @@ const Page = () => {
             type="text"
             placeholder="title"
             onChange={handleChange}
+            className={inputClass.title}
           />
           <input
             value={gameCreated.platform}
@@ -77,6 +122,7 @@ const Page = () => {
             type="text"
             placeholder="platform"
             onChange={handleChange}
+            className={inputClass.platform}
           />
           <input
             value={gameCreated.description}
@@ -84,6 +130,7 @@ const Page = () => {
             type="text"
             placeholder="description"
             onChange={handleChange}
+            className={inputClass.description}
           />
           <input
             value={gameCreated.genre}
@@ -91,13 +138,15 @@ const Page = () => {
             type="text"
             placeholder="genre"
             onChange={handleChange}
+            className={inputClass.genre}
           />
           <input
             value={gameCreated.releaseDate}
             name="releaseDate"
-            type="text"
+            type="date"
             placeholder="releaseDate"
             onChange={handleChange}
+            className={inputClass.releaseDate}
           />
           <input
             value={gameCreated.developer}
@@ -105,20 +154,23 @@ const Page = () => {
             type="text"
             placeholder="developer"
             onChange={handleChange}
+            className={inputClass.developer}
           />
           <input
             value={gameCreated.publishedBy}
             name="publishedBy"
-            type="date"
+            type="text"
             placeholder="publishedBy"
             onChange={handleChange}
+            className={inputClass.publishedBy}
           />
           <input
             value={gameCreated.size}
             name="size"
             type="text"
-            placeholder="size"
+            placeholder="size (GB)"
             onChange={handleChange}
+            className={inputClass.size}
           />
           <input
             value={gameCreated.price}
@@ -126,6 +178,7 @@ const Page = () => {
             type="text"
             placeholder="price"
             onChange={handleChange}
+            className={inputClass.price}
           />
         </div>
       </div>

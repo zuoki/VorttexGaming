@@ -156,8 +156,8 @@ const GameDetail = ({ game }) => {
               process.env.NODE_ENV === "development"
                 ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
                 : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
-            const { data } = await axios.put(API_URL, gameedited);
-          } catch (error) {}
+            const { data } = await axios.put(API_URL, gameEdited);
+          } catch (error) {console.log(error.message)}
         };
         fetchData();
         window.location.href = "/panelAdmin/games";
