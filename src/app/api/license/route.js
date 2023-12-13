@@ -17,20 +17,26 @@ export async function GET() {
 
 export async function POST(request) {
   const { name, active, titleGame } = await request.json();
-
-  const createLicense = await prisma.license.create({
-    data: {
-      name,
-      active,
-      game: {
-        connect: {
-          title: titleGame,
+  try {
+    const createLicense = await prisma.license.create({
+      data: {
+        name,
+        active: true,
+        game: {
+          connect: {
+            title: titleGame,
+          },
         },
       },
-    },
-  });
+    });
 
-  return NextResponse.json(createLicense);
+    return NextResponse.json(createLicense);
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Esta licencia con este nombre ya está creada" },
+      400
+    );
+  }
 }
 
 export async function PUT(request) {
