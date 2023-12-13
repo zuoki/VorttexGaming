@@ -11,13 +11,14 @@ const Payment = () => {
   const [css, setCss] = useState("progress");
   const data = useUser();
   const email = data?.user?.emailAddresses?.[0]?.emailAddress;
-  console.log("soy data", data);
-  console.log("soy email", email);
+  
   const { emptyCart, gamesInCart } = useStoreCart();
   const client = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
   let id;
+  let gameName
 
-  if (gamesInCart.length > 0) id = gamesInCart[0].id;
+  if (gamesInCart.length > 0) id = gamesInCart[0].id; console.log(id)
+  if (gamesInCart.length > 0) gameName= gamesInCart[0].title;
 
   const API_SEND_USER_LICENSE_URL =
     process.env.NODE_ENV === "development"
@@ -84,7 +85,7 @@ const Payment = () => {
 
               await axios.post(
                 API_SEND_EMAIL_URL,
-                { email, nameLicense },
+                { email, nameLicense, gameName },
                 {
                   headers: {
                     "Content-Type": "application/json",

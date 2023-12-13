@@ -62,21 +62,13 @@ export async function POST(req) {
     to: request.email,
     subject: "Confirmación de compra ✔",
     html: `
-      <div style="max-width: 600px; margin: 0 auto; background-color: #F2f2f2; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-        <h1 style="color: #333;">Le informamos que su compra en Vorttex Gaming ha sido realizada con éxito.</h1>
-        
-        <p style=" line-height: 1.6;">
-            Tu compra ha sido realizada con éxito. Le deseamos que disfrute de sus juegos y que tenga una excelente jornada gaming.
-            <br />
-            Estas son tus licencias: <span style="background-color: #9BB8CD; padding: 5px; border-radius: 5px; font-weight: bold;">${request.nameLicense} 🐱‍🏍✨</span>
-        </p>
-
-        <strong>Atentamente,</strong>
-
-        <br />
-
-        <strong>Vorttex Gaming</strong>
-      </div>
+    <div style="max-width: 600px; margin: 0px auto; background-color: #f2f2f2; padding: 20px; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px; text-align: center;">
+    <h1 style="color: #333333; text-align: center;">Le informamos que su compra en Vorttex Gaming ha sido realizada con &eacute;xito.</h1>
+    <hr />
+    <p style="color: #555555; line-height: 1.6; text-align: center;">Tu compra ha sido realizada con &eacute;xito. Le deseamos que disfrute de sus juegos y que tenga una excelente jornada gaming. <br /> Licencia(s):<br /><br /> <span style="background-color: #ffd700; padding: 5px; border-radius: 5px; font-weight: bold;">${request.nameLicense}<p style="color: #555555; line-height: 1.6; text-align: center;">Tu compra ha sido realizada con &eacute;xito. Le deseamos que disfrute de sus juegos y que tenga una excelente jornada gaming. <br /> Licencia(s):<br /><br /> <span style="background-color: #ffd700; padding: 5px; border-radius: 5px; font-weight: bold;">${request.nameLicense}$</span></p>${request.gameName}</span></p>
+    <p style="color: #555555; line-height: 1.6; text-align: center;">🐱&zwj;🏍✨</p>
+    <p style="color: #555555; line-height: 1.6; text-align: center;"><img src="https://i.gifer.com/hdt.gif" alt="" width="128" height="190" /></p>
+    <hr /><strong>Atentamente,</strong> <br /> <strong>Vorttex Gaming</strong></div>
     `,
   };
 
