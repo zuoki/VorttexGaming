@@ -5,6 +5,7 @@ import NavBar from '@/components/navbar/navbar';
 const inter = Inter({ subsets: ['latin'] });
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
+import Footer from '@/components/footer/footer';
 
 export const metadata = {
 	title: 'Vorttex Gaming',
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
 				<body className={inter.className}>
 					<NavBar />
 					{children}
+					<Footer />
 				</body>
 			</html>
 		</ClerkProvider>

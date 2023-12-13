@@ -1,6 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import './about.css'
-import Footer from "@/components/footer/footer";
 import Link from "next/link";
 
 const About = () => {
@@ -240,7 +239,6 @@ const About = () => {
 
             </div>
 
-            <Footer />
 
         </div>
     )
