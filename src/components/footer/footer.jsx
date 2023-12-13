@@ -53,7 +53,7 @@ const Footer = () => {
                         <a href="https://github.com"> <FaGithub /> </a>
                         
                         
-                        <a href="https://www.instagram.com/vorttexgamingar/"> <FaInstagram /> </a>
+                        <a href="https://www.instagram.com/vorttexgamingar/" target="_blank" > <FaInstagram /> </a>
                         <a href="https://www.facebook.com"> <FaFacebook /> </a>
                     </div>
                    
