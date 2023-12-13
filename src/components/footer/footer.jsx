@@ -46,28 +46,21 @@ const Footer = () => {
             <h4>Redes Sociales</h4>
 
             <div className="socialmedia">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub />
+              <a href="https://github.com" target="_blank">
+                {" "}
+                <FaGithub />{" "}
               </a>
 
               <a
                 href="https://www.instagram.com/vorttexgamingar/"
                 target="_blank"
-                rel="noopener noreferrer"
               >
-                <FaInstagram />
+                {" "}
+                <FaInstagram />{" "}
               </a>
-
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebook />
+              <a href="https://www.facebook.com" target="_blank">
+                {" "}
+                <FaFacebook />{" "}
               </a>
             </div>
           </div>

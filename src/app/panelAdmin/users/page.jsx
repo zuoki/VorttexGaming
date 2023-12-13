@@ -2,15 +2,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./users.css";
-// // import { clerk, useUser } from "@clerk/nextjs";
-// import { Clerk } from "@clerk/clerk-sdk-node";
-// const clerk = new Clerk(process.env.CLERK_SECRET_KEY);
 
 const Page = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  // const users = useUser();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -40,11 +36,10 @@ const Page = () => {
       const userDelete = await axios.delete(API_URL, {
         data: { userId },
       });
-      console.log(userDelete);
 
-      // const updatedUsers = allUsers.filter((user) => user.id !== userId);
-      // setAllUsers(updatedUsers);
-      // setFilteredUsers(updatedUsers);
+      const updatedUsers = allUsers.filter((user) => user.id !== userId);
+      setAllUsers(updatedUsers);
+      setFilteredUsers(updatedUsers);
     } catch (error) {
       console.error("Error deleting user:", error);
     }
