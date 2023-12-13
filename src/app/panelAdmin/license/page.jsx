@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
+import './license.css'
 
 function LicenseComponent() {
   const [licenses, setLicenses] = useState([]);
@@ -17,17 +18,22 @@ function LicenseComponent() {
 
   return (
     <div>
+      <Link href="/panelAdmin/license/postLicense">
+       <button className="buttonLicense">+</button>
+     </Link>
+        <div className="licensesContainer">
       <h1>Licencias Activas</h1>
+      <div className="licenseDiv">
       {licenses.map((license) => (
-        <div key={license.id}>
-          <h2>Licencia: {license.name}</h2>
+        <div key={license.id} className="license" >
+          <h2>License <span> {license.name} </span> </h2>
           <p>Game: {license.game.title}</p>
         </div>
       ))}
-      <Link href="/panelAdmin/license/postLicense">
-        <button>Ir a Crear Licencia</button>
-      </Link>
+      </div>
     </div>
+    </div>
+    
   );
 }
 

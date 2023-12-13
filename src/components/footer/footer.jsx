@@ -50,11 +50,11 @@ const Footer = () => {
 
                     <div className="socialmedia" >
                         
-                        <a href="https://github.com"> <FaGithub /> </a>
+                        <a href="https://github.com" target="_blank"> <FaGithub /> </a>
                         
                         
                         <a href="https://www.instagram.com/vorttexgamingar/" target="_blank" > <FaInstagram /> </a>
-                        <a href="https://www.facebook.com"> <FaFacebook /> </a>
+                        <a href="https://www.facebook.com" target="_blank"> <FaFacebook /> </a>
                     </div>
                    
                     </div>
