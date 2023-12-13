@@ -55,6 +55,7 @@ function LicenseComponent() {
 							value={name}
 							onChange={(e) => setName(e.target.value)}
 							placeholder="4gT0CKEWFk-7N2B..."
+              className='inputPostL'
 						/>
 						<select
 							value={titleGame}
@@ -70,7 +71,7 @@ function LicenseComponent() {
 					</div>
 				</form>
 				<Link href={'/panelAdmin/license'}>
-					<button className="backButton2">BACK</button>
+					<button className="backButton2">⬅ BACK</button>
 				</Link>
 			</div>
 		</>
