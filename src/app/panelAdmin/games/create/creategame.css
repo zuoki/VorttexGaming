@@ -1,114 +1,114 @@
 .createGameContainer {
-    margin-top: 7%;
-    margin: 0 auto;
-    background: rgba(34, 34, 34, 0.35);
-    background-color: black;
-    color: white;
-    height: 80vh;
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 7%;
-    border-radius: 5px;
+  margin-top: 7%;
+  margin: 0 auto;
+  background: rgba(34, 34, 34, 0.35);
+  background-color: black;
+  color: white;
+  height: 80vh;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 7%;
+  border-radius: 5px;
 }
 
 .createGameContainerGrid {
-    display: grid;
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 5%;
-    gap: 10%;
-    grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 5%;
+  gap: 10%;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .createGameContainerGrid div {
-    background-color: black;
+  background-color: black;
 }
 
 .createGameContainerGrid .galerySeccionContainer {
-    width: 70%;
-    border-radius: 3px;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    border: dashed 2px #ccc;
-    transition: .2s;
+  width: 70%;
+  border-radius: 3px;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: dashed 2px #ccc;
+  transition: 0.2s;
 }
 
 .createGameContainerGrid .galerySeccionContainer:hover {
-    border: solid 2px white;
+  border: solid 2px white;
 }
 
 .robotPngCreate {
-    width: 100%;
-    height: 100%;
-    transition: .2s;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s;
 }
 
 .createGameContainerGrid .galerySeccionContainer:hover .robotPngCreate {
-    transform: scale(.85);
+  transform: scale(0.85);
 }
 
 .createGameContainerGrid .inputsToCreate {
-    width: 80%;
-    height: 100%;
+  width: 80%;
+  height: 100%;
 }
 
 .createGameContainerGrid .inputsToCreate .classInputCreate,
 .createGameContainerGrid .inputAndInsertCreate .classInputCreate {
-    width: 100%;
-    margin-bottom: 2%;
-    border: none;
-    border-radius: 3px;
-    outline: none;
-    padding: 2.4% 2%;
-    background-color: #222;
-    border: 2px solid transparent;
-    transition: .2s;
+  width: 100%;
+  margin-bottom: 2%;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  padding: 2.4% 2%;
+  background-color: #222;
+  border: 2px solid transparent;
+  transition: 0.2s;
 }
 
 .createGameContainerGrid .inputsToCreate .classInputCreate:focus,
 .createGameContainerGrid .inputAndInsertCreate .classInputCreate:focus {
-    border: solid 2px #777;
+  border: solid 2px #777;
 }
 
 .createGameContainer .createButtons {
-    width: 30%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 7%;
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
 }
 
 .createGameContainer .createButtons button {
-    width: 45%;
-    padding: 3% 0;
-    border-radius: 3px;
-    border: none;
-    outline: none;
-    transition: .2s;
-    cursor: pointer;
+  width: 45%;
+  padding: 3% 0;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .createButtons .createButtonsConfirm {
-    border: solid 1px transparent;
-    background-color: #4ed111;
-    color: white;
+  border: solid 1px transparent;
+  background-color: #4ed111;
+  color: white;
 }
 
 .createButtons .createButtonsConfirm:hover {
-    background-color: #348a0c;
+  background-color: #348a0c;
 }
 
 .createButtons .createButtonsCancel {
-    background-color: #f01212;
-    color: white;
+  background-color: #f01212;
+  color: white;
 }
 
 .createButtons .createButtonsCancel:hover {
-    background-color: #a80d0d;
-    color: white;
+  background-color: #a80d0d;
+  color: white;
 }
 
 .createGameContainerGrid .classInputCreateErrortitle,
@@ -124,15 +124,15 @@
 .createGameContainerGrid .classInputCreateErrorcapture,
 .createGameContainerGrid .classInputCreateErrorsize,
 .createGameContainerGrid .classInputCreateErrorprice {
-    width: 100%;
-    margin-bottom: 2%;
-    border: none;
-    border-radius: 3px;
-    outline: none;
-    padding: 2.4% 2%;
-    background-color: #222;
-    border: 2px solid transparent;
-    transition: .2s;
+  width: 100%;
+  margin-bottom: 2%;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  padding: 2.4% 2%;
+  background-color: #222;
+  border: 2px solid transparent;
+  transition: 0.2s;
 }
 
 .createGameContainerGrid .classInputCreateErrortitle:focus,
@@ -148,54 +148,100 @@
 .createGameContainerGrid .classInputCreateErrorcapture:focus,
 .createGameContainerGrid .classInputCreateErrorsize:focus,
 .createGameContainerGrid .classInputCreateErrorprice:focus {
-    width: 100%;
-    margin-bottom: 2%;
-    border: none;
-    border-radius: 3px;
-    outline: none;
-    padding: 2.4% 2%;
-    background-color: #222;
-    border: 2px solid #ff5757;
-    transition: .2s;
+  width: 100%;
+  margin-bottom: 2%;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  padding: 2.4% 2%;
+  background-color: #222;
+  border: 2px solid #ff5757;
+  transition: 0.2s;
 }
 
-.createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate {
-    margin-top: -5%;
-    width: 100%;
+.createGameContainer
+  .createGameContainerGrid
+  .galerySeccionContainer
+  .galerySeccion
+  .inputAndInsertCreate {
+  margin-top: -5%;
+  width: 100%;
 }
 
-.createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate .inputCreate {
-    display: flex;
-    justify-content: center;
+.createGameContainer
+  .createGameContainerGrid
+  .galerySeccionContainer
+  .galerySeccion
+  .inputAndInsertCreate
+  .inputCreate {
+  display: flex;
+  justify-content: center;
 }
 
-.createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate .buttonInsertCreate {
-    display: flex;
-    justify-content: center;
+.createGameContainer
+  .createGameContainerGrid
+  .galerySeccionContainer
+  .galerySeccion
+  .inputAndInsertCreate
+  .buttonInsertCreate {
+  display: flex;
+  justify-content: center;
 }
 
-
-
-.createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate .buttonInsertCreate button {
-    border: none;
-    outline: none;
-    background-color: black;
-    color: white;
-    padding: 2.5% 0;
-    margin-top: 2%;
-    border-radius: 3px;
-    width: 85%;
-    transition: .2s;
+.createGameContainer
+  .createGameContainerGrid
+  .galerySeccionContainer
+  .galerySeccion
+  .inputAndInsertCreate
+  .buttonInsertCreate
+  button {
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 2.5% 0;
+  margin-top: 2%;
+  border-radius: 3px;
+  width: 85%;
+  transition: 0.2s;
 }
 
-.createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate .buttonInsertCreate button:hover {
-    background-color: #4ed111;
+.createGameContainer
+  .createGameContainerGrid
+  .galerySeccionContainer
+  .galerySeccion
+  .inputAndInsertCreate
+  .buttonInsertCreate
+  button:hover {
+  background-color: #4ed111;
 }
-
 
 .createButtons .createButtonsConfirm[disabled] {
-    background-color: #888;
-    color: #ccc;
-    border: solid 1px #ccc;
-    cursor: no-drop;
+  background-color: #888;
+  color: #ccc;
+  border: solid 1px #ccc;
+  cursor: no-drop;
+}
+
+.cloudinaryimg2 {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+.cloudinaryimg2 input {
+  width: 45%;
+}
+.cloudinaryimg2 button {
+  width: 50%;
+}
+.les2323{
+    position: relative;
+    left: -5%;
+    bottom: -12%;
+    transition: all .3s;
+    scale: 1.5;
+    overflow: visible;
+}
+.les2323 :hover{
+    scale: 1.1;
 }
