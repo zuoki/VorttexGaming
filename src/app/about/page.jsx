@@ -5,7 +5,7 @@ import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 
 const About = () => {
   return (
-    <>
+    <div>
       <ParticlesWall />
       <div className="aboutCont">
         <h1 className="aboutTitle">VORTEX TEAM</h1>
@@ -278,7 +278,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
