@@ -1,16 +1,40 @@
 "use client";
 
-import { CldImage } from 'next-cloudinary';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./creategame.css";
 import robotpng from "./robot.png";
 import Image from "next/image";
 import { validations } from "./validations";
 import Swal from "sweetalert2";
 import axios from "axios";
-
+import { GrCopy } from "react-icons/gr";
 
 const Page = () => {
+
+  const copiarAlPortapapeles = async () => {
+    try {
+      await navigator.clipboard.writeText(urlIMG);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "link to the image copied successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    } catch (err) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  };
+
+
+  const [file, setFile] = useState(null);
+  const [urlIMG, setUrlIMG] = useState("...");
   const [gameCreated, setGameCreated] = useState({
     title: "",
     platform: "",
@@ -41,56 +65,53 @@ const Page = () => {
     size: "",
     price: 0,
   });
-  const [inputClass, setInputClass] = useState(
-    {
-      title: "classInputCreate",
-      platform: "classInputCreate",
-      description: "classInputCreate",
-      genre: "classInputCreate",
-      releaseDate: "classInputCreate",
-      developer: "classInputCreate",
-      publishedby: "classInputCreate",
-      video: "classInputCreate",
-      image: "classInputCreate",
-      wallpaper: "classInputCreate",
-      capture: "classInputCreate",
-      size: "classInputCreate",
-      price: "classInputCreate",
-    }
-  );
-  const [currentImg, setCurrentImg] = useState('video');
+  const [inputClass, setInputClass] = useState({
+    title: "classInputCreate",
+    platform: "classInputCreate",
+    description: "classInputCreate",
+    genre: "classInputCreate",
+    releaseDate: "classInputCreate",
+    developer: "classInputCreate",
+    publishedby: "classInputCreate",
+    video: "classInputCreate",
+    image: "classInputCreate",
+    wallpaper: "classInputCreate",
+    capture: "classInputCreate",
+    size: "classInputCreate",
+    price: "classInputCreate",
+  });
+  const [currentImg, setCurrentImg] = useState("video");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'video' || name === 'image' || name === 'wallpaper' || name === "capture") {
+    if (
+      name === "video" ||
+      name === "image" ||
+      name === "wallpaper" ||
+      name === "capture"
+    ) {
       setGameCreated({
         ...gameCreated,
         [name]: value,
       });
 
       if (validations(name, value)) {
-        setGameCreatedError(
-          {
-            ...gameCreatedError,
-            [name]: validations(name, value)
-          }
-        );
-        setInputClass(
-          {
-            ...inputClass,
-            [name]: `classInputCreateError${name}`
-          }
-        );
+        setGameCreatedError({
+          ...gameCreatedError,
+          [name]: validations(name, value),
+        });
+        setInputClass({
+          ...inputClass,
+          [name]: `classInputCreateError${name}`,
+        });
         return;
       }
 
-      setInputClass(
-        {
-          ...inputClass,
-          [name]: "classInputCreate"
-        }
-      );
+      setInputClass({
+        ...inputClass,
+        [name]: "classInputCreate",
+      });
       setGameCreatedError({
         ...gameCreatedError,
         [name]: "",
@@ -99,18 +120,14 @@ const Page = () => {
     }
 
     if (validations(name, value)) {
-      setGameCreatedError(
-        {
-          ...gameCreatedError,
-          [name]: validations(name, value)
-        }
-      );
-      setInputClass(
-        {
-          ...inputClass,
-          [name]: `classInputCreateError${name}`
-        }
-      );
+      setGameCreatedError({
+        ...gameCreatedError,
+        [name]: validations(name, value),
+      });
+      setInputClass({
+        ...inputClass,
+        [name]: `classInputCreateError${name}`,
+      });
       return;
     }
 
@@ -123,40 +140,38 @@ const Page = () => {
       ...gameCreated,
       [name]: value,
     });
-    setInputClass(
-      {
-        ...inputClass,
-        [name]: "classInputCreate"
-      }
-    );
+    setInputClass({
+      ...inputClass,
+      [name]: "classInputCreate",
+    });
   };
 
   let srcBg = robotpng;
   const handleCurrentImg = () => {
-
     switch (currentImg) {
-      case 'video':
+      case "video":
         Swal.fire({
           title: `the ${currentImg} has been changed successfully!`,
-          imageUrl: "https://media3.giphy.com/media/XreQmk7ETCak0/giphy.gif?cid=ecf05e473l7cvg3x9z30e7xo1qz1o9juz3hyh705ovh2a0mo&ep=v1_gifs_search&rid=giphy.gif&ct=g",
+          imageUrl:
+            "https://media3.giphy.com/media/XreQmk7ETCak0/giphy.gif?cid=ecf05e473l7cvg3x9z30e7xo1qz1o9juz3hyh705ovh2a0mo&ep=v1_gifs_search&rid=giphy.gif&ct=g",
           imageWidth: 270,
           imageHeight: 270,
           imageAlt: "Custom image",
         });
-        setCurrentImg('image');
+        setCurrentImg("image");
         return;
         break;
 
-      case 'image':
-        setCurrentImg('wallpaper')
+      case "image":
+        setCurrentImg("wallpaper");
         break;
 
-      case 'wallpaper':
-        setCurrentImg('capture')
+      case "wallpaper":
+        setCurrentImg("capture");
         break;
 
-      case 'capture':
-        setCurrentImg('video')
+      case "capture":
+        setCurrentImg("video");
         break;
 
       default:
@@ -170,16 +185,13 @@ const Page = () => {
       imageHeight: 270,
       imageAlt: "Custom image",
     });
-
-  }
+  };
 
   const verifyErrors = () => {
-
     const valuesInputs = Object.values(gameCreated);
     for (let i = 0; i < valuesInputs.length; i++) {
       if (valuesInputs[i].length < 1) return true;
     }
-
 
     const valuesErrors = Object.values(gameCreatedError);
     for (let i = 0; i < valuesErrors.length; i++) {
@@ -188,10 +200,9 @@ const Page = () => {
     }
 
     return false;
-  }
+  };
 
   const sendGameToDb = () => {
-
     gameCreated.price = Number(gameCreated.price);
 
     const sendData = async () => {
@@ -200,17 +211,17 @@ const Page = () => {
           ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
           : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
 
-      console.log(API_URL)
+      console.log(API_URL);
+      console.log(gameCreated);
 
       try {
-        await axios.post(API_URL, gameCreated);
+        await axios.post("http://localhost:3000/api/games", {gameCreated});
       } catch (error) {
-        console.log(error.message)
+        console.log(error.message);
       }
-
-    }
+    };
     sendData();
-  }
+  };
 
   return (
     <div className="createGameContainer">
@@ -219,15 +230,26 @@ const Page = () => {
           <div className="galerySeccion">
             <Image className="robotPngCreate" src={srcBg} />
 
-            <div className="inputAndInsertCreate"  >
-              <div className="inputCreate" >
-                <input name={currentImg} type="text" value={gameCreated[currentImg]} placeholder={currentImg} className={inputClass[currentImg]} onChange={handleChange} />
+            <div className="inputAndInsertCreate">
+              <div className="inputCreate">
+                <input
+                  name={currentImg}
+                  type="text"
+                  value={gameCreated[currentImg]}
+                  placeholder={currentImg}
+                  className={inputClass[currentImg]}
+                  onChange={handleChange}
+                />
               </div>
-              <div className="buttonInsertCreate" >
-                <button onClick={handleCurrentImg} className="insertCreateButton" >INSERT</button>
+              <div className="buttonInsertCreate">
+                <button
+                  onClick={handleCurrentImg}
+                  className="insertCreateButton"
+                >
+                  INSERT
+                </button>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -304,15 +326,58 @@ const Page = () => {
             onChange={handleChange}
             className={inputClass.price}
           />
-        <input type="file" onChange={(e) => { console.log(e.target.files[0]) }} />
+
+          <div className="cloudinaryimg2">
+           
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData();
+                formData.append("file", file);
+
+                const response = await fetch("/api/upload", {
+                  method: "POST",
+                  body: formData,
+                });
+                const data = await response.json();
+                if(data.url){
+                  Swal.fire({
+                    title: "Sweet!",
+                    text: " “Image uploaded successfully, proceed to copy the link and you can use it.” 😊",
+                    imageUrl: "https://media.giphy.com/media/7YjvlYIMRDcYM/source.gif",
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: "Custom image"
+                  });}
+                setUrlIMG(data.url);
+              }}
+            >
+              <input
+                type="file"
+                onChange={(e) => {
+                  setFile(e.target.files[0]);
+                }}
+              />
+              <button>set image</button>
+            </form>
+      <div className="les2323" onClick={copiarAlPortapapeles}><GrCopy/></div>
+          </div>
         </div>
       </div>
-
+      <div>
+    </div>
       <div className="createButtons">
-        <button className="createButtonsConfirm" onClick={sendGameToDb} disabled={verifyErrors()} >Create</button>
+        <button
+          className="createButtonsConfirm"
+          onClick={sendGameToDb}
+          disabled={verifyErrors()}
+        >
+          Create
+        </button>
         <button className="createButtonsCancel">Cancel</button>
       </div>
-    </div >
+    </div>
   );
 };
 
