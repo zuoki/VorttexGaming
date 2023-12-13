@@ -1,6 +1,5 @@
 "use client";
 import GameDetail from "@/components/gamedetail/GameDetail";
-import { data } from "../../../api/data";
 import { useState, useEffect } from "react";
 import { useStoreCart } from "@/zustand/store";
 import axios from "axios";
