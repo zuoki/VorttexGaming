@@ -16,13 +16,8 @@
 }
 
 .contenedorLicense h1{
-    position: relative;
-    z-index: 400;
-   top: 50px;
-    width: 50%;
-    left: 40%;
+text-align: center;
 }
-
 .contenedorLicense form{
     position: relative;
     top: 15%;
@@ -33,10 +28,34 @@
     border-radius: 10px;
 }
 
-.totoroto2{
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* .totoroto2{
     position: relative;
     top: 45%;
     left: 10%;
+} */
+.totoroto2 input{
+  height: 40px;
+  margin-right: 20px;
+}
+.totoroto2 select {
+  height: 40px;
+  margin-left: 20px;
+}
+.totoroto2 button{
+  margin-left: 20px;
+  height: 40px;
+  width: 120px;
+  background-color: #FF9301;
+  border: none
+}
+.totoroto2 button:hover{
+  background-color: #3333;
 }
 
 .backButton2{
