@@ -54,8 +54,8 @@ const About = () => {
 
             <h2>Jonathan</h2>
             <p>
-              Hello! I'm Jonathan G, and I'm currently enrolled in the Henry
-              coding bootcamp. I'm passionate about programming and committed to
+              Hello! Im Jonathan G, and Im currently enrolled in the Henry
+              coding bootcamp. Im passionate about programming and committed to
               expanding my skills in this exciting new field. Joining the
               bootcamp is a significant step for me.
             </p>
@@ -121,9 +121,11 @@ const About = () => {
 
             <h2>Pablo</h2>
             <p>
-              Hola! soy Santiago y actualmente me encuentro cursando el bootcamp
-              Soy Henry para seguir aprendiendo y desarrollando habilidades en
-              lo que es esta nueva pasión que he descubierto, la programación.
+              I graduated with a degree in Connectivity and Networks
+              Engineering, but I am currently steering my career towards
+              development because I love this field. That's why I am currently
+              completing a full-stack JavaScript bootcamp. Actually im living in
+              Santiago de Chile but i was born in Punta Arenas
             </p>
 
             <div className="icons">
@@ -153,8 +155,8 @@ const About = () => {
 
             <h2>Debo</h2>
             <p>
-              Hello! I'm Debo, a fullstack developer with a focus on backend,
-              creative and motivated, I'm always looking for new ways to learn
+              Hello! Im Debo, a fullstack developer with a focus on backend,
+              creative and motivated, Im always looking for new ways to learn
               and grow. I am passionate about creating products that are useful
               and attractive to users.
             </p>
