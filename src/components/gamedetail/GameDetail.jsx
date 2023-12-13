@@ -10,7 +10,7 @@ import axios from "axios";
 import Loader from "../loader/Loader";
 
 const GameDetail = ({ game }) => {
-  const [gameEdited, setGameEdited] = useState(game);
+  const [gameEdited, setGameEdited] = useState();
   const [selectedImagePreview, setSelectedImagePreview] = useState(null);
   const [currentImg, setCurrentImg] = useState("Image");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +26,12 @@ const GameDetail = ({ game }) => {
   );
   const [inputPrice, setInputPrice] = useState("priceInputClass");
 
+  useEffect(() => {
+    setGameEdited(game);
+    console.log(gameEdited)
+  },[game]);
   if (!game) return <Loader />;
+
 
   const handleEdit = (event) => {
     if (event.target.name === "price" && isNaN(event.target.value)) return;
@@ -166,6 +171,7 @@ const GameDetail = ({ game }) => {
   const goToList = () => {
     window.location.href = "/panelAdmin/games";
   };
+
 
   const deleteGame = () => {
     Swal.fire({
