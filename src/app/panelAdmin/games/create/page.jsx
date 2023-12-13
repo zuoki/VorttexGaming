@@ -211,15 +211,17 @@ const Page = () => {
           ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
           : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
 
-      console.log(API_URL);
-      console.log(gameCreated);
+      console.log(API_URL)
 
       try {
-        await axios.post("http://localhost:3000/api/games", {gameCreated});
+        await axios.post(API_URL, gameCreated);
+        Swal.fire("Game Created!");
       } catch (error) {
-        console.log(error.message);
+        Swal.fire("Game  Not Created!");
+        console.log(error.message)
       }
-    };
+
+    }
     sendData();
   };
 
