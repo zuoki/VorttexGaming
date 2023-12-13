@@ -222,7 +222,7 @@ const GameDetail = ({ game }) => {
           }
         };
         fetchData();
-        window.location.href = "/";
+        window.location.href = "/panelAdmin/games";
       }
     };
     fnAsync();
