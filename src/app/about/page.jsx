@@ -116,16 +116,15 @@ const About = () => {
 
           <div className="card">
             <div className="img-div">
-              <img src="/pablo.jpeg" alt="aboutSanti" />
+              <img src="/pablo.jpeg" alt="aboutPablo" />
             </div>
 
             <h2>Pablo</h2>
             <p>
               I graduated with a degree in Connectivity and Networks
               Engineering, but I am currently steering my career towards
-              development because I love this field. That's why I am currently
-              completing a full-stack JavaScript bootcamp. Actually im living in
-              Santiago de Chile but i was born in Punta Arenas
+              development because I love this field. In this project i worked in
+              the backend area.
             </p>
 
             <div className="icons">
