@@ -11,8 +11,7 @@ const Payment = () => {
   const [css, setCss] = useState("progress");
   const data = useUser();
   const email = data?.user?.emailAddresses?.[0]?.emailAddress;
-  console.log("soy data", data);
-  console.log("soy email", email);
+
   const { emptyCart, gamesInCart } = useStoreCart();
   const client = process.env.NEXT_PUBLIC_REACT_APP_PAYPAL_CLIENT_ID;
   let id;
