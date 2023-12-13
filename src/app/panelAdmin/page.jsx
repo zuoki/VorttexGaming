@@ -10,20 +10,24 @@ import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { GrLicense } from "react-icons/gr";
+import Loader from "@/components/loader/Loader";
 
 const Page = () => {
   const { organizationList, isLoaded } = useOrganizationList();
   const router = useRouter();
-
+  const [count, setCount] = useState(0);
   useEffect(() => {
     if (isLoaded) {
       const adminOrganization = organizationList.find(
         (org) => org.membership.role === "admin"
       );
       if (!adminOrganization || adminOrganization.membership.role !== "admin") {
-        router.push("/");
+        router.push("/about");
       }
     }
+    setTimeout(() => {
+      setCount(1);
+    }, 1500);
   }, [isLoaded, organizationList]);
   const options = [
     {
@@ -55,7 +59,11 @@ const Page = () => {
     4: MdDiscount,
     5: GrLicense,
   };
-
+  {
+    if (count < 1) {
+      return <Loader></Loader>;
+    }
+  }
   return (
     <div className="panelAdminContainer">
       <div className="iconAndTittlePanel">
