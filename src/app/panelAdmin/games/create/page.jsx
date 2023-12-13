@@ -208,6 +208,26 @@ const Page = () => {
 
     }
     sendData();
+    Swal.fire({
+      icon: "success",
+      title: "Game created successfully!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "/panelAdmin/games"
+      }
+    });
+  }
+
+  const cancelCreate = () => {
+    Swal.fire({
+      icon: "question",
+      title: "Are you sure you want to cancel the creation?",
+      showDenyButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "/panelAdmin/games "
+      }
+    });
   }
 
   return (
@@ -302,13 +322,13 @@ const Page = () => {
             onChange={handleChange}
             className={inputClass.price}
           />
-        <input type="file" onChange={(e) => { console.log(e.target.files[0]) }} />
+          <input type="file" onChange={(e) => { console.log(e.target.files[0]) }} />
         </div>
       </div>
 
       <div className="createButtons">
         <button className="createButtonsConfirm" onClick={sendGameToDb} disabled={verifyErrors()} >Create</button>
-        <button className="createButtonsCancel">Cancel</button>
+        <button className="createButtonsCancel" onClick={cancelCreate} >Cancel</button>
       </div>
     </div >
   );

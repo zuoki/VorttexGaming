@@ -1,0 +1,15 @@
+.arrowBackComponent {
+    font-size: 25px;
+    color: #FF9500;
+    border: solid 2px #FF9500;
+    width: 65px;
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.arrowBackComponent:hover {
+    background-color: rgba(255, 149, 0, 1);
+}
