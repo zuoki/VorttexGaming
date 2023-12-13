@@ -1,3 +1,103 @@
-.contenedorLicense{
-    margin-top: 7%;
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+*{
+    font-family: "Kdam Thmor Pro", sans-serif;
+
 }
+.contenedorLicense{
+    position: relative;
+    left: 10%;
+    margin-top: 7%;
+    width: 80vw;
+    height: 50vh;
+    background: rgba( 34, 34, 34, 0.35 );
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border-radius:10px;
+}
+
+.contenedorLicense h1{
+    position: relative;
+    z-index: 400;
+   top: 50px;
+    width: 50%;
+    left: 40%;
+}
+
+.contenedorLicense form{
+    position: relative;
+    top: 15%;
+    left: 10%;
+    background-color: black;
+    width: 80%;
+    height: 20vh;
+    border-radius: 10px;
+}
+
+.totoroto2{
+    position: relative;
+    top: 45%;
+    left: 10%;
+}
+
+.backButton2{
+    top: 20%;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 5%;
+    position: relative;
+    color: white;
+    border: none;
+    font-size:  110%;
+    text-indent: -50%;
+    padding: 2% 7%;
+    margin: 1% 1%;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    background-size: 40px;
+    background-position: left -154%;
+    transform: skew(5deg, 0deg);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #3333;
+}
+
+.backButton2::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: skew(5deg, 0deg);
+    background-color: #FF9301;;
+    transition: all.3s ease-in-out;
+    border-radius: 5px;
+    background-color:#FF9301;
+  }
+  .backButton2::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: skew(5deg, 0deg);
+    border: 3px solid #FF9301;;
+    border-radius: 5%;
+    transition: all 0.3s;
+    z-index: -1;
+  }
+  
+  .backButton2:hover::after {
+    background-color: rgb(246, 105, 0);
+    transform: skew(5deg, 0deg) translateX(1050%);
+  }
+  
+  .backButton2:hover::before {
+    background-color: rgb(246, 105, 0);
+    border: rgb(246, 105, 0);
+  }
