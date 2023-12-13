@@ -21,7 +21,7 @@ export async function POST(req) {
     <div style="max-width: 600px; margin: 0px auto; background-color: #f2f2f2; padding: 20px; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px; text-align: center;">
     <h1 style="color: #333333; text-align: center;">Le informamos que su compra en Vorttex Gaming ha sido realizada con &eacute;xito.</h1>
     <hr />
-    <p style="color: #555555; line-height: 1.6; text-align: center;">Tu compra ha sido realizada con &eacute;xito. Le deseamos que disfrute de sus juegos y que tenga una excelente jornada gaming. Ahora solo canjea tus licencias en tu plataforma. <br /> Licencia(s):<br /><br /> <span style="background-color: #ffd700; padding: 5px; border-radius: 5px; font-weight: bold;">${request.nameLicense}</span></p>
+    <p style="color: #555555; line-height: 1.6; text-align: center;">Tu compra ha sido realizada con &eacute;xito. Le deseamos que disfrute de sus juegos y que tenga una excelente jornada gaming. ahora solo canjea tus licencias en la plataforma. <br /> Licencia(s):<br /><br /> <span style="background-color: #ffd700; padding: 5px; border-radius: 5px; font-weight: bold;">${request.nameLicense}</span></p>
     <p style="color: #555555; line-height: 1.6; text-align: center;"><span style="background-color: #ffd700; padding: 5px; border-radius: 5px; font-weight: bold;">${request.gameName}</span></p>
     <p style="color: #555555; line-height: 1.6; text-align: center;">🐱&zwj;🏍✨</p>
     <p style="color: #555555; line-height: 1.6; text-align: center;"><img src="https://i.gifer.com/hdt.gif" alt="" width="128" height="190" /></p>
