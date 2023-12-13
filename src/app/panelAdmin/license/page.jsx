@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 function LicenseComponent() {
   const [licenses, setLicenses] = useState([]);
@@ -23,6 +24,9 @@ function LicenseComponent() {
           <p>Game: {license.game.title}</p>
         </div>
       ))}
+      <Link href="/panelAdmin/license/postLicense">
+        <button>Ir a Crear Licencia</button>
+      </Link>
     </div>
   );
 }
