@@ -55,7 +55,8 @@
     height: 100%;
 }
 
-.createGameContainerGrid .inputsToCreate .classInputCreate {
+.createGameContainerGrid .inputsToCreate .classInputCreate,
+.createGameContainerGrid .inputAndInsertCreate .classInputCreate {
     width: 100%;
     margin-bottom: 2%;
     border: none;
@@ -67,7 +68,8 @@
     transition: .2s;
 }
 
-.createGameContainerGrid .inputsToCreate .classInputCreate:focus {
+.createGameContainerGrid .inputsToCreate .classInputCreate:focus,
+.createGameContainerGrid .inputAndInsertCreate .classInputCreate:focus {
     border: solid 2px #777;
 }
 
@@ -90,6 +92,7 @@
 }
 
 .createButtons .createButtonsConfirm {
+    border: solid 1px transparent;
     background-color: #4ed111;
     color: white;
 }
@@ -108,15 +111,19 @@
     color: white;
 }
 
-.inputsToCreate .classInputCreateErrortitle,
-.inputsToCreate .classInputCreateErrorplatform,
-.inputsToCreate .classInputCreateErrordescription,
-.inputsToCreate .classInputCreateErrorgenre,
-.inputsToCreate .classInputCreateErrorreleaseDate,
-.inputsToCreate .classInputCreateErrordeveloper,
-.inputsToCreate .classInputCreateErrorpublishedBy,
-.inputsToCreate .classInputCreateErrorsize,
-.inputsToCreate .classInputCreateErrorprice {
+.createGameContainerGrid .classInputCreateErrortitle,
+.createGameContainerGrid .classInputCreateErrorplatform,
+.createGameContainerGrid .classInputCreateErrordescription,
+.createGameContainerGrid .classInputCreateErrorgenre,
+.createGameContainerGrid .classInputCreateErrorreleaseDate,
+.createGameContainerGrid .classInputCreateErrordeveloper,
+.createGameContainerGrid .classInputCreateErrorpublishedby,
+.createGameContainerGrid .classInputCreateErrorvideo,
+.createGameContainerGrid .classInputCreateErrorimage,
+.createGameContainerGrid .classInputCreateErrorwallpaper,
+.createGameContainerGrid .classInputCreateErrorcapture,
+.createGameContainerGrid .classInputCreateErrorsize,
+.createGameContainerGrid .classInputCreateErrorprice {
     width: 100%;
     margin-bottom: 2%;
     border: none;
@@ -128,15 +135,19 @@
     transition: .2s;
 }
 
-.inputsToCreate .classInputCreateErrortitle:focus,
-.inputsToCreate .classInputCreateErrorplatform:focus,
-.inputsToCreate .classInputCreateErrordescription:focus,
-.inputsToCreate .classInputCreateErrorgenre:focus,
-.inputsToCreate .classInputCreateErrorreleaseDate:focus,
-.inputsToCreate .classInputCreateErrordeveloper:focus,
-.inputsToCreate .classInputCreateErrorpublishedBy:focus,
-.inputsToCreate .classInputCreateErrorsize:focus,
-.inputsToCreate .classInputCreateErrorprice:focus {
+.createGameContainerGrid .classInputCreateErrortitle:focus,
+.createGameContainerGrid .classInputCreateErrorplatform:focus,
+.createGameContainerGrid .classInputCreateErrordescription:focus,
+.createGameContainerGrid .classInputCreateErrorgenre:focus,
+.createGameContainerGrid .classInputCreateErrorreleaseDate:focus,
+.createGameContainerGrid .classInputCreateErrordeveloper:focus,
+.createGameContainerGrid .classInputCreateErrorpublishedby:focus,
+.createGameContainerGrid .classInputCreateErrorvideo:focus,
+.createGameContainerGrid .classInputCreateErrorimage:focus,
+.createGameContainerGrid .classInputCreateErrorwallpaper:focus,
+.createGameContainerGrid .classInputCreateErrorcapture:focus,
+.createGameContainerGrid .classInputCreateErrorsize:focus,
+.createGameContainerGrid .classInputCreateErrorprice:focus {
     width: 100%;
     margin-bottom: 2%;
     border: none;
@@ -158,25 +169,12 @@
     justify-content: center;
 }
 
-.createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate input {
-    width: 85%;
-    border: none;
-    outline: none;
-    padding: 2.5% 0;
-    padding-left: 5%;
-    transition: .2s;
-    border-radius: 3px;
-    border: solid 2px transparent;
-}
-
-.createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate input:focus {
-    border: solid 2px #777;
-}
-
 .createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate .buttonInsertCreate {
     display: flex;
     justify-content: center;
 }
+
+
 
 .createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate .buttonInsertCreate button {
     border: none;
@@ -190,7 +188,14 @@
     transition: .2s;
 }
 
-.createGameContainer .createGameContainerGrid .galerySeccionContainer
- .galerySeccion .inputAndInsertCreate .buttonInsertCreate button:hover {
+.createGameContainer .createGameContainerGrid .galerySeccionContainer .galerySeccion .inputAndInsertCreate .buttonInsertCreate button:hover {
     background-color: #4ed111;
+}
+
+
+.createButtons .createButtonsConfirm[disabled] {
+    background-color: #888;
+    color: #ccc;
+    border: solid 1px #ccc;
+    cursor: no-drop;
 }

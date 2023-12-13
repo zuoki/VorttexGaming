@@ -12,8 +12,7 @@ export const validations = (name, value) => {
             break;
 
         case 'description':
-            const regexDescription = /^[A-Za-z0-9\s:]+([A-Za-z0-9\s:]+)*$/;
-            if (!regexDescription.test(value) || value.length > 399) return 'ERROR';
+            if (value.length > 699) return 'ERROR';
             break;
 
         case 'genre':
@@ -27,16 +26,33 @@ export const validations = (name, value) => {
             break;
 
         case 'publishedBy':
-            const regexPublishedBy= /^[A-Za-z0-9\s:]+([A-Za-z0-9\s:]+)*$/;
+            const regexPublishedBy = /^[A-Za-z0-9\s:]+([A-Za-z0-9\s:]+)*$/;
             if (!regexPublishedBy.test(value) || value.length > 39) return 'ERROR';
             break;
 
+        case 'video':
+            if (value.length < 5) return null;
+            if (!value.includes('embed')) return 'ERROR';
+            break;
+
+        case 'image':
+            if (value.length < 8) return null;
+            break;
+
+        case 'wallpaper':
+            if (value.length < 8) return null;
+            break;
+
+        case 'capture':
+            if (value.length < 8) return null;
+            break;
+
         case 'size':
-            if(isNaN(value)) return 'ERROR';
+            if (isNaN(value)) return 'ERROR';
             break;
 
         case 'price':
-            if(isNaN(value) || value > 149) return 'ERROR';
+            if (isNaN(value) || value > 149) return 'ERROR';
             break;
 
         default:
