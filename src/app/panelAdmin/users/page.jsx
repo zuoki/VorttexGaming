@@ -37,9 +37,11 @@ const Page = () => {
         data: { userId },
       });
 
-      const updatedUsers = allUsers.filter((user) => user.id !== userId);
-      setAllUsers(updatedUsers);
-      setFilteredUsers(updatedUsers);
+      // const updatedUsers = allUsers.filter((user) => user.id !== userId);
+      // setAllUsers(updatedUsers);
+      // setFilteredUsers(updatedUsers);
+      alert("El usuario ha sido eliminado");
+      window.location.reload();
     } catch (error) {
       console.error("Error deleting user:", error);
     }

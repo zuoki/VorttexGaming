@@ -10,8 +10,7 @@ import axios from "axios";
 import Loader from "../loader/Loader";
 
 const GameDetail = ({ game }) => {
-  if (!game) return <Loader />
-  const [gameEdited, setGameEdited] = useState(game);
+  const [gameEdited, setGameEdited] = useState();
   const [selectedImagePreview, setSelectedImagePreview] = useState(null);
   const [currentImg, setCurrentImg] = useState("Image");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,7 +26,12 @@ const GameDetail = ({ game }) => {
   );
   const [inputPrice, setInputPrice] = useState("priceInputClass");
 
+  useEffect(() => {
+    setGameEdited(game);
+    console.log(gameEdited)
+  },[game]);
   if (!game) return <Loader />;
+
 
   const handleEdit = (event) => {
     if (event.target.name === "price" && isNaN(event.target.value)) return;
@@ -156,8 +160,8 @@ const GameDetail = ({ game }) => {
               process.env.NODE_ENV === "development"
                 ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
                 : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
-            const { data } = await axios.put(API_URL, gameedited);
-          } catch (error) {}
+            const { data } = await axios.put(API_URL, gameEdited);
+          } catch (error) { console.log(error.message) }
         };
         fetchData();
         window.location.href = "/panelAdmin/games";
@@ -167,6 +171,8 @@ const GameDetail = ({ game }) => {
   const goToList = () => {
     window.location.href = "/panelAdmin/games";
   };
+
+
   const deleteGame = () => {
     Swal.fire({
       title: "Are you sure you want to delete the game?",
@@ -183,16 +189,6 @@ const GameDetail = ({ game }) => {
           text: "This game has been deleted.",
           icon: "success",
         });
-        const fetchData = async () => {
-          try {
-            const API_URL =
-              process.env.NODE_ENV === "development"
-                ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
-                : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
-            const { data } = await axios.delete(API_URL, gameEdited.id);
-          } catch (error) {}
-        };
-        fetchData();
       }
     });
 
@@ -218,6 +214,20 @@ const GameDetail = ({ game }) => {
           title: "The game has been deleted successfully!",
           icon: "success",
         });
+        const fetchData = async () => {
+          try {
+            const API_URL =
+              process.env.NODE_ENV === "development"
+                ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
+                : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
+            const { data } = await axios.delete(API_URL, { data: { id: gameEdited.id } });
+            console.log(data)
+          } catch (error) {
+            console.log(error.message)
+          }
+        };
+        fetchData();
+        window.location.href = "/panelAdmin/games";
       }
     };
     fnAsync();
