@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./postLicense.css";
+import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
+import Link from 'next/link';
 
 function LicenseComponent() {
   const [licenses, setLicenses] = useState([]);
@@ -42,19 +44,20 @@ function LicenseComponent() {
   };
 
   return (
+    <>
+    <ParticlesWall/>
     <div className="contenedorLicense">
-      <h1>Crear Licencia</h1>
+      <h1>Create Key</h1>
+      <form action="">
+       
+       <div className="totoroto2">
+
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Nombre"
-      />
-      <input
-        type="checkbox"
-        checked={active}
-        onChange={(e) => setActive(e.target.checked)}
-      />
+        placeholder="4gT0CKEWFk-7N2B..."
+        />
       <select value={titleGame} onChange={(e) => setTitleGame(e.target.value)}>
         {games.map((game) => (
           <option key={game.id} value={game.title}>
@@ -62,8 +65,17 @@ function LicenseComponent() {
           </option>
         ))}
       </select>
-      <button onClick={createLicense}>Crear Licencia</button>
+      <button onClick={createLicense}>Add Key</button>
+        </div>
+        </form>
+        <Link href={'/panelAdmin/license'}>
+        <button  className="backButton2">
+          BACK
+        </button>
+						
+						</Link>
     </div>
+    </>
   );
 }
 
