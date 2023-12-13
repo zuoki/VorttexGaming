@@ -58,9 +58,13 @@ const Footer = () => {
                 {" "}
                 <FaInstagram />{" "}
               </a>
-              <a href="https://www.facebook.com" target="_blank">
-                {" "}
-                <FaFacebook />{" "}
+
+              <a
+                href="https://www.facebook.com/profile.php?id=61554522693849"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook />
               </a>
             </div>
           </div>
