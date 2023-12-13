@@ -63,7 +63,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/profile.php?id=61554522693849"
                 target="_blank"
                 rel="noopener noreferrer"
               >
