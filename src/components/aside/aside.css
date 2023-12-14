@@ -49,7 +49,7 @@
     height: 50%;
     list-style: none;
     width: 100%;
-
+    z-index: 2;
     text-align: left;
     overflow: hidden;
     border-radius: 2px;
@@ -110,7 +110,7 @@ color: #FF9301;
     width: 100%;
     list-style: none;
     transition: height .4s;
-    height: 0;
+
 }
 
 
