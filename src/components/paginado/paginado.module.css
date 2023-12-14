@@ -4,7 +4,10 @@
     justify-content: center;
     margin-bottom: 100px;
 }
-
+.paginado_containButPage__v7x6G{
+    position: relative;
+    z-index: 1;
+}
 .buttonPage{
     background-color:#333333;
     color: aliceblue;
