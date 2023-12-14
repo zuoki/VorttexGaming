@@ -330,7 +330,7 @@ const Page = () => {
           />
 
           <div className="cloudinaryimg2">
-           
+
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
@@ -343,7 +343,7 @@ const Page = () => {
                   body: formData,
                 });
                 const data = await response.json();
-                if(data.url){
+                if (data.url) {
                   Swal.fire({
                     title: "Sweet!",
                     text: " “Image uploaded successfully, proceed to copy the link and you can use it.” 😊",
@@ -351,7 +351,8 @@ const Page = () => {
                     imageWidth: 400,
                     imageHeight: 200,
                     imageAlt: "Custom image"
-                  });}
+                  });
+                }
                 setUrlIMG(data.url);
               }}
             >
@@ -363,12 +364,12 @@ const Page = () => {
               />
               <button>set image</button>
             </form>
-      <div className="les2323" onClick={copiarAlPortapapeles}><GrCopy/></div>
+            <div className="les2323" onClick={copiarAlPortapapeles}><GrCopy /></div>
           </div>
         </div>
       </div>
       <div>
-    </div>
+      </div>
       <div className="createButtons">
         <button
           className="createButtonsConfirm"
@@ -384,3 +385,4 @@ const Page = () => {
 };
 
 export default Page;
+

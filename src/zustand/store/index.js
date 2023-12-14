@@ -22,6 +22,23 @@ export const useStoreCart = create((set) => ({
         ? process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_CART_LOCAL
         : process.env.NEXT_PUBLIC_URL_REQUESTS_SEND_CART_DEPLOY;
     set((state) => {
+
+
+      for (let i = 0; i < state.gamesInCart.length; i++) {
+        if (state.gamesInCart[i].title === games.title) {
+          Swal.fire({
+            icon: "warning",
+            iconColor: "#FF9500", // Cambia el color del icono a amarillo
+            background: "#333", // Color de fondo negro
+            html: '<span style="color: orange;"></span>', // Cambia el color del texto a blanco
+            footer: `<p>You have already this game in you cart!.</p>`,
+            color: '#FF9500'
+          });
+          return state.gamesInCart; 
+        }
+      }
+
+
       if (state.gamesInCart.length < 4) {
         const newGamesInCart = [...state.gamesInCart, games];
         Swal.fire({
