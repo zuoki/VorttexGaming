@@ -18,9 +18,9 @@ const About = () => {
               <img src="/dami.jpeg" alt="aboutSanti" />
             </div>
 
-            <h2>Dami</h2>
+            <h2>Damian Diaz</h2>
             <p>
-              I am Damian, a passionate full-stack developer constantly seeking
+              A Passionate full-stack developer constantly seeking
               new opportunities to learn and grow. My dedication is focused on
               creating products that are not only functional but also appealing
               to users.
@@ -52,7 +52,7 @@ const About = () => {
               <img src="/jona.png" alt="aboutSanti" />
             </div>
 
-            <h2>Jonathan</h2>
+            <h2>Jonathan Juarez</h2>
             <p>
               Hello! Im Jonathan G, and Im currently enrolled in the Henry
               coding bootcamp. Im passionate about programming and committed to
@@ -86,9 +86,9 @@ const About = () => {
               <img src="/diego.jpeg" alt="aboutSanti" />
             </div>
 
-            <h2>Diego</h2>
+            <h2>Diego Ulloa</h2>
             <p>
-              Hola! soy Santiago y actualmente me encuentro cursando el bootcamp
+              Actualmente me encuentro cursando el bootcamp
               Soy Henry para seguir aprendiendo y desarrollando habilidades en
               lo que es esta nueva pasión que he descubierto, la programación.
             </p>
@@ -119,7 +119,7 @@ const About = () => {
               <img src="/pablo.jpeg" alt="aboutPablo" />
             </div>
 
-            <h2>Pablo</h2>
+            <h2>Pablo Vera</h2>
             <p>
               I graduated with a degree in Connectivity and Networks
               Engineering, but I am currently steering my career towards
@@ -152,7 +152,7 @@ const About = () => {
               <img src="/debo.jpeg" alt="aboutSanti" />
             </div>
 
-            <h2>Debo</h2>
+            <h2>Debora Rios</h2>
             <p>
               Hello!, a fullstack developer with a focus on backend, creative
               and motivated, Im always looking for new ways to learn and grow. I
@@ -186,9 +186,9 @@ const About = () => {
               <img src="/andres.jpeg" alt="aboutSanti" />
             </div>
 
-            <h2>Andres</h2>
+            <h2>Andres Castro</h2>
             <p>
-              Hola! soy Santiago y actualmente me encuentro cursando el bootcamp
+              Hola! soy Andres y actualmente me encuentro cursando el bootcamp
               Soy Henry para seguir aprendiendo y desarrollando habilidades en
               lo que es esta nueva pasión que he descubierto, la programación.
             </p>
@@ -252,11 +252,11 @@ const About = () => {
               <img src="/nata.jpeg" alt="aboutSanti" />
             </div>
 
-            <h2>Nata</h2>
+            <h2>Christian Natale</h2>
             <p>
-              Hello, I'm Christian Natale, a full-stack developer passionate
-              about the world of programming, with a strong focus on frontend
-              development. Currently, I work in IT support, but I am actively
+              A full-stack developer passionate about the world of programming, 
+              with a strong focus on frontend development. 
+              Currently, I work in IT support, but I am actively
               seeking opportunities to transition into a programming role.
             </p>
 
