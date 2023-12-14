@@ -34,7 +34,7 @@ const Page = () => {
         process.env.NODE_ENV === "development"
           ? process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_DELETE_LOCAL
           : process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_DELETE_DEPLOY;
-      const userDelete = await axios.delete(API_URL, {
+      await axios.delete(API_URL, {
         data: { userId },
       });
 
@@ -45,24 +45,32 @@ const Page = () => {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it"
+        confirmButtonText: "Yes, delete it",
+        background: "#333333",
+        color: "#FF9500",
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire({
             title: "Deleted!",
             text: "User has been deleted.",
-            icon: "success"
+            icon: "success",
+            background: "#333333",
+            color: "#FF9500",
           });
-          setTimeout(() => {
-            window.location.reload();
-          }, 5000);
+          // Actualizar el estado para reflejar el usuario eliminado
+          setFilteredUsers((prevUsers) =>
+            prevUsers.filter((user) => user.user_id !== userId)
+          );
+          setAllUsers((prevUsers) =>
+            prevUsers.filter((user) => user.user_id !== userId)
+          );
         }
       });
     } catch (error) {
       console.error("Error deleting user:", error);
     }
   };
-
+  /////////////////////////
   const handleSearchChange = (event) => {
     const searchTerm = event.target.value;
     setSearchTerm(searchTerm);
