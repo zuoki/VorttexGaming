@@ -154,10 +154,10 @@ const About = () => {
 
             <h2>Debo</h2>
             <p>
-              Hello! Im Debo, a fullstack developer with a focus on backend,
-              creative and motivated, Im always looking for new ways to learn
-              and grow. I am passionate about creating products that are useful
-              and attractive to users.
+              Hello!, a fullstack developer with a focus on backend, creative
+              and motivated, Im always looking for new ways to learn and grow. I
+              am passionate about creating products that are useful and
+              attractive to users.
             </p>
 
             <div className="icons">
