@@ -154,7 +154,7 @@ const HomePage = () => {
           onPageChange={handlePageChange}
         />
         <Cahatbot />
-        <Footer/>
+        <Footer />
       </div>
     );
   }

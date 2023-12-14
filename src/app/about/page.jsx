@@ -154,10 +154,10 @@ const About = () => {
 
             <h2>Debo</h2>
             <p>
-              Hello!, a fullstack developer with a focus on backend, creative
-              and motivated, Im always looking for new ways to learn and grow. I
-              am passionate about creating products that are useful and
-              attractive to users.
+              Hello! Im Debo, a fullstack developer with a focus on backend,
+              creative and motivated, Im always looking for new ways to learn
+              and grow. I am passionate about creating products that are useful
+              and attractive to users.
             </p>
 
             <div className="icons">
@@ -254,9 +254,10 @@ const About = () => {
 
             <h2>Nata</h2>
             <p>
-              Hola! soy Santiago y actualmente me encuentro cursando el bootcamp
-              Soy Henry para seguir aprendiendo y desarrollando habilidades en
-              lo que es esta nueva pasión que he descubierto, la programación.
+              Hello, I'm Christian Natale, a full-stack developer passionate
+              about the world of programming, with a strong focus on frontend
+              development. Currently, I work in IT support, but I am actively
+              seeking opportunities to transition into a programming role.
             </p>
 
             <div className="icons">
