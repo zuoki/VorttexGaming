@@ -32,6 +32,7 @@
 }
 
 .cardsAndAside {
+    height: 800px;
     display: grid;
     grid-template-columns: 70% 25% 5%;
     margin-left: 130px;

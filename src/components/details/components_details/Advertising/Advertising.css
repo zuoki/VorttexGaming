@@ -62,7 +62,7 @@
 
   display: flex;
   margin-top: 10%;
-  justify-content: space-between; /* Ajusta el espacio entre los elementos */
+  justify-content: space-evenly; /* Ajusta el espacio entre los elementos */
   align-items: center; /* Alinea los elementos verticalmente en el centro (opcional) */
 }
 
@@ -72,4 +72,7 @@
 .SizeD {
   /* Puedes agregar estilos adicionales aquí, como tamaño de fuente, color, etc. */
   margin: 0; /* Elimina el margen por defecto de los elementos h2 */
+}
+.tituloDJ{
+  padding-top: 10px;
 }
