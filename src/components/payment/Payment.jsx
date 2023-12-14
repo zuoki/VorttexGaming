@@ -47,6 +47,7 @@ const Payment = () => {
             createOrder={async () => {
               const res = await fetch(API_URL, {
                 method: "POST",
+                body: 1
               });
               const order = await res.json();
               return order.id;

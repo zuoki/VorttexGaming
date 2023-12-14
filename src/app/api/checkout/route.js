@@ -11,6 +11,8 @@ const client = new paypal.core.PayPalHttpClient(environment);
 export async function POST(req, res) {
   const request = new paypal.orders.OrdersCreateRequest();
 
+  console.log('INFO TRAÍDA: ',req);
+
   request.requestBody({
     intent: "CAPTURE",
     purchase_units: [
