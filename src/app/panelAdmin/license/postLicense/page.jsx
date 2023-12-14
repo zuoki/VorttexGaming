@@ -54,14 +54,15 @@ function LicenseComponent() {
 		<>
 			<ParticlesWall />
 			<div className="contenedorLicense">
-				<h1>Create Key</h1>
-				<form action="">
+				<h1 style={{ paddingTop: '40px' }}>Create Key</h1>
+				<form action="" className="formContainer">
 					<div className="totoroto2">
 						<input
 							type="text"
 							value={name}
 							onChange={(e) => setName(e.target.value)}
 							placeholder="4gT0CKEWFk-7N2B..."
+							className="inputPostL"
 						/>
 						<select
 							value={titleGame}
@@ -77,7 +78,7 @@ function LicenseComponent() {
 					</div>
 				</form>
 				<Link href={'/panelAdmin/license'}>
-					<button className="backButton2">BACK</button>
+					<button className="backButton2">⬅ BACK</button>
 				</Link>
 			</div>
 		</>

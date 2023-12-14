@@ -16,16 +16,11 @@
 }
 
 .contenedorLicense h1{
-    position: relative;
-    z-index: 400;
-   top: 50px;
-    width: 50%;
-    left: 40%;
+text-align: center;
 }
-
 .contenedorLicense form{
-    position: relative;
-    top: 15%;
+    position: absolute;
+    top: 35%;
     left: 10%;
     background-color: black;
     width: 80%;
@@ -33,71 +28,55 @@
     border-radius: 10px;
 }
 
-.totoroto2{
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* .totoroto2{
     position: relative;
     top: 45%;
     left: 10%;
+} */
+.totoroto2 input{
+  height: 40px;
+  margin-right: 20px;
+}
+.totoroto2 select {
+  height: 40px;
+  margin-left: 20px;
+}
+.totoroto2 button{
+  margin-left: 20px;
+  height: 40px;
+  width: 120px;
+  background-color: #FF9301;
+  border: none
+}
+.totoroto2 button:hover{
+  background-color: #3333;
+}
+
+.inputPostL{
+  width: 253px;
 }
 
 .backButton2{
-    top: 20%;
-    font-family: "Kdam Thmor Pro", sans-serif;
-    width: 120px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    height: 5%;
-    position: relative;
-    color: white;
-    border: none;
-    font-size:  110%;
-    text-indent: -50%;
-    padding: 2% 7%;
-    margin: 1% 1%;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-sizing: border-box;
-    background-size: 40px;
-    background-position: left -154%;
-    transform: skew(5deg, 0deg);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    z-index: 1;
-    background-color: #3333;
+  position: absolute;
+  bottom: 92%;
+  left: 1.5%;
+  transform: scale(1.5);
+  transition: all .3s;
+  color: black;
+  background-color: #fff;
+  border: none;
+  padding: 1px 10px;
+  border-radius: 10%;
 }
 
-.backButton2::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 100%;
-    left: 0;
-    top: 0;
-    transform: skew(5deg, 0deg);
-    background-color: #FF9301;;
-    transition: all.3s ease-in-out;
-    border-radius: 5px;
-    background-color:#FF9301;
-  }
-  .backButton2::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    transform: skew(5deg, 0deg);
-    border: 3px solid #FF9301;;
-    border-radius: 5%;
-    transition: all 0.3s;
-    z-index: -1;
-  }
-  
-  .backButton2:hover::after {
-    background-color: rgb(246, 105, 0);
-    transform: skew(5deg, 0deg) translateX(1050%);
-  }
-  
-  .backButton2:hover::before {
-    background-color: rgb(246, 105, 0);
-    border: rgb(246, 105, 0);
-  }
+.backButton2:hover{
+  background-color: black;
+  color: #fff;
+  border: none;
+}

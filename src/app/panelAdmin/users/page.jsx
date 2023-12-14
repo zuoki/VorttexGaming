@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import "./users.css";
 
 const Page = () => {
@@ -40,8 +41,26 @@ const Page = () => {
       // const updatedUsers = allUsers.filter((user) => user.id !== userId);
       // setAllUsers(updatedUsers);
       // setFilteredUsers(updatedUsers);
-      alert("El usuario ha sido eliminado");
-      window.location.reload();
+      Swal.fire({
+        title: "Do you want to delete this user?",
+        text: "You won't be able to revert this",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "User has been deleted.",
+            icon: "success"
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 5000);
+        }
+      });
     } catch (error) {
       console.error("Error deleting user:", error);
     }
