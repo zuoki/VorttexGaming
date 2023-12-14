@@ -33,14 +33,11 @@ const Page = () => {
       const API_URL =
         process.env.NODE_ENV === "development"
           ? process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_DELETE_LOCAL
-          : p;
+          : process.env.NEXT_PUBLIC_URL_REQUESTS_USERS_DELETE_DEPLOY;
       const userDelete = await axios.delete(API_URL, {
         data: { userId },
       });
 
-      // const updatedUsers = allUsers.filter((user) => user.id !== userId);
-      // setAllUsers(updatedUsers);
-      // setFilteredUsers(updatedUsers);
       Swal.fire({
         title: "Do you want to delete this user?",
         text: "You won't be able to revert this",

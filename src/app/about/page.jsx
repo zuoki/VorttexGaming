@@ -86,7 +86,7 @@ const About = () => {
               <img src="/diego.jpeg" alt="aboutSanti" />
             </div>
 
-            <h2>Diego Ulloa</h2>
+            <h2>Diego Martins</h2>
             <p>
               Actualmente me encuentro cursando el bootcamp
               Soy Henry para seguir aprendiendo y desarrollando habilidades en
