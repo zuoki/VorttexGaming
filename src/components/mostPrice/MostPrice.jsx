@@ -15,7 +15,7 @@ const MostPrice = () => {
           setIsAdding(false);
         }
       } else {
-        if (text.length > 0) {
+        if (text.length > 1) {
           setText(text.slice(0, text.length - 1));
         } else {
           setIsAdding(true);
