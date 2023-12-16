@@ -15,7 +15,7 @@ import Cahatbot from "@/components/chatbot/cahatbot";
 import { useStoreCart } from "@/zustand/store/index.js";
 import axios from "axios";
 import Loader from "@/components/loader/Loader.jsx";
-import { VAR_AROUND } from './varsprocess.js';
+import { VAR_AROUND } from "./varsprocess.js";
 import Footer from "@/components/footer/footer.jsx";
 
 const gamesPerPage = 8;
@@ -34,7 +34,6 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(VAR_AROUND)
       try {
         const API_URL =
           process.env.NODE_ENV === "development"
@@ -43,9 +42,9 @@ const HomePage = () => {
         const { data } = await axios(API_URL);
         setData(data);
         setMostPriceGames([data[0], data[2], data[9]]);
-        getGames(data).then(() => { });
+        getGames(data).then(() => {});
       } catch (error) {
-        console.log(error.message)
+        console.log(error.message);
       }
     };
 

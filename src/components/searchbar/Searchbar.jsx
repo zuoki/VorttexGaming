@@ -14,7 +14,8 @@ const SearchBar = ({ handleSearch, games }) => {
   };
 
   const randomNumber = Math.floor(Math.random() * 24);
-  const placeHolderName = games[randomNumber].title;
+  const placeHolderName =
+    games && games[randomNumber] ? games[randomNumber].title : "";
 
   return (
     <div className="SearchBar-Container">

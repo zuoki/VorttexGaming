@@ -38,7 +38,7 @@
 
 .cartGame:hover {
     transform: scale(1.02);
-    border: solid 1px #888;
+    border: solid 1px #FF9301;;
 }
 
 .cartGame img {
