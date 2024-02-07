@@ -1,76 +1,121 @@
 @import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
-*{
-    font-family: "Kdam Thmor Pro", sans-serif;
 
+* {
+  font-family: "Kdam Thmor Pro", sans-serif;
 }
 
-.licensesContainer{
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 10%;
-    background-color: rgba(34, 34, 34, 0.35);
+.licensesContainer {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%;
+  background-color: rgba(34, 34, 34, 0.35);
+  position: relative;
 }
 
-h1{
-    padding-top: 2%;
-    text-align: center;
+h1 {
+  padding-top: 2%;
+  text-align: center;
 }
 
-.licenseDiv{
-    width: 100%;
-    margin-bottom: 5%;
-    margin-top: 3%;
-    padding-bottom: 5%;
+.selectContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
-.licenseDiv .license{
-    margin-bottom: 2%;
-    background-color: #222;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1% 0;
-    border-radius: 5px;
-    border-left: 2px solid transparent;
-    transition: .2s;
-    font-size: 12px;
+.selectContainer label {
+  margin-right: 10px;
 }
 
-.licenseDiv .license:hover{
-    border-left: 2px solid #FF9500;
+.selectContainer select {
+  width: 150px;
 }
 
-
-.license h2{
-    width: 50%;
-    text-indent: 10%;
+.licenseDiv {
+  width: 100%;
+  margin-bottom: 5%;
+  margin-top: 3%;
+  padding-bottom: 5%;
 }
 
-.license p{
-    width: 50%;
-    text-indent: 35%;
+.licenseDiv .license {
+  margin-bottom: 2%;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1% 0;
+  border-radius: 5px;
+  border-left: 2px solid transparent;
+  transition: 0.2s;
+  font-size: 12px;
 }
 
-.license span{
-    font-weight: 200;
-    padding-left: 8%;
+.licenseDiv .license:hover {
+  border-left: 2px solid #ff9500;
 }
 
-.buttonLicense{
+.license h2 {
+  width: 50%;
+  text-indent: 10%;
+}
+
+.license p {
+  width: 50%;
+  text-indent: 35%;
+}
+
+.license span {
+  font-weight: 200;
+  padding-left: 8%;
+}
+
+.buttonLicense {
     border: none;
     outline: none;
     background-color: #bbb;
-    margin-left: 93%;
+    right: 5%;
+    top: 45%;
     width: 4%;
     padding: 1% 0;
     border-radius: 50%;
     color: #444;
     font-size: 20px;
-    position: fixed;
-    transition: .2s;
-}
-
-.buttonLicense:hover{
-    background-color: #FF9500;
+    position: absolute;
+    transition: 0.2s;
+    z-index: 2; 
+  }
+  
+  .buttonLicense:hover {
+    background-color: #ff9500;
     color: black;
-}
+  }
+  
+  .licensesContainer {
+    background-color: rgba(34, 34, 34, 0.35);
+    position: relative;
+    z-index: 1; 
+  }
+  
+  .button {
+    border: none;
+    outline: none;
+    background-color: #bbb;
+    right: auto;
+    left: 10%;
+    top: 22%;
+    width: 6%;
+    padding: 0,5% 0;
+    color: #444;
+    font-size: 20px;
+    position: absolute;
+    transition: 0.2s;
+    z-index: 2;
+  }
+  
+  .button:hover {
+    background-color: #ff9500;
+    color: black;
+  }
+  
