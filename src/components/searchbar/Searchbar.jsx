@@ -13,7 +13,7 @@ const SearchBar = ({ handleSearch, games }) => {
     handleSearch(e.target.value);
   };
 
-  const randomNumber = Math.floor(Math.random() * 24);
+  const randomNumber = Math.floor(Math.random() * 1);
   const placeHolderName = games[randomNumber].title;
 
   return (
