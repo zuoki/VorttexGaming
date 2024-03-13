@@ -38,7 +38,7 @@ const HomePage = () => {
         const API_URL =
           process.env.NODE_ENV === "development"
             ? process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_LOCAL
-            : process.env.NEXT_PUBLIC_URL_REQUESTS_GAMES_DEPLOY;
+            : process.env.NEXT_PUBLIC_PROD_URL_REQUESTS_GAMES_DEPLOY;
         const { data } = await axios(API_URL);
         setData(data);
         setMostPriceGames([data[0], data[2], data[9]]);
