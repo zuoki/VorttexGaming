@@ -43,6 +43,7 @@
     "sweetalert2": "^11.10.1",
     "swr": "^2.2.4",
     "thunk": "^0.0.1",
+    "vercel": "^33.5.5",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

@@ -26,7 +26,7 @@ export async function PUT(request) {
 //ruta delete funcional.
 export async function DELETE(request) {
   const data = await request.json();
-  console.log('DATA: ', data)
+  console.log("DATA: ", data);
   const deletedGame = await prisma.games.delete({
     where: { id: data.id },
   });
